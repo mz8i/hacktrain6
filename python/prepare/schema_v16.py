@@ -1,20 +1,21 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Originally Python 2, converted to Python 3 using 2to2
-
-
-# Generated Sat Nov 16 01:44:33 2019 by generateDS.py version 2.34.1.
+#
+# Generated Sat Nov 16 11:55:38 2019 by generateDS.py version 2.34.1.
 # Python 2.7.16 (default, Oct  7 2019, 17:36:04)  [GCC 8.3.0]
 #
 # Command line options:
-#   ('-o', 'schema_v16.py')
+#   ('-f', '')
+#   ('-o', 'schema_v16_py2.py')
+#   ('--use-getter-setter', 'none')
+#   ('--export', 'write literal etree sqlalchemy')
 #
 # Command line arguments:
 #   ../data/darwin/schema/rttiPPTSchema_v16.xsd
 #
 # Command line:
-#   /usr/local/bin/generateDS -o "schema_v16.py" ../data/darwin/schema/rttiPPTSchema_v16.xsd
+#   /usr/local/bin/generateDS -f -o "schema_v16_py2.py" --use-getter-setter="none" --export="write literal etree sqlalchemy" ../data/darwin/schema/rttiPPTSchema_v16.xsd
 #
 # Current working directory (os.getcwd()):
 #   code
@@ -24,6 +25,12 @@ import os
 import sys
 import re as re_
 import base64
+# imports for django and/or sqlalchemy
+import json as json_
+try:
+    import models_sqa as models_sqa_
+except ImportError:
+    models_sqa_ = None
 import datetime as datetime_
 import decimal as decimal_
 try:
@@ -1066,122 +1073,6 @@ class DataResponse(GeneratedsSuper):
         else:
             return DataResponse(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_schedule(self):
-        return self.schedule
-    def set_schedule(self, schedule):
-        self.schedule = schedule
-    def add_schedule(self, value):
-        self.schedule.append(value)
-    def insert_schedule_at(self, index, value):
-        self.schedule.insert(index, value)
-    def replace_schedule_at(self, index, value):
-        self.schedule[index] = value
-    def get_deactivated(self):
-        return self.deactivated
-    def set_deactivated(self, deactivated):
-        self.deactivated = deactivated
-    def add_deactivated(self, value):
-        self.deactivated.append(value)
-    def insert_deactivated_at(self, index, value):
-        self.deactivated.insert(index, value)
-    def replace_deactivated_at(self, index, value):
-        self.deactivated[index] = value
-    def get_association(self):
-        return self.association
-    def set_association(self, association):
-        self.association = association
-    def add_association(self, value):
-        self.association.append(value)
-    def insert_association_at(self, index, value):
-        self.association.insert(index, value)
-    def replace_association_at(self, index, value):
-        self.association[index] = value
-    def get_scheduleFormations(self):
-        return self.scheduleFormations
-    def set_scheduleFormations(self, scheduleFormations):
-        self.scheduleFormations = scheduleFormations
-    def add_scheduleFormations(self, value):
-        self.scheduleFormations.append(value)
-    def insert_scheduleFormations_at(self, index, value):
-        self.scheduleFormations.insert(index, value)
-    def replace_scheduleFormations_at(self, index, value):
-        self.scheduleFormations[index] = value
-    def get_TS(self):
-        return self.TS
-    def set_TS(self, TS):
-        self.TS = TS
-    def add_TS(self, value):
-        self.TS.append(value)
-    def insert_TS_at(self, index, value):
-        self.TS.insert(index, value)
-    def replace_TS_at(self, index, value):
-        self.TS[index] = value
-    def get_formationLoading(self):
-        return self.formationLoading
-    def set_formationLoading(self, formationLoading):
-        self.formationLoading = formationLoading
-    def add_formationLoading(self, value):
-        self.formationLoading.append(value)
-    def insert_formationLoading_at(self, index, value):
-        self.formationLoading.insert(index, value)
-    def replace_formationLoading_at(self, index, value):
-        self.formationLoading[index] = value
-    def get_OW(self):
-        return self.OW
-    def set_OW(self, OW):
-        self.OW = OW
-    def add_OW(self, value):
-        self.OW.append(value)
-    def insert_OW_at(self, index, value):
-        self.OW.insert(index, value)
-    def replace_OW_at(self, index, value):
-        self.OW[index] = value
-    def get_trainAlert(self):
-        return self.trainAlert
-    def set_trainAlert(self, trainAlert):
-        self.trainAlert = trainAlert
-    def add_trainAlert(self, value):
-        self.trainAlert.append(value)
-    def insert_trainAlert_at(self, index, value):
-        self.trainAlert.insert(index, value)
-    def replace_trainAlert_at(self, index, value):
-        self.trainAlert[index] = value
-    def get_trainOrder(self):
-        return self.trainOrder
-    def set_trainOrder(self, trainOrder):
-        self.trainOrder = trainOrder
-    def add_trainOrder(self, value):
-        self.trainOrder.append(value)
-    def insert_trainOrder_at(self, index, value):
-        self.trainOrder.insert(index, value)
-    def replace_trainOrder_at(self, index, value):
-        self.trainOrder[index] = value
-    def get_trackingID(self):
-        return self.trackingID
-    def set_trackingID(self, trackingID):
-        self.trackingID = trackingID
-    def add_trackingID(self, value):
-        self.trackingID.append(value)
-    def insert_trackingID_at(self, index, value):
-        self.trackingID.insert(index, value)
-    def replace_trackingID_at(self, index, value):
-        self.trackingID[index] = value
-    def get_alarm(self):
-        return self.alarm
-    def set_alarm(self, alarm):
-        self.alarm = alarm
-    def add_alarm(self, value):
-        self.alarm.append(value)
-    def insert_alarm_at(self, index, value):
-        self.alarm.insert(index, value)
-    def replace_alarm_at(self, index, value):
-        self.alarm[index] = value
-    def get_extensiontype_(self): return self.extensiontype_
-    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
     def hasContent_(self):
         if (
             self.schedule or
@@ -1270,6 +1161,230 @@ class DataResponse(GeneratedsSuper):
         for alarm_ in self.alarm:
             namespaceprefix_ = self.alarm_nsprefix_ + ':' if (UseCapturedNS_ and self.alarm_nsprefix_) else ''
             alarm_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='alarm', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='DataResponse', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.extensiontype_ is not None:
+            element.set('{http://www.w3.org/2001/XMLSchema-instance}type', self.extensiontype_)
+        for schedule_ in self.schedule:
+            schedule_.to_etree(element, name_='schedule', mapping_=mapping_)
+        for deactivated_ in self.deactivated:
+            deactivated_.to_etree(element, name_='deactivated', mapping_=mapping_)
+        for association_ in self.association:
+            association_.to_etree(element, name_='association', mapping_=mapping_)
+        for scheduleFormations_ in self.scheduleFormations:
+            scheduleFormations_.to_etree(element, name_='scheduleFormations', mapping_=mapping_)
+        for TS_ in self.TS:
+            TS_.to_etree(element, name_='TS', mapping_=mapping_)
+        for formationLoading_ in self.formationLoading:
+            formationLoading_.to_etree(element, name_='formationLoading', mapping_=mapping_)
+        for OW_ in self.OW:
+            OW_.to_etree(element, name_='OW', mapping_=mapping_)
+        for trainAlert_ in self.trainAlert:
+            trainAlert_.to_etree(element, name_='trainAlert', mapping_=mapping_)
+        for trainOrder_ in self.trainOrder:
+            trainOrder_.to_etree(element, name_='trainOrder', mapping_=mapping_)
+        for trackingID_ in self.trackingID:
+            trackingID_.to_etree(element, name_='trackingID', mapping_=mapping_)
+        for alarm_ in self.alarm:
+            alarm_.to_etree(element, name_='alarm', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='DataResponse'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        showIndent(outfile, level)
+        outfile.write('schedule=[\n')
+        level += 1
+        for schedule_ in self.schedule:
+            showIndent(outfile, level)
+            outfile.write('model_.Schedule8(\n')
+            schedule_.exportLiteral(outfile, level, name_='Schedule8')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('deactivated=[\n')
+        level += 1
+        for deactivated_ in self.deactivated:
+            showIndent(outfile, level)
+            outfile.write('model_.DeactivatedSchedule(\n')
+            deactivated_.exportLiteral(outfile, level, name_='DeactivatedSchedule')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('association=[\n')
+        level += 1
+        for association_ in self.association:
+            showIndent(outfile, level)
+            outfile.write('model_.Association(\n')
+            association_.exportLiteral(outfile, level, name_='Association')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('scheduleFormations=[\n')
+        level += 1
+        for scheduleFormations_ in self.scheduleFormations:
+            showIndent(outfile, level)
+            outfile.write('model_.ScheduleFormations9(\n')
+            scheduleFormations_.exportLiteral(outfile, level, name_='ScheduleFormations9')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('TS=[\n')
+        level += 1
+        for TS_ in self.TS:
+            showIndent(outfile, level)
+            outfile.write('model_.TS(\n')
+            TS_.exportLiteral(outfile, level)
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('formationLoading=[\n')
+        level += 1
+        for formationLoading_ in self.formationLoading:
+            showIndent(outfile, level)
+            outfile.write('model_.Loading(\n')
+            formationLoading_.exportLiteral(outfile, level, name_='Loading')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('OW=[\n')
+        level += 1
+        for OW_ in self.OW:
+            showIndent(outfile, level)
+            outfile.write('model_.StationMessage(\n')
+            OW_.exportLiteral(outfile, level, name_='StationMessage')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('trainAlert=[\n')
+        level += 1
+        for trainAlert_ in self.trainAlert:
+            showIndent(outfile, level)
+            outfile.write('model_.TrainAlert(\n')
+            trainAlert_.exportLiteral(outfile, level, name_='TrainAlert')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('trainOrder=[\n')
+        level += 1
+        for trainOrder_ in self.trainOrder:
+            showIndent(outfile, level)
+            outfile.write('model_.TrainOrder(\n')
+            trainOrder_.exportLiteral(outfile, level, name_='TrainOrder')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('trackingID=[\n')
+        level += 1
+        for trackingID_ in self.trackingID:
+            showIndent(outfile, level)
+            outfile.write('model_.TrackingID(\n')
+            trackingID_.exportLiteral(outfile, level, name_='TrackingID')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('alarm=[\n')
+        level += 1
+        for alarm_ in self.alarm:
+            showIndent(outfile, level)
+            outfile.write('model_.RTTIAlarm(\n')
+            alarm_.exportLiteral(outfile, level, name_='RTTIAlarm')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.DataResponse_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        for child in self.schedule:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.schedule.append(child_dbobj)
+        for child in self.deactivated:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.deactivated.append(child_dbobj)
+        for child in self.association:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.association.append(child_dbobj)
+        for child in self.scheduleFormations:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.scheduleFormations.append(child_dbobj)
+        for child in self.TS:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.TS.append(child_dbobj)
+        for child in self.formationLoading:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.formationLoading.append(child_dbobj)
+        for child in self.OW:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.OW.append(child_dbobj)
+        for child in self.trainAlert:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.trainAlert.append(child_dbobj)
+        for child in self.trainOrder:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.trainOrder.append(child_dbobj)
+        for child in self.trackingID:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.trackingID.append(child_dbobj)
+        for child in self.alarm:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.alarm.append(child_dbobj)
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -1392,58 +1507,6 @@ class Pport(GeneratedsSuper):
         else:
             return Pport(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_QueryTimetable(self):
-        return self.QueryTimetable
-    def set_QueryTimetable(self, QueryTimetable):
-        self.QueryTimetable = QueryTimetable
-    def get_TimeTableId(self):
-        return self.TimeTableId
-    def set_TimeTableId(self, TimeTableId):
-        self.TimeTableId = TimeTableId
-    def get_GetSnapshotReq(self):
-        return self.GetSnapshotReq
-    def set_GetSnapshotReq(self, GetSnapshotReq):
-        self.GetSnapshotReq = GetSnapshotReq
-    def get_GetFullSnapshotReq(self):
-        return self.GetFullSnapshotReq
-    def set_GetFullSnapshotReq(self, GetFullSnapshotReq):
-        self.GetFullSnapshotReq = GetFullSnapshotReq
-    def get_SnapshotId(self):
-        return self.SnapshotId
-    def set_SnapshotId(self, SnapshotId):
-        self.SnapshotId = SnapshotId
-    def get_StartUpdateReq(self):
-        return self.StartUpdateReq
-    def set_StartUpdateReq(self, StartUpdateReq):
-        self.StartUpdateReq = StartUpdateReq
-    def get_StopUpdateReq(self):
-        return self.StopUpdateReq
-    def set_StopUpdateReq(self, StopUpdateReq):
-        self.StopUpdateReq = StopUpdateReq
-    def get_FailureResp(self):
-        return self.FailureResp
-    def set_FailureResp(self, FailureResp):
-        self.FailureResp = FailureResp
-    def get_uR(self):
-        return self.uR
-    def set_uR(self, uR):
-        self.uR = uR
-    def get_sR(self):
-        return self.sR
-    def set_sR(self, sR):
-        self.sR = sR
-    def get_ts(self):
-        return self.ts
-    def set_ts(self, ts):
-        self.ts = ts
-    def get_version(self):
-        return self.version
-    def set_version(self, version):
-        self.version = version
     def validate_SnapshotIDType(self, value):
         result = True
         # Validate type SnapshotIDType, a restriction on xs:string.
@@ -1550,6 +1613,159 @@ class Pport(GeneratedsSuper):
         if self.sR is not None:
             namespaceprefix_ = self.sR_nsprefix_ + ':' if (UseCapturedNS_ and self.sR_nsprefix_) else ''
             self.sR.export(outfile, level, namespaceprefix_, namespacedef_='', name_='sR', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='Pport', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.ts is not None:
+            element.set('ts', self.gds_format_datetime(self.ts))
+        if self.version is not None:
+            element.set('version', self.gds_format_string(self.version))
+        if self.QueryTimetable is not None:
+            QueryTimetable_ = self.QueryTimetable
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}QueryTimetable').text = self.gds_format_string(QueryTimetable_)
+        if self.TimeTableId is not None:
+            TimeTableId_ = self.TimeTableId
+            TimeTableId_.to_etree(element, name_='TimeTableId', mapping_=mapping_)
+        if self.GetSnapshotReq is not None:
+            GetSnapshotReq_ = self.GetSnapshotReq
+            GetSnapshotReq_.to_etree(element, name_='GetSnapshotReq', mapping_=mapping_)
+        if self.GetFullSnapshotReq is not None:
+            GetFullSnapshotReq_ = self.GetFullSnapshotReq
+            GetFullSnapshotReq_.to_etree(element, name_='GetFullSnapshotReq', mapping_=mapping_)
+        if self.SnapshotId is not None:
+            SnapshotId_ = self.SnapshotId
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}SnapshotId').text = self.gds_format_string(SnapshotId_)
+        if self.StartUpdateReq is not None:
+            StartUpdateReq_ = self.StartUpdateReq
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}StartUpdateReq').text = self.gds_format_string(StartUpdateReq_)
+        if self.StopUpdateReq is not None:
+            StopUpdateReq_ = self.StopUpdateReq
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}StopUpdateReq').text = self.gds_format_string(StopUpdateReq_)
+        if self.FailureResp is not None:
+            FailureResp_ = self.FailureResp
+            FailureResp_.to_etree(element, name_='FailureResp', mapping_=mapping_)
+        if self.uR is not None:
+            uR_ = self.uR
+            uR_.to_etree(element, name_='uR', mapping_=mapping_)
+        if self.sR is not None:
+            sR_ = self.sR
+            sR_.to_etree(element, name_='sR', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='Pport'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.ts is not None and 'ts' not in already_processed:
+            already_processed.add('ts')
+            showIndent(outfile, level)
+            outfile.write('ts=%s,\n' % (self.ts,))
+        if self.version is not None and 'version' not in already_processed:
+            already_processed.add('version')
+            showIndent(outfile, level)
+            outfile.write('version="%s",\n' % (self.version,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        if self.QueryTimetable is not None:
+            showIndent(outfile, level)
+            outfile.write('QueryTimetable=%s,\n' % self.gds_encode(quote_python(self.QueryTimetable)))
+        if self.TimeTableId is not None:
+            showIndent(outfile, level)
+            outfile.write('TimeTableId=model_.TimeTableIdType(\n')
+            self.TimeTableId.exportLiteral(outfile, level, name_='TimeTableId')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.GetSnapshotReq is not None:
+            showIndent(outfile, level)
+            outfile.write('GetSnapshotReq=model_.GetSnapshotReqType(\n')
+            self.GetSnapshotReq.exportLiteral(outfile, level, name_='GetSnapshotReq')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.GetFullSnapshotReq is not None:
+            showIndent(outfile, level)
+            outfile.write('GetFullSnapshotReq=model_.GetFullSnapshotReqType(\n')
+            self.GetFullSnapshotReq.exportLiteral(outfile, level, name_='GetFullSnapshotReq')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.SnapshotId is not None:
+            showIndent(outfile, level)
+            outfile.write('SnapshotId=%s,\n' % self.gds_encode(quote_python(self.SnapshotId)))
+        if self.StartUpdateReq is not None:
+            showIndent(outfile, level)
+            outfile.write('StartUpdateReq=%s,\n' % self.gds_encode(quote_python(self.StartUpdateReq)))
+        if self.StopUpdateReq is not None:
+            showIndent(outfile, level)
+            outfile.write('StopUpdateReq=%s,\n' % self.gds_encode(quote_python(self.StopUpdateReq)))
+        if self.FailureResp is not None:
+            showIndent(outfile, level)
+            outfile.write('FailureResp=model_.FailureRespType(\n')
+            self.FailureResp.exportLiteral(outfile, level, name_='FailureResp')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.uR is not None:
+            showIndent(outfile, level)
+            outfile.write('uR=model_.uRType(\n')
+            self.uR.exportLiteral(outfile, level, name_='uR')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.sR is not None:
+            showIndent(outfile, level)
+            outfile.write('sR=model_.DataResponse(\n')
+            self.sR.exportLiteral(outfile, level, name_='sR')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.Pport_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.ts is not None:
+            dbobj.ts = self.ts
+        if self.version is not None:
+            dbobj.version = self.version
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        if self.QueryTimetable is not None:
+            dbobj.QueryTimetable = self.QueryTimetable
+        if self.TimeTableId is not None:
+            child_dbobj = self.TimeTableId.exportSQLAlchemy(session)
+            dbobj.TimeTableId = child_dbobj
+        if self.GetSnapshotReq is not None:
+            child_dbobj = self.GetSnapshotReq.exportSQLAlchemy(session)
+            dbobj.GetSnapshotReq = child_dbobj
+        if self.GetFullSnapshotReq is not None:
+            child_dbobj = self.GetFullSnapshotReq.exportSQLAlchemy(session)
+            dbobj.GetFullSnapshotReq = child_dbobj
+        if self.SnapshotId is not None:
+            dbobj.SnapshotId = self.SnapshotId
+        if self.StartUpdateReq is not None:
+            dbobj.StartUpdateReq = self.StartUpdateReq
+        if self.StopUpdateReq is not None:
+            dbobj.StopUpdateReq = self.StopUpdateReq
+        if self.FailureResp is not None:
+            child_dbobj = self.FailureResp.exportSQLAlchemy(session)
+            dbobj.FailureResp = child_dbobj
+        if self.uR is not None:
+            child_dbobj = self.uR.exportSQLAlchemy(session)
+            dbobj.uR = child_dbobj
+        if self.sR is not None:
+            child_dbobj = self.sR.exportSQLAlchemy(session)
+            dbobj.sR = child_dbobj
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -1657,10 +1873,6 @@ class QueryTimetable(GeneratedsSuper):
         else:
             return QueryTimetable(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
     def hasContent_(self):
         if (
 
@@ -1693,6 +1905,43 @@ class QueryTimetable(GeneratedsSuper):
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='QueryTimetable'):
         pass
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='QueryTimetable', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='QueryTimetable', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='QueryTimetable'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.QueryTimetable_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -1734,10 +1983,6 @@ class StartUpdateReq(GeneratedsSuper):
         else:
             return StartUpdateReq(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
     def hasContent_(self):
         if (
 
@@ -1770,6 +2015,43 @@ class StartUpdateReq(GeneratedsSuper):
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='StartUpdateReq'):
         pass
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='StartUpdateReq', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='StartUpdateReq', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='StartUpdateReq'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.StartUpdateReq_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -1811,10 +2093,6 @@ class StopUpdateReq(GeneratedsSuper):
         else:
             return StopUpdateReq(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
     def hasContent_(self):
         if (
 
@@ -1847,6 +2125,43 @@ class StopUpdateReq(GeneratedsSuper):
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='StopUpdateReq'):
         pass
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='StopUpdateReq', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='StopUpdateReq', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='StopUpdateReq'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.StopUpdateReq_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -1893,20 +2208,6 @@ class StatusType(GeneratedsSuper):
         else:
             return StatusType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_code(self):
-        return self.code
-    def set_code(self, code):
-        self.code = code
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
-    def get_anyAttributes_(self): return self.anyAttributes_
-    def set_anyAttributes_(self, anyAttributes_): self.anyAttributes_ = anyAttributes_
-    def get_extensiontype_(self): return self.extensiontype_
-    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
     def validate_ErrorCodeType(self, value):
         # Validate type tns:ErrorCodeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -1997,6 +2298,58 @@ class StatusType(GeneratedsSuper):
                 outfile.write(' xsi:type="%s"' % self.extensiontype_)
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='StatusType', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='StatusType', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.extensiontype_ is not None:
+            element.set('{http://www.w3.org/2001/XMLSchema-instance}type', self.extensiontype_)
+        if self.code is not None:
+            element.set('code', self.gds_format_string(self.code))
+        if self.hasContent_():
+            element.text = self.gds_format_string(self.get_valueOf_())
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='StatusType'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('valueOf_ = """%s""",\n' % (self.valueOf_,))
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.code is not None and 'code' not in already_processed:
+            already_processed.add('code')
+            showIndent(outfile, level)
+            outfile.write('code=%s,\n' % (self.code,))
+        for name, value in list(self.anyAttributes_.items()):
+            showIndent(outfile, level)
+            outfile.write('%s="%s",\n' % (name, value,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.StatusType_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.code is not None:
+            dbobj.code = self.code
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -2052,12 +2405,6 @@ class PPStatus(StatusType):
         else:
             return PPStatus(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             (1 if type(self.valueOf_) in [int,float] else self.valueOf_) or
@@ -2093,6 +2440,45 @@ class PPStatus(StatusType):
         super(PPStatus, self).exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='PPStatus')
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='PPStatus', fromsubclass_=False, pretty_print=True):
         super(PPStatus, self).exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        pass
+    def to_etree(self, parent_element=None, name_='PPStatus', mapping_=None):
+        element = super(PPStatus, self).to_etree(parent_element, name_, mapping_)
+        if self.hasContent_():
+            element.text = self.gds_format_string(self.get_valueOf_())
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='PPStatus'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('valueOf_ = """%s""",\n' % (self.valueOf_,))
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        super(PPStatus, self).exportLiteralAttributes(outfile, level, already_processed, name_)
+    def exportLiteralChildren(self, outfile, level, name_):
+        super(PPStatus, self).exportLiteralChildren(outfile, level, name_)
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.PPStatus_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -2144,22 +2530,6 @@ class PPReqVersion(GeneratedsSuper):
         else:
             return PPReqVersion(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_version(self):
-        return self.version
-    def set_version(self, version):
-        self.version = version
-    def get_ttversion(self):
-        return self.ttversion
-    def set_ttversion(self, ttversion):
-        self.ttversion = ttversion
-    def get_ttrefversion(self):
-        return self.ttrefversion
-    def set_ttrefversion(self, ttrefversion):
-        self.ttrefversion = ttrefversion
     def hasContent_(self):
         if (
 
@@ -2200,6 +2570,65 @@ class PPReqVersion(GeneratedsSuper):
             already_processed.add('ttrefversion')
             outfile.write(' ttrefversion=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.ttrefversion), input_name='ttrefversion')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='PPReqVersion', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='PPReqVersion', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.version is not None:
+            element.set('version', self.gds_format_string(self.version))
+        if self.ttversion is not None:
+            element.set('ttversion', self.gds_format_string(self.ttversion))
+        if self.ttrefversion is not None:
+            element.set('ttrefversion', self.gds_format_string(self.ttrefversion))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='PPReqVersion'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.version is not None and 'version' not in already_processed:
+            already_processed.add('version')
+            showIndent(outfile, level)
+            outfile.write('version="%s",\n' % (self.version,))
+        if self.ttversion is not None and 'ttversion' not in already_processed:
+            already_processed.add('ttversion')
+            showIndent(outfile, level)
+            outfile.write('ttversion="%s",\n' % (self.ttversion,))
+        if self.ttrefversion is not None and 'ttrefversion' not in already_processed:
+            already_processed.add('ttrefversion')
+            showIndent(outfile, level)
+            outfile.write('ttrefversion="%s",\n' % (self.ttrefversion,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.PPReqVersion_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.version is not None:
+            dbobj.version = self.version
+        if self.ttversion is not None:
+            dbobj.ttversion = self.ttversion
+        if self.ttrefversion is not None:
+            dbobj.ttrefversion = self.ttrefversion
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -2253,10 +2682,6 @@ class PPConnect(GeneratedsSuper):
         else:
             return PPConnect(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
     def hasContent_(self):
         if (
 
@@ -2289,6 +2714,43 @@ class PPConnect(GeneratedsSuper):
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='tns:', name_='PPConnect'):
         pass
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='PPConnect', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='PPConnect', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='PPConnect'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.PPConnect_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -2338,20 +2800,6 @@ class DisruptionReasonType(GeneratedsSuper):
         else:
             return DisruptionReasonType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_tiploc(self):
-        return self.tiploc
-    def set_tiploc(self, tiploc):
-        self.tiploc = tiploc
-    def get_near(self):
-        return self.near
-    def set_near(self, near):
-        self.near = near
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def validate_TiplocType(self, value):
         # Validate type tns:TiplocType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -2405,6 +2853,61 @@ class DisruptionReasonType(GeneratedsSuper):
             already_processed.add('near')
             outfile.write(' near="%s"' % self.gds_format_boolean(self.near, input_name='near'))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='DisruptionReasonType', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='DisruptionReasonType', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.tiploc is not None:
+            element.set('tiploc', self.gds_format_string(self.tiploc))
+        if self.near is not None:
+            element.set('near', self.gds_format_boolean(self.near))
+        if self.hasContent_():
+            element.text = self.gds_format_string(self.get_valueOf_())
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='DisruptionReasonType'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('valueOf_ = """%s""",\n' % (self.valueOf_,))
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.tiploc is not None and 'tiploc' not in already_processed:
+            already_processed.add('tiploc')
+            showIndent(outfile, level)
+            outfile.write('tiploc=%s,\n' % (self.tiploc,))
+        if self.near is not None and 'near' not in already_processed:
+            already_processed.add('near')
+            showIndent(outfile, level)
+            outfile.write('near=%s,\n' % (self.near,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.DisruptionReasonType_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.tiploc is not None:
+            dbobj.tiploc = self.tiploc
+        if self.near is not None:
+            dbobj.near = self.near
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -2475,34 +2978,6 @@ class AssocService(GeneratedsSuper):
         else:
             return AssocService(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_rid(self):
-        return self.rid
-    def set_rid(self, rid):
-        self.rid = rid
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_wtp(self):
-        return self.wtp
-    def set_wtp(self, wtp):
-        self.wtp = wtp
-    def get_pta(self):
-        return self.pta
-    def set_pta(self, pta):
-        self.pta = pta
-    def get_ptd(self):
-        return self.ptd
-    def set_ptd(self, ptd):
-        self.ptd = ptd
     def validate_RIDType(self, value):
         # Validate type ct:RIDType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -2585,6 +3060,89 @@ class AssocService(GeneratedsSuper):
             already_processed.add('ptd')
             outfile.write(' ptd=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.ptd), input_name='ptd')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='AssocService', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='AssocService', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.rid is not None:
+            element.set('rid', self.gds_format_string(self.rid))
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.wtp is not None:
+            element.set('wtp', self.gds_format_string(self.wtp))
+        if self.pta is not None:
+            element.set('pta', self.gds_format_string(self.pta))
+        if self.ptd is not None:
+            element.set('ptd', self.gds_format_string(self.ptd))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='AssocService'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.rid is not None and 'rid' not in already_processed:
+            already_processed.add('rid')
+            showIndent(outfile, level)
+            outfile.write('rid=%s,\n' % (self.rid,))
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.wtp is not None and 'wtp' not in already_processed:
+            already_processed.add('wtp')
+            showIndent(outfile, level)
+            outfile.write('wtp=%s,\n' % (self.wtp,))
+        if self.pta is not None and 'pta' not in already_processed:
+            already_processed.add('pta')
+            showIndent(outfile, level)
+            outfile.write('pta=%s,\n' % (self.pta,))
+        if self.ptd is not None and 'ptd' not in already_processed:
+            already_processed.add('ptd')
+            showIndent(outfile, level)
+            outfile.write('ptd=%s,\n' % (self.ptd,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.AssocService_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.rid is not None:
+            dbobj.rid = self.rid
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.wtp is not None:
+            dbobj.wtp = self.wtp
+        if self.pta is not None:
+            dbobj.pta = self.pta
+        if self.ptd is not None:
+            dbobj.ptd = self.ptd
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -2671,34 +3229,6 @@ class Association(GeneratedsSuper):
         else:
             return Association(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_main(self):
-        return self.main
-    def set_main(self, main):
-        self.main = main
-    def get_assoc(self):
-        return self.assoc
-    def set_assoc(self, assoc):
-        self.assoc = assoc
-    def get_tiploc(self):
-        return self.tiploc
-    def set_tiploc(self, tiploc):
-        self.tiploc = tiploc
-    def get_category(self):
-        return self.category
-    def set_category(self, category):
-        self.category = category
-    def get_isCancelled(self):
-        return self.isCancelled
-    def set_isCancelled(self, isCancelled):
-        self.isCancelled = isCancelled
-    def get_isDeleted(self):
-        return self.isDeleted
-    def set_isDeleted(self, isDeleted):
-        self.isDeleted = isDeleted
     def validate_TiplocType(self, value):
         # Validate type ct:TiplocType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -2782,6 +3312,95 @@ class Association(GeneratedsSuper):
         if self.assoc is not None:
             namespaceprefix_ = self.assoc_nsprefix_ + ':' if (UseCapturedNS_ and self.assoc_nsprefix_) else ''
             self.assoc.export(outfile, level, namespaceprefix_, namespacedef_='', name_='assoc', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='Association', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.tiploc is not None:
+            element.set('tiploc', self.gds_format_string(self.tiploc))
+        if self.category is not None:
+            element.set('category', self.gds_format_string(self.category))
+        if self.isCancelled is not None:
+            element.set('isCancelled', self.gds_format_boolean(self.isCancelled))
+        if self.isDeleted is not None:
+            element.set('isDeleted', self.gds_format_boolean(self.isDeleted))
+        if self.main is not None:
+            main_ = self.main
+            main_.to_etree(element, name_='main', mapping_=mapping_)
+        if self.assoc is not None:
+            assoc_ = self.assoc
+            assoc_.to_etree(element, name_='assoc', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='Association'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.tiploc is not None and 'tiploc' not in already_processed:
+            already_processed.add('tiploc')
+            showIndent(outfile, level)
+            outfile.write('tiploc=%s,\n' % (self.tiploc,))
+        if self.category is not None and 'category' not in already_processed:
+            already_processed.add('category')
+            showIndent(outfile, level)
+            outfile.write('category=%s,\n' % (self.category,))
+        if self.isCancelled is not None and 'isCancelled' not in already_processed:
+            already_processed.add('isCancelled')
+            showIndent(outfile, level)
+            outfile.write('isCancelled=%s,\n' % (self.isCancelled,))
+        if self.isDeleted is not None and 'isDeleted' not in already_processed:
+            already_processed.add('isDeleted')
+            showIndent(outfile, level)
+            outfile.write('isDeleted=%s,\n' % (self.isDeleted,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        if self.main is not None:
+            showIndent(outfile, level)
+            outfile.write('main=model_.AssocService(\n')
+            self.main.exportLiteral(outfile, level, name_='main')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.assoc is not None:
+            showIndent(outfile, level)
+            outfile.write('assoc=model_.AssocService(\n')
+            self.assoc.exportLiteral(outfile, level, name_='assoc')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.Association_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.tiploc is not None:
+            dbobj.tiploc = self.tiploc
+        if self.category is not None:
+            dbobj.category = self.category
+        if self.isCancelled is not None:
+            dbobj.isCancelled = self.isCancelled
+        if self.isDeleted is not None:
+            dbobj.isDeleted = self.isDeleted
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        if self.main is not None:
+            child_dbobj = self.main.exportSQLAlchemy(session)
+            dbobj.main = child_dbobj
+        if self.assoc is not None:
+            child_dbobj = self.assoc.exportSQLAlchemy(session)
+            dbobj.assoc = child_dbobj
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -2882,54 +3501,6 @@ class OR(GeneratedsSuper):
         else:
             return OR(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_fd(self):
-        return self.fd
-    def set_fd(self, fd):
-        self.fd = fd
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_act(self):
-        return self.act
-    def set_act(self, act):
-        self.act = act
-    def get_planAct(self):
-        return self.planAct
-    def set_planAct(self, planAct):
-        self.planAct = planAct
-    def get_can(self):
-        return self.can
-    def set_can(self, can):
-        self.can = can
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
-    def get_pta(self):
-        return self.pta
-    def set_pta(self, pta):
-        self.pta = pta
-    def get_ptd(self):
-        return self.ptd
-    def set_ptd(self, ptd):
-        self.ptd = ptd
-    def get_avgLoading(self):
-        return self.avgLoading
-    def set_avgLoading(self, avgLoading):
-        self.avgLoading = avgLoading
     def validate_WTimeType(self, value):
         # Validate type ct:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -3077,6 +3648,129 @@ class OR(GeneratedsSuper):
             outfile.write(' avgLoading="%s"' % self.gds_format_integer(self.avgLoading, input_name='avgLoading'))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='OR', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='OR', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.fd is not None:
+            element.set('fd', self.gds_format_string(self.fd))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.act is not None:
+            element.set('act', self.gds_format_string(self.act))
+        if self.planAct is not None:
+            element.set('planAct', self.gds_format_string(self.planAct))
+        if self.can is not None:
+            element.set('can', self.gds_format_boolean(self.can))
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if self.pta is not None:
+            element.set('pta', self.gds_format_string(self.pta))
+        if self.ptd is not None:
+            element.set('ptd', self.gds_format_string(self.ptd))
+        if self.avgLoading is not None:
+            element.set('avgLoading', self.gds_format_integer(self.avgLoading))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='OR'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.fd is not None and 'fd' not in already_processed:
+            already_processed.add('fd')
+            showIndent(outfile, level)
+            outfile.write('fd=%s,\n' % (self.fd,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.act is not None and 'act' not in already_processed:
+            already_processed.add('act')
+            showIndent(outfile, level)
+            outfile.write('act=%s,\n' % (self.act,))
+        if self.planAct is not None and 'planAct' not in already_processed:
+            already_processed.add('planAct')
+            showIndent(outfile, level)
+            outfile.write('planAct=%s,\n' % (self.planAct,))
+        if self.can is not None and 'can' not in already_processed:
+            already_processed.add('can')
+            showIndent(outfile, level)
+            outfile.write('can=%s,\n' % (self.can,))
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+        if self.pta is not None and 'pta' not in already_processed:
+            already_processed.add('pta')
+            showIndent(outfile, level)
+            outfile.write('pta=%s,\n' % (self.pta,))
+        if self.ptd is not None and 'ptd' not in already_processed:
+            already_processed.add('ptd')
+            showIndent(outfile, level)
+            outfile.write('ptd=%s,\n' % (self.ptd,))
+        if self.avgLoading is not None and 'avgLoading' not in already_processed:
+            already_processed.add('avgLoading')
+            showIndent(outfile, level)
+            outfile.write('avgLoading=%s,\n' % (self.avgLoading,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.OR_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.fd is not None:
+            dbobj.fd = self.fd
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.act is not None:
+            dbobj.act = self.act
+        if self.planAct is not None:
+            dbobj.planAct = self.planAct
+        if self.can is not None:
+            dbobj.can = self.can
+        if self.fid is not None:
+            dbobj.fid = self.fid
+        if self.pta is not None:
+            dbobj.pta = self.pta
+        if self.ptd is not None:
+            dbobj.ptd = self.ptd
+        if self.avgLoading is not None:
+            dbobj.avgLoading = self.avgLoading
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -3190,38 +3884,6 @@ class OPOR(GeneratedsSuper):
         else:
             return OPOR(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_act(self):
-        return self.act
-    def set_act(self, act):
-        self.act = act
-    def get_planAct(self):
-        return self.planAct
-    def set_planAct(self, planAct):
-        self.planAct = planAct
-    def get_can(self):
-        return self.can
-    def set_can(self, can):
-        self.can = can
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
     def validate_WTimeType(self, value):
         # Validate type ct:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -3335,6 +3997,97 @@ class OPOR(GeneratedsSuper):
             outfile.write(' fid=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.fid), input_name='fid')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='OPOR', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='OPOR', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.act is not None:
+            element.set('act', self.gds_format_string(self.act))
+        if self.planAct is not None:
+            element.set('planAct', self.gds_format_string(self.planAct))
+        if self.can is not None:
+            element.set('can', self.gds_format_boolean(self.can))
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='OPOR'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.act is not None and 'act' not in already_processed:
+            already_processed.add('act')
+            showIndent(outfile, level)
+            outfile.write('act=%s,\n' % (self.act,))
+        if self.planAct is not None and 'planAct' not in already_processed:
+            already_processed.add('planAct')
+            showIndent(outfile, level)
+            outfile.write('planAct=%s,\n' % (self.planAct,))
+        if self.can is not None and 'can' not in already_processed:
+            already_processed.add('can')
+            showIndent(outfile, level)
+            outfile.write('can=%s,\n' % (self.can,))
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.OPOR_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.act is not None:
+            dbobj.act = self.act
+        if self.planAct is not None:
+            dbobj.planAct = self.planAct
+        if self.can is not None:
+            dbobj.can = self.can
+        if self.fid is not None:
+            dbobj.fid = self.fid
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -3442,58 +4195,6 @@ class IP(GeneratedsSuper):
         else:
             return IP(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_rdelay(self):
-        return self.rdelay
-    def set_rdelay(self, rdelay):
-        self.rdelay = rdelay
-    def get_fd(self):
-        return self.fd
-    def set_fd(self, fd):
-        self.fd = fd
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_act(self):
-        return self.act
-    def set_act(self, act):
-        self.act = act
-    def get_planAct(self):
-        return self.planAct
-    def set_planAct(self, planAct):
-        self.planAct = planAct
-    def get_can(self):
-        return self.can
-    def set_can(self, can):
-        self.can = can
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
-    def get_pta(self):
-        return self.pta
-    def set_pta(self, pta):
-        self.pta = pta
-    def get_ptd(self):
-        return self.ptd
-    def set_ptd(self, ptd):
-        self.ptd = ptd
-    def get_avgLoading(self):
-        return self.avgLoading
-    def set_avgLoading(self, avgLoading):
-        self.avgLoading = avgLoading
     def validate_WTimeType(self, value):
         # Validate type ct:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -3652,6 +4353,137 @@ class IP(GeneratedsSuper):
             outfile.write(' avgLoading="%s"' % self.gds_format_integer(self.avgLoading, input_name='avgLoading'))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='IP', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='IP', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.rdelay is not None:
+            element.set('rdelay', self.gds_format_integer(self.rdelay))
+        if self.fd is not None:
+            element.set('fd', self.gds_format_string(self.fd))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.act is not None:
+            element.set('act', self.gds_format_string(self.act))
+        if self.planAct is not None:
+            element.set('planAct', self.gds_format_string(self.planAct))
+        if self.can is not None:
+            element.set('can', self.gds_format_boolean(self.can))
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if self.pta is not None:
+            element.set('pta', self.gds_format_string(self.pta))
+        if self.ptd is not None:
+            element.set('ptd', self.gds_format_string(self.ptd))
+        if self.avgLoading is not None:
+            element.set('avgLoading', self.gds_format_integer(self.avgLoading))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='IP'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.rdelay is not None and 'rdelay' not in already_processed:
+            already_processed.add('rdelay')
+            showIndent(outfile, level)
+            outfile.write('rdelay=%s,\n' % (self.rdelay,))
+        if self.fd is not None and 'fd' not in already_processed:
+            already_processed.add('fd')
+            showIndent(outfile, level)
+            outfile.write('fd=%s,\n' % (self.fd,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.act is not None and 'act' not in already_processed:
+            already_processed.add('act')
+            showIndent(outfile, level)
+            outfile.write('act=%s,\n' % (self.act,))
+        if self.planAct is not None and 'planAct' not in already_processed:
+            already_processed.add('planAct')
+            showIndent(outfile, level)
+            outfile.write('planAct=%s,\n' % (self.planAct,))
+        if self.can is not None and 'can' not in already_processed:
+            already_processed.add('can')
+            showIndent(outfile, level)
+            outfile.write('can=%s,\n' % (self.can,))
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+        if self.pta is not None and 'pta' not in already_processed:
+            already_processed.add('pta')
+            showIndent(outfile, level)
+            outfile.write('pta=%s,\n' % (self.pta,))
+        if self.ptd is not None and 'ptd' not in already_processed:
+            already_processed.add('ptd')
+            showIndent(outfile, level)
+            outfile.write('ptd=%s,\n' % (self.ptd,))
+        if self.avgLoading is not None and 'avgLoading' not in already_processed:
+            already_processed.add('avgLoading')
+            showIndent(outfile, level)
+            outfile.write('avgLoading=%s,\n' % (self.avgLoading,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.IP_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.rdelay is not None:
+            dbobj.rdelay = self.rdelay
+        if self.fd is not None:
+            dbobj.fd = self.fd
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.act is not None:
+            dbobj.act = self.act
+        if self.planAct is not None:
+            dbobj.planAct = self.planAct
+        if self.can is not None:
+            dbobj.can = self.can
+        if self.fid is not None:
+            dbobj.fid = self.fid
+        if self.pta is not None:
+            dbobj.pta = self.pta
+        if self.ptd is not None:
+            dbobj.ptd = self.ptd
+        if self.avgLoading is not None:
+            dbobj.avgLoading = self.avgLoading
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -3776,42 +4608,6 @@ class OPIP(GeneratedsSuper):
         else:
             return OPIP(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_rdelay(self):
-        return self.rdelay
-    def set_rdelay(self, rdelay):
-        self.rdelay = rdelay
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_act(self):
-        return self.act
-    def set_act(self, act):
-        self.act = act
-    def get_planAct(self):
-        return self.planAct
-    def set_planAct(self, planAct):
-        self.planAct = planAct
-    def get_can(self):
-        return self.can
-    def set_can(self, can):
-        self.can = can
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
     def validate_WTimeType(self, value):
         # Validate type ct:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -3936,6 +4732,105 @@ class OPIP(GeneratedsSuper):
             outfile.write(' fid=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.fid), input_name='fid')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='OPIP', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='OPIP', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.rdelay is not None:
+            element.set('rdelay', self.gds_format_integer(self.rdelay))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.act is not None:
+            element.set('act', self.gds_format_string(self.act))
+        if self.planAct is not None:
+            element.set('planAct', self.gds_format_string(self.planAct))
+        if self.can is not None:
+            element.set('can', self.gds_format_boolean(self.can))
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='OPIP'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.rdelay is not None and 'rdelay' not in already_processed:
+            already_processed.add('rdelay')
+            showIndent(outfile, level)
+            outfile.write('rdelay=%s,\n' % (self.rdelay,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.act is not None and 'act' not in already_processed:
+            already_processed.add('act')
+            showIndent(outfile, level)
+            outfile.write('act=%s,\n' % (self.act,))
+        if self.planAct is not None and 'planAct' not in already_processed:
+            already_processed.add('planAct')
+            showIndent(outfile, level)
+            outfile.write('planAct=%s,\n' % (self.planAct,))
+        if self.can is not None and 'can' not in already_processed:
+            already_processed.add('can')
+            showIndent(outfile, level)
+            outfile.write('can=%s,\n' % (self.can,))
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.OPIP_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.rdelay is not None:
+            dbobj.rdelay = self.rdelay
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.act is not None:
+            dbobj.act = self.act
+        if self.planAct is not None:
+            dbobj.planAct = self.planAct
+        if self.can is not None:
+            dbobj.can = self.can
+        if self.fid is not None:
+            dbobj.fid = self.fid
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -4037,38 +4932,6 @@ class PP(GeneratedsSuper):
         else:
             return PP(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wtp(self):
-        return self.wtp
-    def set_wtp(self, wtp):
-        self.wtp = wtp
-    def get_rdelay(self):
-        return self.rdelay
-    def set_rdelay(self, rdelay):
-        self.rdelay = rdelay
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_act(self):
-        return self.act
-    def set_act(self, act):
-        self.act = act
-    def get_planAct(self):
-        return self.planAct
-    def set_planAct(self, planAct):
-        self.planAct = planAct
-    def get_can(self):
-        return self.can
-    def set_can(self, can):
-        self.can = can
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
     def validate_WTimeType(self, value):
         # Validate type ct:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -4190,6 +5053,97 @@ class PP(GeneratedsSuper):
             outfile.write(' fid=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.fid), input_name='fid')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='PP', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='PP', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wtp is not None:
+            element.set('wtp', self.gds_format_string(self.wtp))
+        if self.rdelay is not None:
+            element.set('rdelay', self.gds_format_integer(self.rdelay))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.act is not None:
+            element.set('act', self.gds_format_string(self.act))
+        if self.planAct is not None:
+            element.set('planAct', self.gds_format_string(self.planAct))
+        if self.can is not None:
+            element.set('can', self.gds_format_boolean(self.can))
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='PP'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wtp is not None and 'wtp' not in already_processed:
+            already_processed.add('wtp')
+            showIndent(outfile, level)
+            outfile.write('wtp=%s,\n' % (self.wtp,))
+        if self.rdelay is not None and 'rdelay' not in already_processed:
+            already_processed.add('rdelay')
+            showIndent(outfile, level)
+            outfile.write('rdelay=%s,\n' % (self.rdelay,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.act is not None and 'act' not in already_processed:
+            already_processed.add('act')
+            showIndent(outfile, level)
+            outfile.write('act=%s,\n' % (self.act,))
+        if self.planAct is not None and 'planAct' not in already_processed:
+            already_processed.add('planAct')
+            showIndent(outfile, level)
+            outfile.write('planAct=%s,\n' % (self.planAct,))
+        if self.can is not None and 'can' not in already_processed:
+            already_processed.add('can')
+            showIndent(outfile, level)
+            outfile.write('can=%s,\n' % (self.can,))
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.PP_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wtp is not None:
+            dbobj.wtp = self.wtp
+        if self.rdelay is not None:
+            dbobj.rdelay = self.rdelay
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.act is not None:
+            dbobj.act = self.act
+        if self.planAct is not None:
+            dbobj.planAct = self.planAct
+        if self.can is not None:
+            dbobj.can = self.can
+        if self.fid is not None:
+            dbobj.fid = self.fid
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -4294,54 +5248,6 @@ class DT(GeneratedsSuper):
         else:
             return DT(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_rdelay(self):
-        return self.rdelay
-    def set_rdelay(self, rdelay):
-        self.rdelay = rdelay
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_act(self):
-        return self.act
-    def set_act(self, act):
-        self.act = act
-    def get_planAct(self):
-        return self.planAct
-    def set_planAct(self, planAct):
-        self.planAct = planAct
-    def get_can(self):
-        return self.can
-    def set_can(self, can):
-        self.can = can
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
-    def get_pta(self):
-        return self.pta
-    def set_pta(self, pta):
-        self.pta = pta
-    def get_ptd(self):
-        return self.ptd
-    def set_ptd(self, ptd):
-        self.ptd = ptd
-    def get_avgLoading(self):
-        return self.avgLoading
-    def set_avgLoading(self, avgLoading):
-        self.avgLoading = avgLoading
     def validate_WTimeType(self, value):
         # Validate type ct:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -4497,6 +5403,129 @@ class DT(GeneratedsSuper):
             outfile.write(' avgLoading="%s"' % self.gds_format_integer(self.avgLoading, input_name='avgLoading'))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='DT', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='DT', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.rdelay is not None:
+            element.set('rdelay', self.gds_format_integer(self.rdelay))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.act is not None:
+            element.set('act', self.gds_format_string(self.act))
+        if self.planAct is not None:
+            element.set('planAct', self.gds_format_string(self.planAct))
+        if self.can is not None:
+            element.set('can', self.gds_format_boolean(self.can))
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if self.pta is not None:
+            element.set('pta', self.gds_format_string(self.pta))
+        if self.ptd is not None:
+            element.set('ptd', self.gds_format_string(self.ptd))
+        if self.avgLoading is not None:
+            element.set('avgLoading', self.gds_format_integer(self.avgLoading))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='DT'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.rdelay is not None and 'rdelay' not in already_processed:
+            already_processed.add('rdelay')
+            showIndent(outfile, level)
+            outfile.write('rdelay=%s,\n' % (self.rdelay,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.act is not None and 'act' not in already_processed:
+            already_processed.add('act')
+            showIndent(outfile, level)
+            outfile.write('act=%s,\n' % (self.act,))
+        if self.planAct is not None and 'planAct' not in already_processed:
+            already_processed.add('planAct')
+            showIndent(outfile, level)
+            outfile.write('planAct=%s,\n' % (self.planAct,))
+        if self.can is not None and 'can' not in already_processed:
+            already_processed.add('can')
+            showIndent(outfile, level)
+            outfile.write('can=%s,\n' % (self.can,))
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+        if self.pta is not None and 'pta' not in already_processed:
+            already_processed.add('pta')
+            showIndent(outfile, level)
+            outfile.write('pta=%s,\n' % (self.pta,))
+        if self.ptd is not None and 'ptd' not in already_processed:
+            already_processed.add('ptd')
+            showIndent(outfile, level)
+            outfile.write('ptd=%s,\n' % (self.ptd,))
+        if self.avgLoading is not None and 'avgLoading' not in already_processed:
+            already_processed.add('avgLoading')
+            showIndent(outfile, level)
+            outfile.write('avgLoading=%s,\n' % (self.avgLoading,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.DT_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.rdelay is not None:
+            dbobj.rdelay = self.rdelay
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.act is not None:
+            dbobj.act = self.act
+        if self.planAct is not None:
+            dbobj.planAct = self.planAct
+        if self.can is not None:
+            dbobj.can = self.can
+        if self.fid is not None:
+            dbobj.fid = self.fid
+        if self.pta is not None:
+            dbobj.pta = self.pta
+        if self.ptd is not None:
+            dbobj.ptd = self.ptd
+        if self.avgLoading is not None:
+            dbobj.avgLoading = self.avgLoading
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -4616,42 +5645,6 @@ class OPDT(GeneratedsSuper):
         else:
             return OPDT(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_rdelay(self):
-        return self.rdelay
-    def set_rdelay(self, rdelay):
-        self.rdelay = rdelay
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_act(self):
-        return self.act
-    def set_act(self, act):
-        self.act = act
-    def get_planAct(self):
-        return self.planAct
-    def set_planAct(self, planAct):
-        self.planAct = planAct
-    def get_can(self):
-        return self.can
-    def set_can(self, can):
-        self.can = can
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
     def validate_WTimeType(self, value):
         # Validate type ct:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -4775,6 +5768,105 @@ class OPDT(GeneratedsSuper):
             already_processed.add('fid')
             outfile.write(' fid=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.fid), input_name='fid')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='OPDT', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='OPDT', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.rdelay is not None:
+            element.set('rdelay', self.gds_format_integer(self.rdelay))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.act is not None:
+            element.set('act', self.gds_format_string(self.act))
+        if self.planAct is not None:
+            element.set('planAct', self.gds_format_string(self.planAct))
+        if self.can is not None:
+            element.set('can', self.gds_format_boolean(self.can))
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='OPDT'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.rdelay is not None and 'rdelay' not in already_processed:
+            already_processed.add('rdelay')
+            showIndent(outfile, level)
+            outfile.write('rdelay=%s,\n' % (self.rdelay,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.act is not None and 'act' not in already_processed:
+            already_processed.add('act')
+            showIndent(outfile, level)
+            outfile.write('act=%s,\n' % (self.act,))
+        if self.planAct is not None and 'planAct' not in already_processed:
+            already_processed.add('planAct')
+            showIndent(outfile, level)
+            outfile.write('planAct=%s,\n' % (self.planAct,))
+        if self.can is not None and 'can' not in already_processed:
+            already_processed.add('can')
+            showIndent(outfile, level)
+            outfile.write('can=%s,\n' % (self.can,))
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.OPDT_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.rdelay is not None:
+            dbobj.rdelay = self.rdelay
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.act is not None:
+            dbobj.act = self.act
+        if self.planAct is not None:
+            dbobj.planAct = self.planAct
+        if self.can is not None:
+            dbobj.can = self.can
+        if self.fid is not None:
+            dbobj.fid = self.fid
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -4929,132 +6021,6 @@ class Schedule(GeneratedsSuper):
         else:
             return Schedule(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_OR(self):
-        return self.OR
-    def set_OR(self, OR):
-        self.OR = OR
-    def add_OR(self, value):
-        self.OR.append(value)
-    def insert_OR_at(self, index, value):
-        self.OR.insert(index, value)
-    def replace_OR_at(self, index, value):
-        self.OR[index] = value
-    def get_OPOR(self):
-        return self.OPOR
-    def set_OPOR(self, OPOR):
-        self.OPOR = OPOR
-    def add_OPOR(self, value):
-        self.OPOR.append(value)
-    def insert_OPOR_at(self, index, value):
-        self.OPOR.insert(index, value)
-    def replace_OPOR_at(self, index, value):
-        self.OPOR[index] = value
-    def get_IP(self):
-        return self.IP
-    def set_IP(self, IP):
-        self.IP = IP
-    def add_IP(self, value):
-        self.IP.append(value)
-    def insert_IP_at(self, index, value):
-        self.IP.insert(index, value)
-    def replace_IP_at(self, index, value):
-        self.IP[index] = value
-    def get_OPIP(self):
-        return self.OPIP
-    def set_OPIP(self, OPIP):
-        self.OPIP = OPIP
-    def add_OPIP(self, value):
-        self.OPIP.append(value)
-    def insert_OPIP_at(self, index, value):
-        self.OPIP.insert(index, value)
-    def replace_OPIP_at(self, index, value):
-        self.OPIP[index] = value
-    def get_PP(self):
-        return self.PP
-    def set_PP(self, PP):
-        self.PP = PP
-    def add_PP(self, value):
-        self.PP.append(value)
-    def insert_PP_at(self, index, value):
-        self.PP.insert(index, value)
-    def replace_PP_at(self, index, value):
-        self.PP[index] = value
-    def get_DT(self):
-        return self.DT
-    def set_DT(self, DT):
-        self.DT = DT
-    def add_DT(self, value):
-        self.DT.append(value)
-    def insert_DT_at(self, index, value):
-        self.DT.insert(index, value)
-    def replace_DT_at(self, index, value):
-        self.DT[index] = value
-    def get_OPDT(self):
-        return self.OPDT
-    def set_OPDT(self, OPDT):
-        self.OPDT = OPDT
-    def add_OPDT(self, value):
-        self.OPDT.append(value)
-    def insert_OPDT_at(self, index, value):
-        self.OPDT.insert(index, value)
-    def replace_OPDT_at(self, index, value):
-        self.OPDT[index] = value
-    def get_cancelReason(self):
-        return self.cancelReason
-    def set_cancelReason(self, cancelReason):
-        self.cancelReason = cancelReason
-    def get_rid(self):
-        return self.rid
-    def set_rid(self, rid):
-        self.rid = rid
-    def get_uid(self):
-        return self.uid
-    def set_uid(self, uid):
-        self.uid = uid
-    def get_trainId(self):
-        return self.trainId
-    def set_trainId(self, trainId):
-        self.trainId = trainId
-    def get_rsid(self):
-        return self.rsid
-    def set_rsid(self, rsid):
-        self.rsid = rsid
-    def get_ssd(self):
-        return self.ssd
-    def set_ssd(self, ssd):
-        self.ssd = ssd
-    def get_toc(self):
-        return self.toc
-    def set_toc(self, toc):
-        self.toc = toc
-    def get_status(self):
-        return self.status
-    def set_status(self, status):
-        self.status = status
-    def get_trainCat(self):
-        return self.trainCat
-    def set_trainCat(self, trainCat):
-        self.trainCat = trainCat
-    def get_isPassengerSvc(self):
-        return self.isPassengerSvc
-    def set_isPassengerSvc(self, isPassengerSvc):
-        self.isPassengerSvc = isPassengerSvc
-    def get_isActive(self):
-        return self.isActive
-    def set_isActive(self, isActive):
-        self.isActive = isActive
-    def get_deleted(self):
-        return self.deleted
-    def set_deleted(self, deleted):
-        self.deleted = deleted
-    def get_isCharter(self):
-        return self.isCharter
-    def set_isCharter(self, isCharter):
-        self.isCharter = isCharter
     def validate_RIDType(self, value):
         # Validate type ct:RIDType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -5259,6 +6225,266 @@ class Schedule(GeneratedsSuper):
         if self.cancelReason is not None:
             namespaceprefix_ = self.cancelReason_nsprefix_ + ':' if (UseCapturedNS_ and self.cancelReason_nsprefix_) else ''
             self.cancelReason.export(outfile, level, namespaceprefix_, namespacedef_='', name_='cancelReason', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='Schedule', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.rid is not None:
+            element.set('rid', self.gds_format_string(self.rid))
+        if self.uid is not None:
+            element.set('uid', self.gds_format_string(self.uid))
+        if self.trainId is not None:
+            element.set('trainId', self.gds_format_string(self.trainId))
+        if self.rsid is not None:
+            element.set('rsid', self.gds_format_string(self.rsid))
+        if self.ssd is not None:
+            element.set('ssd', self.gds_format_date(self.ssd))
+        if self.toc is not None:
+            element.set('toc', self.gds_format_string(self.toc))
+        if self.status is not None:
+            element.set('status', self.gds_format_string(self.status))
+        if self.trainCat is not None:
+            element.set('trainCat', self.gds_format_string(self.trainCat))
+        if self.isPassengerSvc is not None:
+            element.set('isPassengerSvc', self.gds_format_boolean(self.isPassengerSvc))
+        if self.isActive is not None:
+            element.set('isActive', self.gds_format_boolean(self.isActive))
+        if self.deleted is not None:
+            element.set('deleted', self.gds_format_boolean(self.deleted))
+        if self.isCharter is not None:
+            element.set('isCharter', self.gds_format_boolean(self.isCharter))
+        for OR_ in self.OR:
+            OR_.to_etree(element, name_='OR', mapping_=mapping_)
+        for OPOR_ in self.OPOR:
+            OPOR_.to_etree(element, name_='OPOR', mapping_=mapping_)
+        for IP_ in self.IP:
+            IP_.to_etree(element, name_='IP', mapping_=mapping_)
+        for OPIP_ in self.OPIP:
+            OPIP_.to_etree(element, name_='OPIP', mapping_=mapping_)
+        for PP_ in self.PP:
+            PP_.to_etree(element, name_='PP', mapping_=mapping_)
+        for DT_ in self.DT:
+            DT_.to_etree(element, name_='DT', mapping_=mapping_)
+        for OPDT_ in self.OPDT:
+            OPDT_.to_etree(element, name_='OPDT', mapping_=mapping_)
+        if self.cancelReason is not None:
+            cancelReason_ = self.cancelReason
+            cancelReason_.to_etree(element, name_='cancelReason', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='Schedule'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.rid is not None and 'rid' not in already_processed:
+            already_processed.add('rid')
+            showIndent(outfile, level)
+            outfile.write('rid=%s,\n' % (self.rid,))
+        if self.uid is not None and 'uid' not in already_processed:
+            already_processed.add('uid')
+            showIndent(outfile, level)
+            outfile.write('uid=%s,\n' % (self.uid,))
+        if self.trainId is not None and 'trainId' not in already_processed:
+            already_processed.add('trainId')
+            showIndent(outfile, level)
+            outfile.write('trainId=%s,\n' % (self.trainId,))
+        if self.rsid is not None and 'rsid' not in already_processed:
+            already_processed.add('rsid')
+            showIndent(outfile, level)
+            outfile.write('rsid=%s,\n' % (self.rsid,))
+        if self.ssd is not None and 'ssd' not in already_processed:
+            already_processed.add('ssd')
+            showIndent(outfile, level)
+            outfile.write('ssd=%s,\n' % (self.ssd,))
+        if self.toc is not None and 'toc' not in already_processed:
+            already_processed.add('toc')
+            showIndent(outfile, level)
+            outfile.write('toc=%s,\n' % (self.toc,))
+        if self.status is not None and 'status' not in already_processed:
+            already_processed.add('status')
+            showIndent(outfile, level)
+            outfile.write('status=%s,\n' % (self.status,))
+        if self.trainCat is not None and 'trainCat' not in already_processed:
+            already_processed.add('trainCat')
+            showIndent(outfile, level)
+            outfile.write('trainCat=%s,\n' % (self.trainCat,))
+        if self.isPassengerSvc is not None and 'isPassengerSvc' not in already_processed:
+            already_processed.add('isPassengerSvc')
+            showIndent(outfile, level)
+            outfile.write('isPassengerSvc=%s,\n' % (self.isPassengerSvc,))
+        if self.isActive is not None and 'isActive' not in already_processed:
+            already_processed.add('isActive')
+            showIndent(outfile, level)
+            outfile.write('isActive=%s,\n' % (self.isActive,))
+        if self.deleted is not None and 'deleted' not in already_processed:
+            already_processed.add('deleted')
+            showIndent(outfile, level)
+            outfile.write('deleted=%s,\n' % (self.deleted,))
+        if self.isCharter is not None and 'isCharter' not in already_processed:
+            already_processed.add('isCharter')
+            showIndent(outfile, level)
+            outfile.write('isCharter=%s,\n' % (self.isCharter,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        showIndent(outfile, level)
+        outfile.write('OR=[\n')
+        level += 1
+        for OR_ in self.OR:
+            showIndent(outfile, level)
+            outfile.write('model_.OR(\n')
+            OR_.exportLiteral(outfile, level)
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('OPOR=[\n')
+        level += 1
+        for OPOR_ in self.OPOR:
+            showIndent(outfile, level)
+            outfile.write('model_.OPOR(\n')
+            OPOR_.exportLiteral(outfile, level)
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('IP=[\n')
+        level += 1
+        for IP_ in self.IP:
+            showIndent(outfile, level)
+            outfile.write('model_.IP(\n')
+            IP_.exportLiteral(outfile, level)
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('OPIP=[\n')
+        level += 1
+        for OPIP_ in self.OPIP:
+            showIndent(outfile, level)
+            outfile.write('model_.OPIP(\n')
+            OPIP_.exportLiteral(outfile, level)
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('PP=[\n')
+        level += 1
+        for PP_ in self.PP:
+            showIndent(outfile, level)
+            outfile.write('model_.PP(\n')
+            PP_.exportLiteral(outfile, level)
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('DT=[\n')
+        level += 1
+        for DT_ in self.DT:
+            showIndent(outfile, level)
+            outfile.write('model_.DT(\n')
+            DT_.exportLiteral(outfile, level)
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('OPDT=[\n')
+        level += 1
+        for OPDT_ in self.OPDT:
+            showIndent(outfile, level)
+            outfile.write('model_.OPDT(\n')
+            OPDT_.exportLiteral(outfile, level)
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        if self.cancelReason is not None:
+            showIndent(outfile, level)
+            outfile.write('cancelReason=model_.DisruptionReasonType(\n')
+            self.cancelReason.exportLiteral(outfile, level, name_='cancelReason')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.Schedule_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.rid is not None:
+            dbobj.rid = self.rid
+        if self.uid is not None:
+            dbobj.uid = self.uid
+        if self.trainId is not None:
+            dbobj.trainId = self.trainId
+        if self.rsid is not None:
+            dbobj.rsid = self.rsid
+        if self.ssd is not None:
+            dbobj.ssd = self.ssd
+        if self.toc is not None:
+            dbobj.toc = self.toc
+        if self.status is not None:
+            dbobj.status = self.status
+        if self.trainCat is not None:
+            dbobj.trainCat = self.trainCat
+        if self.isPassengerSvc is not None:
+            dbobj.isPassengerSvc = self.isPassengerSvc
+        if self.isActive is not None:
+            dbobj.isActive = self.isActive
+        if self.deleted is not None:
+            dbobj.deleted = self.deleted
+        if self.isCharter is not None:
+            dbobj.isCharter = self.isCharter
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        for child in self.OR:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.OR.append(child_dbobj)
+        for child in self.OPOR:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.OPOR.append(child_dbobj)
+        for child in self.IP:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.IP.append(child_dbobj)
+        for child in self.OPIP:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.OPIP.append(child_dbobj)
+        for child in self.PP:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.PP.append(child_dbobj)
+        for child in self.DT:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.DT.append(child_dbobj)
+        for child in self.OPDT:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.OPDT.append(child_dbobj)
+        if self.cancelReason is not None:
+            child_dbobj = self.cancelReason.exportSQLAlchemy(session)
+            dbobj.cancelReason = child_dbobj
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -5419,14 +6645,6 @@ class DeactivatedSchedule(GeneratedsSuper):
         else:
             return DeactivatedSchedule(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_rid(self):
-        return self.rid
-    def set_rid(self, rid):
-        self.rid = rid
     def validate_RIDType(self, value):
         # Validate type ct:RIDType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -5472,6 +6690,49 @@ class DeactivatedSchedule(GeneratedsSuper):
             already_processed.add('rid')
             outfile.write(' rid=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.rid), input_name='rid')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='DeactivatedSchedule', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='DeactivatedSchedule', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.rid is not None:
+            element.set('rid', self.gds_format_string(self.rid))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='DeactivatedSchedule'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.rid is not None and 'rid' not in already_processed:
+            already_processed.add('rid')
+            showIndent(outfile, level)
+            outfile.write('rid=%s,\n' % (self.rid,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.DeactivatedSchedule_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.rid is not None:
+            dbobj.rid = self.rid
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -5541,54 +6802,6 @@ class OR1(GeneratedsSuper):
         else:
             return OR1(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_fd(self):
-        return self.fd
-    def set_fd(self, fd):
-        self.fd = fd
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_act(self):
-        return self.act
-    def set_act(self, act):
-        self.act = act
-    def get_planAct(self):
-        return self.planAct
-    def set_planAct(self, planAct):
-        self.planAct = planAct
-    def get_can(self):
-        return self.can
-    def set_can(self, can):
-        self.can = can
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
-    def get_pta(self):
-        return self.pta
-    def set_pta(self, pta):
-        self.pta = pta
-    def get_ptd(self):
-        return self.ptd
-    def set_ptd(self, ptd):
-        self.ptd = ptd
-    def get_avgLoading(self):
-        return self.avgLoading
-    def set_avgLoading(self, avgLoading):
-        self.avgLoading = avgLoading
     def validate_WTimeType(self, value):
         # Validate type ct:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -5736,6 +6949,129 @@ class OR1(GeneratedsSuper):
             outfile.write(' avgLoading="%s"' % self.gds_format_integer(self.avgLoading, input_name='avgLoading'))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='OR1', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='OR1', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.fd is not None:
+            element.set('fd', self.gds_format_string(self.fd))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.act is not None:
+            element.set('act', self.gds_format_string(self.act))
+        if self.planAct is not None:
+            element.set('planAct', self.gds_format_string(self.planAct))
+        if self.can is not None:
+            element.set('can', self.gds_format_boolean(self.can))
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if self.pta is not None:
+            element.set('pta', self.gds_format_string(self.pta))
+        if self.ptd is not None:
+            element.set('ptd', self.gds_format_string(self.ptd))
+        if self.avgLoading is not None:
+            element.set('avgLoading', self.gds_format_integer(self.avgLoading))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='OR1'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.fd is not None and 'fd' not in already_processed:
+            already_processed.add('fd')
+            showIndent(outfile, level)
+            outfile.write('fd=%s,\n' % (self.fd,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.act is not None and 'act' not in already_processed:
+            already_processed.add('act')
+            showIndent(outfile, level)
+            outfile.write('act=%s,\n' % (self.act,))
+        if self.planAct is not None and 'planAct' not in already_processed:
+            already_processed.add('planAct')
+            showIndent(outfile, level)
+            outfile.write('planAct=%s,\n' % (self.planAct,))
+        if self.can is not None and 'can' not in already_processed:
+            already_processed.add('can')
+            showIndent(outfile, level)
+            outfile.write('can=%s,\n' % (self.can,))
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+        if self.pta is not None and 'pta' not in already_processed:
+            already_processed.add('pta')
+            showIndent(outfile, level)
+            outfile.write('pta=%s,\n' % (self.pta,))
+        if self.ptd is not None and 'ptd' not in already_processed:
+            already_processed.add('ptd')
+            showIndent(outfile, level)
+            outfile.write('ptd=%s,\n' % (self.ptd,))
+        if self.avgLoading is not None and 'avgLoading' not in already_processed:
+            already_processed.add('avgLoading')
+            showIndent(outfile, level)
+            outfile.write('avgLoading=%s,\n' % (self.avgLoading,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.OR1_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.fd is not None:
+            dbobj.fd = self.fd
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.act is not None:
+            dbobj.act = self.act
+        if self.planAct is not None:
+            dbobj.planAct = self.planAct
+        if self.can is not None:
+            dbobj.can = self.can
+        if self.fid is not None:
+            dbobj.fid = self.fid
+        if self.pta is not None:
+            dbobj.pta = self.pta
+        if self.ptd is not None:
+            dbobj.ptd = self.ptd
+        if self.avgLoading is not None:
+            dbobj.avgLoading = self.avgLoading
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -5849,38 +7185,6 @@ class OPOR2(GeneratedsSuper):
         else:
             return OPOR2(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_act(self):
-        return self.act
-    def set_act(self, act):
-        self.act = act
-    def get_planAct(self):
-        return self.planAct
-    def set_planAct(self, planAct):
-        self.planAct = planAct
-    def get_can(self):
-        return self.can
-    def set_can(self, can):
-        self.can = can
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
     def validate_WTimeType(self, value):
         # Validate type ct:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -5994,6 +7298,97 @@ class OPOR2(GeneratedsSuper):
             outfile.write(' fid=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.fid), input_name='fid')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='OPOR2', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='OPOR2', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.act is not None:
+            element.set('act', self.gds_format_string(self.act))
+        if self.planAct is not None:
+            element.set('planAct', self.gds_format_string(self.planAct))
+        if self.can is not None:
+            element.set('can', self.gds_format_boolean(self.can))
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='OPOR2'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.act is not None and 'act' not in already_processed:
+            already_processed.add('act')
+            showIndent(outfile, level)
+            outfile.write('act=%s,\n' % (self.act,))
+        if self.planAct is not None and 'planAct' not in already_processed:
+            already_processed.add('planAct')
+            showIndent(outfile, level)
+            outfile.write('planAct=%s,\n' % (self.planAct,))
+        if self.can is not None and 'can' not in already_processed:
+            already_processed.add('can')
+            showIndent(outfile, level)
+            outfile.write('can=%s,\n' % (self.can,))
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.OPOR2_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.act is not None:
+            dbobj.act = self.act
+        if self.planAct is not None:
+            dbobj.planAct = self.planAct
+        if self.can is not None:
+            dbobj.can = self.can
+        if self.fid is not None:
+            dbobj.fid = self.fid
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -6101,58 +7496,6 @@ class IP3(GeneratedsSuper):
         else:
             return IP3(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_rdelay(self):
-        return self.rdelay
-    def set_rdelay(self, rdelay):
-        self.rdelay = rdelay
-    def get_fd(self):
-        return self.fd
-    def set_fd(self, fd):
-        self.fd = fd
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_act(self):
-        return self.act
-    def set_act(self, act):
-        self.act = act
-    def get_planAct(self):
-        return self.planAct
-    def set_planAct(self, planAct):
-        self.planAct = planAct
-    def get_can(self):
-        return self.can
-    def set_can(self, can):
-        self.can = can
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
-    def get_pta(self):
-        return self.pta
-    def set_pta(self, pta):
-        self.pta = pta
-    def get_ptd(self):
-        return self.ptd
-    def set_ptd(self, ptd):
-        self.ptd = ptd
-    def get_avgLoading(self):
-        return self.avgLoading
-    def set_avgLoading(self, avgLoading):
-        self.avgLoading = avgLoading
     def validate_WTimeType(self, value):
         # Validate type ct:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -6311,6 +7654,137 @@ class IP3(GeneratedsSuper):
             outfile.write(' avgLoading="%s"' % self.gds_format_integer(self.avgLoading, input_name='avgLoading'))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='IP3', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='IP3', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.rdelay is not None:
+            element.set('rdelay', self.gds_format_integer(self.rdelay))
+        if self.fd is not None:
+            element.set('fd', self.gds_format_string(self.fd))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.act is not None:
+            element.set('act', self.gds_format_string(self.act))
+        if self.planAct is not None:
+            element.set('planAct', self.gds_format_string(self.planAct))
+        if self.can is not None:
+            element.set('can', self.gds_format_boolean(self.can))
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if self.pta is not None:
+            element.set('pta', self.gds_format_string(self.pta))
+        if self.ptd is not None:
+            element.set('ptd', self.gds_format_string(self.ptd))
+        if self.avgLoading is not None:
+            element.set('avgLoading', self.gds_format_integer(self.avgLoading))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='IP3'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.rdelay is not None and 'rdelay' not in already_processed:
+            already_processed.add('rdelay')
+            showIndent(outfile, level)
+            outfile.write('rdelay=%s,\n' % (self.rdelay,))
+        if self.fd is not None and 'fd' not in already_processed:
+            already_processed.add('fd')
+            showIndent(outfile, level)
+            outfile.write('fd=%s,\n' % (self.fd,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.act is not None and 'act' not in already_processed:
+            already_processed.add('act')
+            showIndent(outfile, level)
+            outfile.write('act=%s,\n' % (self.act,))
+        if self.planAct is not None and 'planAct' not in already_processed:
+            already_processed.add('planAct')
+            showIndent(outfile, level)
+            outfile.write('planAct=%s,\n' % (self.planAct,))
+        if self.can is not None and 'can' not in already_processed:
+            already_processed.add('can')
+            showIndent(outfile, level)
+            outfile.write('can=%s,\n' % (self.can,))
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+        if self.pta is not None and 'pta' not in already_processed:
+            already_processed.add('pta')
+            showIndent(outfile, level)
+            outfile.write('pta=%s,\n' % (self.pta,))
+        if self.ptd is not None and 'ptd' not in already_processed:
+            already_processed.add('ptd')
+            showIndent(outfile, level)
+            outfile.write('ptd=%s,\n' % (self.ptd,))
+        if self.avgLoading is not None and 'avgLoading' not in already_processed:
+            already_processed.add('avgLoading')
+            showIndent(outfile, level)
+            outfile.write('avgLoading=%s,\n' % (self.avgLoading,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.IP3_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.rdelay is not None:
+            dbobj.rdelay = self.rdelay
+        if self.fd is not None:
+            dbobj.fd = self.fd
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.act is not None:
+            dbobj.act = self.act
+        if self.planAct is not None:
+            dbobj.planAct = self.planAct
+        if self.can is not None:
+            dbobj.can = self.can
+        if self.fid is not None:
+            dbobj.fid = self.fid
+        if self.pta is not None:
+            dbobj.pta = self.pta
+        if self.ptd is not None:
+            dbobj.ptd = self.ptd
+        if self.avgLoading is not None:
+            dbobj.avgLoading = self.avgLoading
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -6435,42 +7909,6 @@ class OPIP4(GeneratedsSuper):
         else:
             return OPIP4(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_rdelay(self):
-        return self.rdelay
-    def set_rdelay(self, rdelay):
-        self.rdelay = rdelay
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_act(self):
-        return self.act
-    def set_act(self, act):
-        self.act = act
-    def get_planAct(self):
-        return self.planAct
-    def set_planAct(self, planAct):
-        self.planAct = planAct
-    def get_can(self):
-        return self.can
-    def set_can(self, can):
-        self.can = can
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
     def validate_WTimeType(self, value):
         # Validate type ct:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -6595,6 +8033,105 @@ class OPIP4(GeneratedsSuper):
             outfile.write(' fid=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.fid), input_name='fid')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='OPIP4', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='OPIP4', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.rdelay is not None:
+            element.set('rdelay', self.gds_format_integer(self.rdelay))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.act is not None:
+            element.set('act', self.gds_format_string(self.act))
+        if self.planAct is not None:
+            element.set('planAct', self.gds_format_string(self.planAct))
+        if self.can is not None:
+            element.set('can', self.gds_format_boolean(self.can))
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='OPIP4'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.rdelay is not None and 'rdelay' not in already_processed:
+            already_processed.add('rdelay')
+            showIndent(outfile, level)
+            outfile.write('rdelay=%s,\n' % (self.rdelay,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.act is not None and 'act' not in already_processed:
+            already_processed.add('act')
+            showIndent(outfile, level)
+            outfile.write('act=%s,\n' % (self.act,))
+        if self.planAct is not None and 'planAct' not in already_processed:
+            already_processed.add('planAct')
+            showIndent(outfile, level)
+            outfile.write('planAct=%s,\n' % (self.planAct,))
+        if self.can is not None and 'can' not in already_processed:
+            already_processed.add('can')
+            showIndent(outfile, level)
+            outfile.write('can=%s,\n' % (self.can,))
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.OPIP4_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.rdelay is not None:
+            dbobj.rdelay = self.rdelay
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.act is not None:
+            dbobj.act = self.act
+        if self.planAct is not None:
+            dbobj.planAct = self.planAct
+        if self.can is not None:
+            dbobj.can = self.can
+        if self.fid is not None:
+            dbobj.fid = self.fid
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -6696,38 +8233,6 @@ class PP5(GeneratedsSuper):
         else:
             return PP5(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wtp(self):
-        return self.wtp
-    def set_wtp(self, wtp):
-        self.wtp = wtp
-    def get_rdelay(self):
-        return self.rdelay
-    def set_rdelay(self, rdelay):
-        self.rdelay = rdelay
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_act(self):
-        return self.act
-    def set_act(self, act):
-        self.act = act
-    def get_planAct(self):
-        return self.planAct
-    def set_planAct(self, planAct):
-        self.planAct = planAct
-    def get_can(self):
-        return self.can
-    def set_can(self, can):
-        self.can = can
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
     def validate_WTimeType(self, value):
         # Validate type ct:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -6849,6 +8354,97 @@ class PP5(GeneratedsSuper):
             outfile.write(' fid=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.fid), input_name='fid')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='PP5', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='PP5', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wtp is not None:
+            element.set('wtp', self.gds_format_string(self.wtp))
+        if self.rdelay is not None:
+            element.set('rdelay', self.gds_format_integer(self.rdelay))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.act is not None:
+            element.set('act', self.gds_format_string(self.act))
+        if self.planAct is not None:
+            element.set('planAct', self.gds_format_string(self.planAct))
+        if self.can is not None:
+            element.set('can', self.gds_format_boolean(self.can))
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='PP5'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wtp is not None and 'wtp' not in already_processed:
+            already_processed.add('wtp')
+            showIndent(outfile, level)
+            outfile.write('wtp=%s,\n' % (self.wtp,))
+        if self.rdelay is not None and 'rdelay' not in already_processed:
+            already_processed.add('rdelay')
+            showIndent(outfile, level)
+            outfile.write('rdelay=%s,\n' % (self.rdelay,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.act is not None and 'act' not in already_processed:
+            already_processed.add('act')
+            showIndent(outfile, level)
+            outfile.write('act=%s,\n' % (self.act,))
+        if self.planAct is not None and 'planAct' not in already_processed:
+            already_processed.add('planAct')
+            showIndent(outfile, level)
+            outfile.write('planAct=%s,\n' % (self.planAct,))
+        if self.can is not None and 'can' not in already_processed:
+            already_processed.add('can')
+            showIndent(outfile, level)
+            outfile.write('can=%s,\n' % (self.can,))
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.PP5_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wtp is not None:
+            dbobj.wtp = self.wtp
+        if self.rdelay is not None:
+            dbobj.rdelay = self.rdelay
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.act is not None:
+            dbobj.act = self.act
+        if self.planAct is not None:
+            dbobj.planAct = self.planAct
+        if self.can is not None:
+            dbobj.can = self.can
+        if self.fid is not None:
+            dbobj.fid = self.fid
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -6953,54 +8549,6 @@ class DT6(GeneratedsSuper):
         else:
             return DT6(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_rdelay(self):
-        return self.rdelay
-    def set_rdelay(self, rdelay):
-        self.rdelay = rdelay
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_act(self):
-        return self.act
-    def set_act(self, act):
-        self.act = act
-    def get_planAct(self):
-        return self.planAct
-    def set_planAct(self, planAct):
-        self.planAct = planAct
-    def get_can(self):
-        return self.can
-    def set_can(self, can):
-        self.can = can
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
-    def get_pta(self):
-        return self.pta
-    def set_pta(self, pta):
-        self.pta = pta
-    def get_ptd(self):
-        return self.ptd
-    def set_ptd(self, ptd):
-        self.ptd = ptd
-    def get_avgLoading(self):
-        return self.avgLoading
-    def set_avgLoading(self, avgLoading):
-        self.avgLoading = avgLoading
     def validate_WTimeType(self, value):
         # Validate type ct:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -7156,6 +8704,129 @@ class DT6(GeneratedsSuper):
             outfile.write(' avgLoading="%s"' % self.gds_format_integer(self.avgLoading, input_name='avgLoading'))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='DT6', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='DT6', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.rdelay is not None:
+            element.set('rdelay', self.gds_format_integer(self.rdelay))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.act is not None:
+            element.set('act', self.gds_format_string(self.act))
+        if self.planAct is not None:
+            element.set('planAct', self.gds_format_string(self.planAct))
+        if self.can is not None:
+            element.set('can', self.gds_format_boolean(self.can))
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if self.pta is not None:
+            element.set('pta', self.gds_format_string(self.pta))
+        if self.ptd is not None:
+            element.set('ptd', self.gds_format_string(self.ptd))
+        if self.avgLoading is not None:
+            element.set('avgLoading', self.gds_format_integer(self.avgLoading))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='DT6'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.rdelay is not None and 'rdelay' not in already_processed:
+            already_processed.add('rdelay')
+            showIndent(outfile, level)
+            outfile.write('rdelay=%s,\n' % (self.rdelay,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.act is not None and 'act' not in already_processed:
+            already_processed.add('act')
+            showIndent(outfile, level)
+            outfile.write('act=%s,\n' % (self.act,))
+        if self.planAct is not None and 'planAct' not in already_processed:
+            already_processed.add('planAct')
+            showIndent(outfile, level)
+            outfile.write('planAct=%s,\n' % (self.planAct,))
+        if self.can is not None and 'can' not in already_processed:
+            already_processed.add('can')
+            showIndent(outfile, level)
+            outfile.write('can=%s,\n' % (self.can,))
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+        if self.pta is not None and 'pta' not in already_processed:
+            already_processed.add('pta')
+            showIndent(outfile, level)
+            outfile.write('pta=%s,\n' % (self.pta,))
+        if self.ptd is not None and 'ptd' not in already_processed:
+            already_processed.add('ptd')
+            showIndent(outfile, level)
+            outfile.write('ptd=%s,\n' % (self.ptd,))
+        if self.avgLoading is not None and 'avgLoading' not in already_processed:
+            already_processed.add('avgLoading')
+            showIndent(outfile, level)
+            outfile.write('avgLoading=%s,\n' % (self.avgLoading,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.DT6_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.rdelay is not None:
+            dbobj.rdelay = self.rdelay
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.act is not None:
+            dbobj.act = self.act
+        if self.planAct is not None:
+            dbobj.planAct = self.planAct
+        if self.can is not None:
+            dbobj.can = self.can
+        if self.fid is not None:
+            dbobj.fid = self.fid
+        if self.pta is not None:
+            dbobj.pta = self.pta
+        if self.ptd is not None:
+            dbobj.ptd = self.ptd
+        if self.avgLoading is not None:
+            dbobj.avgLoading = self.avgLoading
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -7275,42 +8946,6 @@ class OPDT7(GeneratedsSuper):
         else:
             return OPDT7(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_rdelay(self):
-        return self.rdelay
-    def set_rdelay(self, rdelay):
-        self.rdelay = rdelay
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_act(self):
-        return self.act
-    def set_act(self, act):
-        self.act = act
-    def get_planAct(self):
-        return self.planAct
-    def set_planAct(self, planAct):
-        self.planAct = planAct
-    def get_can(self):
-        return self.can
-    def set_can(self, can):
-        self.can = can
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
     def validate_WTimeType(self, value):
         # Validate type ct:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -7434,6 +9069,105 @@ class OPDT7(GeneratedsSuper):
             already_processed.add('fid')
             outfile.write(' fid=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.fid), input_name='fid')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='OPDT7', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='OPDT7', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.rdelay is not None:
+            element.set('rdelay', self.gds_format_integer(self.rdelay))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.act is not None:
+            element.set('act', self.gds_format_string(self.act))
+        if self.planAct is not None:
+            element.set('planAct', self.gds_format_string(self.planAct))
+        if self.can is not None:
+            element.set('can', self.gds_format_boolean(self.can))
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='OPDT7'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.rdelay is not None and 'rdelay' not in already_processed:
+            already_processed.add('rdelay')
+            showIndent(outfile, level)
+            outfile.write('rdelay=%s,\n' % (self.rdelay,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.act is not None and 'act' not in already_processed:
+            already_processed.add('act')
+            showIndent(outfile, level)
+            outfile.write('act=%s,\n' % (self.act,))
+        if self.planAct is not None and 'planAct' not in already_processed:
+            already_processed.add('planAct')
+            showIndent(outfile, level)
+            outfile.write('planAct=%s,\n' % (self.planAct,))
+        if self.can is not None and 'can' not in already_processed:
+            already_processed.add('can')
+            showIndent(outfile, level)
+            outfile.write('can=%s,\n' % (self.can,))
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.OPDT7_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.rdelay is not None:
+            dbobj.rdelay = self.rdelay
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.act is not None:
+            dbobj.act = self.act
+        if self.planAct is not None:
+            dbobj.planAct = self.planAct
+        if self.can is not None:
+            dbobj.can = self.can
+        if self.fid is not None:
+            dbobj.fid = self.fid
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -7588,132 +9322,6 @@ class Schedule8(GeneratedsSuper):
         else:
             return Schedule8(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_OR(self):
-        return self.OR
-    def set_OR(self, OR):
-        self.OR = OR
-    def add_OR(self, value):
-        self.OR.append(value)
-    def insert_OR_at(self, index, value):
-        self.OR.insert(index, value)
-    def replace_OR_at(self, index, value):
-        self.OR[index] = value
-    def get_OPOR(self):
-        return self.OPOR
-    def set_OPOR(self, OPOR):
-        self.OPOR = OPOR
-    def add_OPOR(self, value):
-        self.OPOR.append(value)
-    def insert_OPOR_at(self, index, value):
-        self.OPOR.insert(index, value)
-    def replace_OPOR_at(self, index, value):
-        self.OPOR[index] = value
-    def get_IP(self):
-        return self.IP
-    def set_IP(self, IP):
-        self.IP = IP
-    def add_IP(self, value):
-        self.IP.append(value)
-    def insert_IP_at(self, index, value):
-        self.IP.insert(index, value)
-    def replace_IP_at(self, index, value):
-        self.IP[index] = value
-    def get_OPIP(self):
-        return self.OPIP
-    def set_OPIP(self, OPIP):
-        self.OPIP = OPIP
-    def add_OPIP(self, value):
-        self.OPIP.append(value)
-    def insert_OPIP_at(self, index, value):
-        self.OPIP.insert(index, value)
-    def replace_OPIP_at(self, index, value):
-        self.OPIP[index] = value
-    def get_PP(self):
-        return self.PP
-    def set_PP(self, PP):
-        self.PP = PP
-    def add_PP(self, value):
-        self.PP.append(value)
-    def insert_PP_at(self, index, value):
-        self.PP.insert(index, value)
-    def replace_PP_at(self, index, value):
-        self.PP[index] = value
-    def get_DT(self):
-        return self.DT
-    def set_DT(self, DT):
-        self.DT = DT
-    def add_DT(self, value):
-        self.DT.append(value)
-    def insert_DT_at(self, index, value):
-        self.DT.insert(index, value)
-    def replace_DT_at(self, index, value):
-        self.DT[index] = value
-    def get_OPDT(self):
-        return self.OPDT
-    def set_OPDT(self, OPDT):
-        self.OPDT = OPDT
-    def add_OPDT(self, value):
-        self.OPDT.append(value)
-    def insert_OPDT_at(self, index, value):
-        self.OPDT.insert(index, value)
-    def replace_OPDT_at(self, index, value):
-        self.OPDT[index] = value
-    def get_cancelReason(self):
-        return self.cancelReason
-    def set_cancelReason(self, cancelReason):
-        self.cancelReason = cancelReason
-    def get_rid(self):
-        return self.rid
-    def set_rid(self, rid):
-        self.rid = rid
-    def get_uid(self):
-        return self.uid
-    def set_uid(self, uid):
-        self.uid = uid
-    def get_trainId(self):
-        return self.trainId
-    def set_trainId(self, trainId):
-        self.trainId = trainId
-    def get_rsid(self):
-        return self.rsid
-    def set_rsid(self, rsid):
-        self.rsid = rsid
-    def get_ssd(self):
-        return self.ssd
-    def set_ssd(self, ssd):
-        self.ssd = ssd
-    def get_toc(self):
-        return self.toc
-    def set_toc(self, toc):
-        self.toc = toc
-    def get_status(self):
-        return self.status
-    def set_status(self, status):
-        self.status = status
-    def get_trainCat(self):
-        return self.trainCat
-    def set_trainCat(self, trainCat):
-        self.trainCat = trainCat
-    def get_isPassengerSvc(self):
-        return self.isPassengerSvc
-    def set_isPassengerSvc(self, isPassengerSvc):
-        self.isPassengerSvc = isPassengerSvc
-    def get_isActive(self):
-        return self.isActive
-    def set_isActive(self, isActive):
-        self.isActive = isActive
-    def get_deleted(self):
-        return self.deleted
-    def set_deleted(self, deleted):
-        self.deleted = deleted
-    def get_isCharter(self):
-        return self.isCharter
-    def set_isCharter(self, isCharter):
-        self.isCharter = isCharter
     def validate_RIDType(self, value):
         # Validate type ct:RIDType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -7918,6 +9526,266 @@ class Schedule8(GeneratedsSuper):
         if self.cancelReason is not None:
             namespaceprefix_ = self.cancelReason_nsprefix_ + ':' if (UseCapturedNS_ and self.cancelReason_nsprefix_) else ''
             self.cancelReason.export(outfile, level, namespaceprefix_, namespacedef_='', name_='cancelReason', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='Schedule8', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.rid is not None:
+            element.set('rid', self.gds_format_string(self.rid))
+        if self.uid is not None:
+            element.set('uid', self.gds_format_string(self.uid))
+        if self.trainId is not None:
+            element.set('trainId', self.gds_format_string(self.trainId))
+        if self.rsid is not None:
+            element.set('rsid', self.gds_format_string(self.rsid))
+        if self.ssd is not None:
+            element.set('ssd', self.gds_format_date(self.ssd))
+        if self.toc is not None:
+            element.set('toc', self.gds_format_string(self.toc))
+        if self.status is not None:
+            element.set('status', self.gds_format_string(self.status))
+        if self.trainCat is not None:
+            element.set('trainCat', self.gds_format_string(self.trainCat))
+        if self.isPassengerSvc is not None:
+            element.set('isPassengerSvc', self.gds_format_boolean(self.isPassengerSvc))
+        if self.isActive is not None:
+            element.set('isActive', self.gds_format_boolean(self.isActive))
+        if self.deleted is not None:
+            element.set('deleted', self.gds_format_boolean(self.deleted))
+        if self.isCharter is not None:
+            element.set('isCharter', self.gds_format_boolean(self.isCharter))
+        for OR_ in self.OR:
+            OR_.to_etree(element, name_='OR', mapping_=mapping_)
+        for OPOR_ in self.OPOR:
+            OPOR_.to_etree(element, name_='OPOR', mapping_=mapping_)
+        for IP_ in self.IP:
+            IP_.to_etree(element, name_='IP', mapping_=mapping_)
+        for OPIP_ in self.OPIP:
+            OPIP_.to_etree(element, name_='OPIP', mapping_=mapping_)
+        for PP_ in self.PP:
+            PP_.to_etree(element, name_='PP', mapping_=mapping_)
+        for DT_ in self.DT:
+            DT_.to_etree(element, name_='DT', mapping_=mapping_)
+        for OPDT_ in self.OPDT:
+            OPDT_.to_etree(element, name_='OPDT', mapping_=mapping_)
+        if self.cancelReason is not None:
+            cancelReason_ = self.cancelReason
+            cancelReason_.to_etree(element, name_='cancelReason', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='Schedule8'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.rid is not None and 'rid' not in already_processed:
+            already_processed.add('rid')
+            showIndent(outfile, level)
+            outfile.write('rid=%s,\n' % (self.rid,))
+        if self.uid is not None and 'uid' not in already_processed:
+            already_processed.add('uid')
+            showIndent(outfile, level)
+            outfile.write('uid=%s,\n' % (self.uid,))
+        if self.trainId is not None and 'trainId' not in already_processed:
+            already_processed.add('trainId')
+            showIndent(outfile, level)
+            outfile.write('trainId=%s,\n' % (self.trainId,))
+        if self.rsid is not None and 'rsid' not in already_processed:
+            already_processed.add('rsid')
+            showIndent(outfile, level)
+            outfile.write('rsid=%s,\n' % (self.rsid,))
+        if self.ssd is not None and 'ssd' not in already_processed:
+            already_processed.add('ssd')
+            showIndent(outfile, level)
+            outfile.write('ssd=%s,\n' % (self.ssd,))
+        if self.toc is not None and 'toc' not in already_processed:
+            already_processed.add('toc')
+            showIndent(outfile, level)
+            outfile.write('toc=%s,\n' % (self.toc,))
+        if self.status is not None and 'status' not in already_processed:
+            already_processed.add('status')
+            showIndent(outfile, level)
+            outfile.write('status=%s,\n' % (self.status,))
+        if self.trainCat is not None and 'trainCat' not in already_processed:
+            already_processed.add('trainCat')
+            showIndent(outfile, level)
+            outfile.write('trainCat=%s,\n' % (self.trainCat,))
+        if self.isPassengerSvc is not None and 'isPassengerSvc' not in already_processed:
+            already_processed.add('isPassengerSvc')
+            showIndent(outfile, level)
+            outfile.write('isPassengerSvc=%s,\n' % (self.isPassengerSvc,))
+        if self.isActive is not None and 'isActive' not in already_processed:
+            already_processed.add('isActive')
+            showIndent(outfile, level)
+            outfile.write('isActive=%s,\n' % (self.isActive,))
+        if self.deleted is not None and 'deleted' not in already_processed:
+            already_processed.add('deleted')
+            showIndent(outfile, level)
+            outfile.write('deleted=%s,\n' % (self.deleted,))
+        if self.isCharter is not None and 'isCharter' not in already_processed:
+            already_processed.add('isCharter')
+            showIndent(outfile, level)
+            outfile.write('isCharter=%s,\n' % (self.isCharter,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        showIndent(outfile, level)
+        outfile.write('OR=[\n')
+        level += 1
+        for OR_ in self.OR:
+            showIndent(outfile, level)
+            outfile.write('model_.OR1(\n')
+            OR_.exportLiteral(outfile, level, name_='OR1')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('OPOR=[\n')
+        level += 1
+        for OPOR_ in self.OPOR:
+            showIndent(outfile, level)
+            outfile.write('model_.OPOR2(\n')
+            OPOR_.exportLiteral(outfile, level, name_='OPOR2')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('IP=[\n')
+        level += 1
+        for IP_ in self.IP:
+            showIndent(outfile, level)
+            outfile.write('model_.IP3(\n')
+            IP_.exportLiteral(outfile, level, name_='IP3')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('OPIP=[\n')
+        level += 1
+        for OPIP_ in self.OPIP:
+            showIndent(outfile, level)
+            outfile.write('model_.OPIP4(\n')
+            OPIP_.exportLiteral(outfile, level, name_='OPIP4')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('PP=[\n')
+        level += 1
+        for PP_ in self.PP:
+            showIndent(outfile, level)
+            outfile.write('model_.PP5(\n')
+            PP_.exportLiteral(outfile, level, name_='PP5')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('DT=[\n')
+        level += 1
+        for DT_ in self.DT:
+            showIndent(outfile, level)
+            outfile.write('model_.DT6(\n')
+            DT_.exportLiteral(outfile, level, name_='DT6')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('OPDT=[\n')
+        level += 1
+        for OPDT_ in self.OPDT:
+            showIndent(outfile, level)
+            outfile.write('model_.OPDT7(\n')
+            OPDT_.exportLiteral(outfile, level, name_='OPDT7')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        if self.cancelReason is not None:
+            showIndent(outfile, level)
+            outfile.write('cancelReason=model_.DisruptionReasonType(\n')
+            self.cancelReason.exportLiteral(outfile, level, name_='cancelReason')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.Schedule8_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.rid is not None:
+            dbobj.rid = self.rid
+        if self.uid is not None:
+            dbobj.uid = self.uid
+        if self.trainId is not None:
+            dbobj.trainId = self.trainId
+        if self.rsid is not None:
+            dbobj.rsid = self.rsid
+        if self.ssd is not None:
+            dbobj.ssd = self.ssd
+        if self.toc is not None:
+            dbobj.toc = self.toc
+        if self.status is not None:
+            dbobj.status = self.status
+        if self.trainCat is not None:
+            dbobj.trainCat = self.trainCat
+        if self.isPassengerSvc is not None:
+            dbobj.isPassengerSvc = self.isPassengerSvc
+        if self.isActive is not None:
+            dbobj.isActive = self.isActive
+        if self.deleted is not None:
+            dbobj.deleted = self.deleted
+        if self.isCharter is not None:
+            dbobj.isCharter = self.isCharter
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        for child in self.OR:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.OR.append(child_dbobj)
+        for child in self.OPOR:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.OPOR.append(child_dbobj)
+        for child in self.IP:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.IP.append(child_dbobj)
+        for child in self.OPIP:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.OPIP.append(child_dbobj)
+        for child in self.PP:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.PP.append(child_dbobj)
+        for child in self.DT:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.DT.append(child_dbobj)
+        for child in self.OPDT:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.OPDT.append(child_dbobj)
+        if self.cancelReason is not None:
+            child_dbobj = self.cancelReason.exportSQLAlchemy(session)
+            dbobj.cancelReason = child_dbobj
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -8088,28 +9956,6 @@ class PlatformData(GeneratedsSuper):
         else:
             return PlatformData(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_platsup(self):
-        return self.platsup
-    def set_platsup(self, platsup):
-        self.platsup = platsup
-    def get_cisPlatsup(self):
-        return self.cisPlatsup
-    def set_cisPlatsup(self, cisPlatsup):
-        self.cisPlatsup = cisPlatsup
-    def get_platsrc(self):
-        return self.platsrc
-    def set_platsrc(self, platsrc):
-        self.platsrc = platsrc
-    def get_conf(self):
-        return self.conf
-    def set_conf(self, conf):
-        self.conf = conf
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             (1 if type(self.valueOf_) in [int,float] else self.valueOf_)
@@ -8154,6 +10000,77 @@ class PlatformData(GeneratedsSuper):
             already_processed.add('conf')
             outfile.write(' conf="%s"' % self.gds_format_boolean(self.conf, input_name='conf'))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='PlatformData', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='PlatformData', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.platsup is not None:
+            element.set('platsup', self.gds_format_boolean(self.platsup))
+        if self.cisPlatsup is not None:
+            element.set('cisPlatsup', self.gds_format_boolean(self.cisPlatsup))
+        if self.platsrc is not None:
+            element.set('platsrc', self.gds_format_string(self.platsrc))
+        if self.conf is not None:
+            element.set('conf', self.gds_format_boolean(self.conf))
+        if self.hasContent_():
+            element.text = self.gds_format_string(self.get_valueOf_())
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='PlatformData'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('valueOf_ = """%s""",\n' % (self.valueOf_,))
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.platsup is not None and 'platsup' not in already_processed:
+            already_processed.add('platsup')
+            showIndent(outfile, level)
+            outfile.write('platsup=%s,\n' % (self.platsup,))
+        if self.cisPlatsup is not None and 'cisPlatsup' not in already_processed:
+            already_processed.add('cisPlatsup')
+            showIndent(outfile, level)
+            outfile.write('cisPlatsup=%s,\n' % (self.cisPlatsup,))
+        if self.platsrc is not None and 'platsrc' not in already_processed:
+            already_processed.add('platsrc')
+            showIndent(outfile, level)
+            outfile.write('platsrc="%s",\n' % (self.platsrc,))
+        if self.conf is not None and 'conf' not in already_processed:
+            already_processed.add('conf')
+            showIndent(outfile, level)
+            outfile.write('conf=%s,\n' % (self.conf,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.PlatformData_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.platsup is not None:
+            dbobj.platsup = self.platsup
+        if self.cisPlatsup is not None:
+            dbobj.cisPlatsup = self.cisPlatsup
+        if self.platsrc is not None:
+            dbobj.platsrc = self.platsrc
+        if self.conf is not None:
+            dbobj.conf = self.conf
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -8271,50 +10188,6 @@ class TSTimeData(GeneratedsSuper):
         else:
             return TSTimeData(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_et(self):
-        return self.et
-    def set_et(self, et):
-        self.et = et
-    def get_wet(self):
-        return self.wet
-    def set_wet(self, wet):
-        self.wet = wet
-    def get_at(self):
-        return self.at
-    def set_at(self, at):
-        self.at = at
-    def get_atRemoved(self):
-        return self.atRemoved
-    def set_atRemoved(self, atRemoved):
-        self.atRemoved = atRemoved
-    def get_atClass(self):
-        return self.atClass
-    def set_atClass(self, atClass):
-        self.atClass = atClass
-    def get_etmin(self):
-        return self.etmin
-    def set_etmin(self, etmin):
-        self.etmin = etmin
-    def get_etUnknown(self):
-        return self.etUnknown
-    def set_etUnknown(self, etUnknown):
-        self.etUnknown = etUnknown
-    def get_delayed(self):
-        return self.delayed
-    def set_delayed(self, delayed):
-        self.delayed = delayed
-    def get_src(self):
-        return self.src
-    def set_src(self, src):
-        self.src = src
-    def get_srcInst(self):
-        return self.srcInst
-    def set_srcInst(self, srcInst):
-        self.srcInst = srcInst
     def validate_RTTITimeType(self, value):
         # Validate type ct:RTTITimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -8398,6 +10271,121 @@ class TSTimeData(GeneratedsSuper):
             already_processed.add('srcInst')
             outfile.write(' srcInst=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.srcInst), input_name='srcInst')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='TSTimeData', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='TSTimeData', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.et is not None:
+            element.set('et', self.gds_format_string(self.et))
+        if self.wet is not None:
+            element.set('wet', self.gds_format_string(self.wet))
+        if self.at is not None:
+            element.set('at', self.gds_format_string(self.at))
+        if self.atRemoved is not None:
+            element.set('atRemoved', self.gds_format_boolean(self.atRemoved))
+        if self.atClass is not None:
+            element.set('atClass', self.gds_format_string(self.atClass))
+        if self.etmin is not None:
+            element.set('etmin', self.gds_format_string(self.etmin))
+        if self.etUnknown is not None:
+            element.set('etUnknown', self.gds_format_boolean(self.etUnknown))
+        if self.delayed is not None:
+            element.set('delayed', self.gds_format_boolean(self.delayed))
+        if self.src is not None:
+            element.set('src', self.gds_format_string(self.src))
+        if self.srcInst is not None:
+            element.set('srcInst', self.gds_format_string(self.srcInst))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='TSTimeData'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.et is not None and 'et' not in already_processed:
+            already_processed.add('et')
+            showIndent(outfile, level)
+            outfile.write('et=%s,\n' % (self.et,))
+        if self.wet is not None and 'wet' not in already_processed:
+            already_processed.add('wet')
+            showIndent(outfile, level)
+            outfile.write('wet=%s,\n' % (self.wet,))
+        if self.at is not None and 'at' not in already_processed:
+            already_processed.add('at')
+            showIndent(outfile, level)
+            outfile.write('at=%s,\n' % (self.at,))
+        if self.atRemoved is not None and 'atRemoved' not in already_processed:
+            already_processed.add('atRemoved')
+            showIndent(outfile, level)
+            outfile.write('atRemoved=%s,\n' % (self.atRemoved,))
+        if self.atClass is not None and 'atClass' not in already_processed:
+            already_processed.add('atClass')
+            showIndent(outfile, level)
+            outfile.write('atClass="%s",\n' % (self.atClass,))
+        if self.etmin is not None and 'etmin' not in already_processed:
+            already_processed.add('etmin')
+            showIndent(outfile, level)
+            outfile.write('etmin=%s,\n' % (self.etmin,))
+        if self.etUnknown is not None and 'etUnknown' not in already_processed:
+            already_processed.add('etUnknown')
+            showIndent(outfile, level)
+            outfile.write('etUnknown=%s,\n' % (self.etUnknown,))
+        if self.delayed is not None and 'delayed' not in already_processed:
+            already_processed.add('delayed')
+            showIndent(outfile, level)
+            outfile.write('delayed=%s,\n' % (self.delayed,))
+        if self.src is not None and 'src' not in already_processed:
+            already_processed.add('src')
+            showIndent(outfile, level)
+            outfile.write('src="%s",\n' % (self.src,))
+        if self.srcInst is not None and 'srcInst' not in already_processed:
+            already_processed.add('srcInst')
+            showIndent(outfile, level)
+            outfile.write('srcInst=%s,\n' % (self.srcInst,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.TSTimeData_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.et is not None:
+            dbobj.et = self.et
+        if self.wet is not None:
+            dbobj.wet = self.wet
+        if self.at is not None:
+            dbobj.at = self.at
+        if self.atRemoved is not None:
+            dbobj.atRemoved = self.atRemoved
+        if self.atClass is not None:
+            dbobj.atClass = self.atClass
+        if self.etmin is not None:
+            dbobj.etmin = self.etmin
+        if self.etUnknown is not None:
+            dbobj.etUnknown = self.etUnknown
+        if self.delayed is not None:
+            dbobj.delayed = self.delayed
+        if self.src is not None:
+            dbobj.src = self.src
+        if self.srcInst is not None:
+            dbobj.srcInst = self.srcInst
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -8526,62 +10514,6 @@ class TSLocation(GeneratedsSuper):
         else:
             return TSLocation(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_arr(self):
-        return self.arr
-    def set_arr(self, arr):
-        self.arr = arr
-    def get_dep(self):
-        return self.dep
-    def set_dep(self, dep):
-        self.dep = dep
-    def get_pass(self):
-        return self.pass_
-    def set_pass(self, pass_):
-        self.pass_ = pass_
-    def get_plat(self):
-        return self.plat
-    def set_plat(self, plat):
-        self.plat = plat
-    def get_suppr(self):
-        return self.suppr
-    def set_suppr(self, suppr):
-        self.suppr = suppr
-    def get_length(self):
-        return self.length
-    def set_length(self, length):
-        self.length = length
-    def get_detachFront(self):
-        return self.detachFront
-    def set_detachFront(self, detachFront):
-        self.detachFront = detachFront
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_wtp(self):
-        return self.wtp
-    def set_wtp(self, wtp):
-        self.wtp = wtp
-    def get_pta(self):
-        return self.pta
-    def set_pta(self, pta):
-        self.pta = pta
-    def get_ptd(self):
-        return self.ptd
-    def set_ptd(self, ptd):
-        self.ptd = ptd
     def validate_TrainLengthType(self, value):
         result = True
         # Validate type TrainLengthType, a restriction on xs:unsignedShort.
@@ -8716,6 +10648,159 @@ class TSLocation(GeneratedsSuper):
             namespaceprefix_ = self.detachFront_nsprefix_ + ':' if (UseCapturedNS_ and self.detachFront_nsprefix_) else ''
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sdetachFront>%s</%sdetachFront>%s' % (namespaceprefix_ , self.gds_format_boolean(self.detachFront, input_name='detachFront'), namespaceprefix_ , eol_))
+    def to_etree(self, parent_element=None, name_='TSLocation', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.wtp is not None:
+            element.set('wtp', self.gds_format_string(self.wtp))
+        if self.pta is not None:
+            element.set('pta', self.gds_format_string(self.pta))
+        if self.ptd is not None:
+            element.set('ptd', self.gds_format_string(self.ptd))
+        if self.arr is not None:
+            arr_ = self.arr
+            arr_.to_etree(element, name_='arr', mapping_=mapping_)
+        if self.dep is not None:
+            dep_ = self.dep
+            dep_.to_etree(element, name_='dep', mapping_=mapping_)
+        if self.pass_ is not None:
+            pass__ = self.pass_
+            pass__.to_etree(element, name_='pass', mapping_=mapping_)
+        if self.plat is not None:
+            plat_ = self.plat
+            plat_.to_etree(element, name_='plat', mapping_=mapping_)
+        if self.suppr is not None:
+            suppr_ = self.suppr
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}suppr').text = self.gds_format_boolean(suppr_)
+        if self.length is not None:
+            length_ = self.length
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}length').text = self.gds_format_integer(length_)
+        if self.detachFront is not None:
+            detachFront_ = self.detachFront
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}detachFront').text = self.gds_format_boolean(detachFront_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='TSLocation'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.wtp is not None and 'wtp' not in already_processed:
+            already_processed.add('wtp')
+            showIndent(outfile, level)
+            outfile.write('wtp=%s,\n' % (self.wtp,))
+        if self.pta is not None and 'pta' not in already_processed:
+            already_processed.add('pta')
+            showIndent(outfile, level)
+            outfile.write('pta=%s,\n' % (self.pta,))
+        if self.ptd is not None and 'ptd' not in already_processed:
+            already_processed.add('ptd')
+            showIndent(outfile, level)
+            outfile.write('ptd=%s,\n' % (self.ptd,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        if self.arr is not None:
+            showIndent(outfile, level)
+            outfile.write('arr=model_.TSTimeData(\n')
+            self.arr.exportLiteral(outfile, level, name_='arr')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.dep is not None:
+            showIndent(outfile, level)
+            outfile.write('dep=model_.TSTimeData(\n')
+            self.dep.exportLiteral(outfile, level, name_='dep')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.pass_ is not None:
+            showIndent(outfile, level)
+            outfile.write('pass_=model_.TSTimeData(\n')
+            self.pass_.exportLiteral(outfile, level, name_='pass')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.plat is not None:
+            showIndent(outfile, level)
+            outfile.write('plat=model_.PlatformData(\n')
+            self.plat.exportLiteral(outfile, level, name_='plat')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.suppr is not None:
+            showIndent(outfile, level)
+            outfile.write('suppr=%s,\n' % self.suppr)
+        if self.length is not None:
+            showIndent(outfile, level)
+            outfile.write('length=%d,\n' % self.length)
+        if self.detachFront is not None:
+            showIndent(outfile, level)
+            outfile.write('detachFront=%s,\n' % self.detachFront)
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.TSLocation_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.wtp is not None:
+            dbobj.wtp = self.wtp
+        if self.pta is not None:
+            dbobj.pta = self.pta
+        if self.ptd is not None:
+            dbobj.ptd = self.ptd
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        if self.arr is not None:
+            child_dbobj = self.arr.exportSQLAlchemy(session)
+            dbobj.arr = child_dbobj
+        if self.dep is not None:
+            child_dbobj = self.dep.exportSQLAlchemy(session)
+            dbobj.dep = child_dbobj
+        if self.pass_ is not None:
+            child_dbobj = self.pass_.exportSQLAlchemy(session)
+            dbobj.pass_x = child_dbobj
+        if self.plat is not None:
+            child_dbobj = self.plat.exportSQLAlchemy(session)
+            dbobj.plat = child_dbobj
+        if self.suppr is not None:
+            dbobj.suppr = self.suppr
+        if self.length is not None:
+            dbobj.length = self.length
+        if self.detachFront is not None:
+            dbobj.detachFront = self.detachFront
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -8843,40 +10928,6 @@ class TS(GeneratedsSuper):
         else:
             return TS(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_LateReason(self):
-        return self.LateReason
-    def set_LateReason(self, LateReason):
-        self.LateReason = LateReason
-    def get_Location(self):
-        return self.Location
-    def set_Location(self, Location):
-        self.Location = Location
-    def add_Location(self, value):
-        self.Location.append(value)
-    def insert_Location_at(self, index, value):
-        self.Location.insert(index, value)
-    def replace_Location_at(self, index, value):
-        self.Location[index] = value
-    def get_rid(self):
-        return self.rid
-    def set_rid(self, rid):
-        self.rid = rid
-    def get_uid(self):
-        return self.uid
-    def set_uid(self, uid):
-        self.uid = uid
-    def get_ssd(self):
-        return self.ssd
-    def set_ssd(self, ssd):
-        self.ssd = ssd
-    def get_isReverseFormation(self):
-        return self.isReverseFormation
-    def set_isReverseFormation(self, isReverseFormation):
-        self.isReverseFormation = isReverseFormation
     def validate_RIDType(self, value):
         # Validate type ct:RIDType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -8962,6 +11013,100 @@ class TS(GeneratedsSuper):
         for Location_ in self.Location:
             namespaceprefix_ = self.Location_nsprefix_ + ':' if (UseCapturedNS_ and self.Location_nsprefix_) else ''
             Location_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='Location', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='TS', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.rid is not None:
+            element.set('rid', self.gds_format_string(self.rid))
+        if self.uid is not None:
+            element.set('uid', self.gds_format_string(self.uid))
+        if self.ssd is not None:
+            element.set('ssd', self.gds_format_date(self.ssd))
+        if self.isReverseFormation is not None:
+            element.set('isReverseFormation', self.gds_format_boolean(self.isReverseFormation))
+        if self.LateReason is not None:
+            LateReason_ = self.LateReason
+            LateReason_.to_etree(element, name_='LateReason', mapping_=mapping_)
+        for Location_ in self.Location:
+            Location_.to_etree(element, name_='Location', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='TS'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.rid is not None and 'rid' not in already_processed:
+            already_processed.add('rid')
+            showIndent(outfile, level)
+            outfile.write('rid=%s,\n' % (self.rid,))
+        if self.uid is not None and 'uid' not in already_processed:
+            already_processed.add('uid')
+            showIndent(outfile, level)
+            outfile.write('uid=%s,\n' % (self.uid,))
+        if self.ssd is not None and 'ssd' not in already_processed:
+            already_processed.add('ssd')
+            showIndent(outfile, level)
+            outfile.write('ssd=%s,\n' % (self.ssd,))
+        if self.isReverseFormation is not None and 'isReverseFormation' not in already_processed:
+            already_processed.add('isReverseFormation')
+            showIndent(outfile, level)
+            outfile.write('isReverseFormation=%s,\n' % (self.isReverseFormation,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        if self.LateReason is not None:
+            showIndent(outfile, level)
+            outfile.write('LateReason=model_.DisruptionReasonType(\n')
+            self.LateReason.exportLiteral(outfile, level, name_='LateReason')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        showIndent(outfile, level)
+        outfile.write('Location=[\n')
+        level += 1
+        for Location_ in self.Location:
+            showIndent(outfile, level)
+            outfile.write('model_.TSLocation(\n')
+            Location_.exportLiteral(outfile, level, name_='TSLocation')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.TS_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.rid is not None:
+            dbobj.rid = self.rid
+        if self.uid is not None:
+            dbobj.uid = self.uid
+        if self.ssd is not None:
+            dbobj.ssd = self.ssd
+        if self.isReverseFormation is not None:
+            dbobj.isReverseFormation = self.isReverseFormation
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        if self.LateReason is not None:
+            child_dbobj = self.LateReason.exportSQLAlchemy(session)
+            dbobj.LateReason = child_dbobj
+        for child in self.Location:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.Location.append(child_dbobj)
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -9042,18 +11187,6 @@ class TrainOrderItem(GeneratedsSuper):
         else:
             return TrainOrderItem(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_rid(self):
-        return self.rid
-    def set_rid(self, rid):
-        self.rid = rid
-    def get_trainID(self):
-        return self.trainID
-    def set_trainID(self, trainID):
-        self.trainID = trainID
     def validate_TrainIdType(self, value):
         result = True
         # Validate type TrainIdType, a restriction on xs:string.
@@ -9117,6 +11250,61 @@ class TrainOrderItem(GeneratedsSuper):
             namespaceprefix_ = self.trainID_nsprefix_ + ':' if (UseCapturedNS_ and self.trainID_nsprefix_) else ''
             showIndent(outfile, level, pretty_print)
             outfile.write('<%strainID>%s</%strainID>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.trainID), input_name='trainID')), namespaceprefix_ , eol_))
+    def to_etree(self, parent_element=None, name_='TrainOrderItem', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.rid is not None:
+            rid_ = self.rid
+            rid_.to_etree(element, name_='rid', mapping_=mapping_)
+        if self.trainID is not None:
+            trainID_ = self.trainID
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}trainID').text = self.gds_format_string(trainID_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='TrainOrderItem'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        if self.rid is not None:
+            showIndent(outfile, level)
+            outfile.write('rid=model_.ridType(\n')
+            self.rid.exportLiteral(outfile, level, name_='rid')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.trainID is not None:
+            showIndent(outfile, level)
+            outfile.write('trainID=%s,\n' % self.gds_encode(quote_python(self.trainID)))
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.TrainOrderItem_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        if self.rid is not None:
+            child_dbobj = self.rid.exportSQLAlchemy(session)
+            dbobj.rid = child_dbobj
+        if self.trainID is not None:
+            dbobj.trainID = self.trainID
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -9175,22 +11363,6 @@ class TrainOrderData(GeneratedsSuper):
         else:
             return TrainOrderData(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_first(self):
-        return self.first
-    def set_first(self, first):
-        self.first = first
-    def get_second(self):
-        return self.second
-    def set_second(self, second):
-        self.second = second
-    def get_third(self):
-        return self.third
-    def set_third(self, third):
-        self.third = third
     def hasContent_(self):
         if (
             self.first is not None or
@@ -9239,6 +11411,77 @@ class TrainOrderData(GeneratedsSuper):
         if self.third is not None:
             namespaceprefix_ = self.third_nsprefix_ + ':' if (UseCapturedNS_ and self.third_nsprefix_) else ''
             self.third.export(outfile, level, namespaceprefix_, namespacedef_='', name_='third', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='TrainOrderData', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.first is not None:
+            first_ = self.first
+            first_.to_etree(element, name_='first', mapping_=mapping_)
+        if self.second is not None:
+            second_ = self.second
+            second_.to_etree(element, name_='second', mapping_=mapping_)
+        if self.third is not None:
+            third_ = self.third
+            third_.to_etree(element, name_='third', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='TrainOrderData'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        if self.first is not None:
+            showIndent(outfile, level)
+            outfile.write('first=model_.TrainOrderItem(\n')
+            self.first.exportLiteral(outfile, level, name_='first')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.second is not None:
+            showIndent(outfile, level)
+            outfile.write('second=model_.TrainOrderItem(\n')
+            self.second.exportLiteral(outfile, level, name_='second')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.third is not None:
+            showIndent(outfile, level)
+            outfile.write('third=model_.TrainOrderItem(\n')
+            self.third.exportLiteral(outfile, level, name_='third')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.TrainOrderData_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        if self.first is not None:
+            child_dbobj = self.first.exportSQLAlchemy(session)
+            dbobj.first = child_dbobj
+        if self.second is not None:
+            child_dbobj = self.second.exportSQLAlchemy(session)
+            dbobj.second = child_dbobj
+        if self.third is not None:
+            child_dbobj = self.third.exportSQLAlchemy(session)
+            dbobj.third = child_dbobj
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -9305,30 +11548,6 @@ class TrainOrder(GeneratedsSuper):
         else:
             return TrainOrder(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_set(self):
-        return self.set
-    def set_set(self, set):
-        self.set = set
-    def get_clear(self):
-        return self.clear
-    def set_clear(self, clear):
-        self.clear = clear
-    def get_tiploc(self):
-        return self.tiploc
-    def set_tiploc(self, tiploc):
-        self.tiploc = tiploc
-    def get_crs(self):
-        return self.crs
-    def set_crs(self, crs):
-        self.crs = crs
-    def get_platform(self):
-        return self.platform
-    def set_platform(self, platform):
-        self.platform = platform
     def validate_TiplocType(self, value):
         # Validate type ct:TiplocType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -9423,6 +11642,83 @@ class TrainOrder(GeneratedsSuper):
             namespaceprefix_ = self.clear_nsprefix_ + ':' if (UseCapturedNS_ and self.clear_nsprefix_) else ''
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sclear>%s</%sclear>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.clear), input_name='clear')), namespaceprefix_ , eol_))
+    def to_etree(self, parent_element=None, name_='TrainOrder', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.tiploc is not None:
+            element.set('tiploc', self.gds_format_string(self.tiploc))
+        if self.crs is not None:
+            element.set('crs', self.gds_format_string(self.crs))
+        if self.platform is not None:
+            element.set('platform', self.gds_format_string(self.platform))
+        if self.set is not None:
+            set_ = self.set
+            set_.to_etree(element, name_='set', mapping_=mapping_)
+        if self.clear is not None:
+            clear_ = self.clear
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}clear').text = self.gds_format_string(clear_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='TrainOrder'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.tiploc is not None and 'tiploc' not in already_processed:
+            already_processed.add('tiploc')
+            showIndent(outfile, level)
+            outfile.write('tiploc=%s,\n' % (self.tiploc,))
+        if self.crs is not None and 'crs' not in already_processed:
+            already_processed.add('crs')
+            showIndent(outfile, level)
+            outfile.write('crs=%s,\n' % (self.crs,))
+        if self.platform is not None and 'platform' not in already_processed:
+            already_processed.add('platform')
+            showIndent(outfile, level)
+            outfile.write('platform=%s,\n' % (self.platform,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        if self.set is not None:
+            showIndent(outfile, level)
+            outfile.write('set=model_.TrainOrderData(\n')
+            self.set.exportLiteral(outfile, level, name_='set')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.clear is not None:
+            showIndent(outfile, level)
+            outfile.write('clear=%s,\n' % self.gds_encode(quote_python(self.clear)))
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.TrainOrder_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.tiploc is not None:
+            dbobj.tiploc = self.tiploc
+        if self.crs is not None:
+            dbobj.crs = self.crs
+        if self.platform is not None:
+            dbobj.platform = self.platform
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        if self.set is not None:
+            child_dbobj = self.set.exportSQLAlchemy(session)
+            dbobj.set = child_dbobj
+        if self.clear is not None:
+            dbobj.clear = self.clear
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -9487,10 +11783,6 @@ class clear(GeneratedsSuper):
         else:
             return clear(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
     def hasContent_(self):
         if (
 
@@ -9523,6 +11815,43 @@ class clear(GeneratedsSuper):
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='clear'):
         pass
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='clear', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='clear', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='clear'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.clear_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -9581,40 +11910,6 @@ class StationMessage(GeneratedsSuper):
         else:
             return StationMessage(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Station(self):
-        return self.Station
-    def set_Station(self, Station):
-        self.Station = Station
-    def add_Station(self, value):
-        self.Station.append(value)
-    def insert_Station_at(self, index, value):
-        self.Station.insert(index, value)
-    def replace_Station_at(self, index, value):
-        self.Station[index] = value
-    def get_Msg(self):
-        return self.Msg
-    def set_Msg(self, Msg):
-        self.Msg = Msg
-    def get_id(self):
-        return self.id
-    def set_id(self, id):
-        self.id = id
-    def get_cat(self):
-        return self.cat
-    def set_cat(self, cat):
-        self.cat = cat
-    def get_sev(self):
-        return self.sev
-    def set_sev(self, sev):
-        self.sev = sev
-    def get_suppress(self):
-        return self.suppress
-    def set_suppress(self, suppress):
-        self.suppress = suppress
     def validate_MsgCategoryType(self, value):
         # Validate type tns:MsgCategoryType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -9696,6 +11991,100 @@ class StationMessage(GeneratedsSuper):
         if self.Msg is not None:
             namespaceprefix_ = self.Msg_nsprefix_ + ':' if (UseCapturedNS_ and self.Msg_nsprefix_) else ''
             self.Msg.export(outfile, level, namespaceprefix_, namespacedef_='', name_='Msg', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='StationMessage', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.id is not None:
+            element.set('id', self.gds_format_integer(self.id))
+        if self.cat is not None:
+            element.set('cat', self.gds_format_string(self.cat))
+        if self.sev is not None:
+            element.set('sev', self.gds_format_string(self.sev))
+        if self.suppress is not None:
+            element.set('suppress', self.gds_format_boolean(self.suppress))
+        for Station_ in self.Station:
+            Station_.to_etree(element, name_='Station', mapping_=mapping_)
+        if self.Msg is not None:
+            Msg_ = self.Msg
+            Msg_.to_etree(element, name_='Msg', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='StationMessage'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.id is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            showIndent(outfile, level)
+            outfile.write('id=%d,\n' % (self.id,))
+        if self.cat is not None and 'cat' not in already_processed:
+            already_processed.add('cat')
+            showIndent(outfile, level)
+            outfile.write('cat=%s,\n' % (self.cat,))
+        if self.sev is not None and 'sev' not in already_processed:
+            already_processed.add('sev')
+            showIndent(outfile, level)
+            outfile.write('sev=%s,\n' % (self.sev,))
+        if self.suppress is not None and 'suppress' not in already_processed:
+            already_processed.add('suppress')
+            showIndent(outfile, level)
+            outfile.write('suppress=%s,\n' % (self.suppress,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        showIndent(outfile, level)
+        outfile.write('Station=[\n')
+        level += 1
+        for Station_ in self.Station:
+            showIndent(outfile, level)
+            outfile.write('model_.StationType(\n')
+            Station_.exportLiteral(outfile, level, name_='StationType')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        if self.Msg is not None:
+            showIndent(outfile, level)
+            outfile.write('Msg=model_.MsgType(\n')
+            self.Msg.exportLiteral(outfile, level, name_='Msg')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.StationMessage_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.id is not None:
+            dbobj.id_x = self.id
+        if self.cat is not None:
+            dbobj.cat = self.cat
+        if self.sev is not None:
+            dbobj.sev = self.sev
+        if self.suppress is not None:
+            dbobj.suppress = self.suppress
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        for child in self.Station:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.Station.append(child_dbobj)
+        if self.Msg is not None:
+            child_dbobj = self.Msg.exportSQLAlchemy(session)
+            dbobj.Msg = child_dbobj
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -9782,22 +12171,6 @@ class p(GeneratedsSuper):
         else:
             return p(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_a(self):
-        return self.a
-    def set_a(self, a):
-        self.a = a
-    def add_a(self, value):
-        self.a.append(value)
-    def insert_a_at(self, index, value):
-        self.a.insert(index, value)
-    def replace_a_at(self, index, value):
-        self.a[index] = value
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.a or
@@ -9842,6 +12215,55 @@ class p(GeneratedsSuper):
         for a_ in self.a:
             namespaceprefix_ = self.a_nsprefix_ + ':' if (UseCapturedNS_ and self.a_nsprefix_) else ''
             a_.export(outfile, level, namespaceprefix_='tns:', namespacedef_='', name_='a', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='p', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        for item_ in self.content_:
+            item_.to_etree(element)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='p'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('valueOf_ = """%s""",\n' % (self.valueOf_,))
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        showIndent(outfile, level)
+        outfile.write('content_ = [\n')
+        for item_ in self.content_:
+            item_.exportLiteral(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.p_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        for child in self.a:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.a.append(child_dbobj)
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -9903,16 +12325,6 @@ class a(GeneratedsSuper):
         else:
             return a(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_href(self):
-        return self.href
-    def set_href(self, href):
-        self.href = href
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             (1 if type(self.valueOf_) in [int,float] else self.valueOf_)
@@ -9948,6 +12360,53 @@ class a(GeneratedsSuper):
             already_processed.add('href')
             outfile.write(' href=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.href), input_name='href')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='a', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='a', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.href is not None:
+            element.set('href', self.gds_format_string(self.href))
+        if self.hasContent_():
+            element.text = self.gds_format_string(self.get_valueOf_())
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='a'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('valueOf_ = """%s""",\n' % (self.valueOf_,))
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.href is not None and 'href' not in already_processed:
+            already_processed.add('href')
+            showIndent(outfile, level)
+            outfile.write('href="%s",\n' % (self.href,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.a_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.href is not None:
+            dbobj.href = self.href
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -10017,54 +12476,6 @@ class TrainAlert(GeneratedsSuper):
         else:
             return TrainAlert(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_AlertID(self):
-        return self.AlertID
-    def set_AlertID(self, AlertID):
-        self.AlertID = AlertID
-    def get_AlertServices(self):
-        return self.AlertServices
-    def set_AlertServices(self, AlertServices):
-        self.AlertServices = AlertServices
-    def get_SendAlertBySMS(self):
-        return self.SendAlertBySMS
-    def set_SendAlertBySMS(self, SendAlertBySMS):
-        self.SendAlertBySMS = SendAlertBySMS
-    def get_SendAlertByEmail(self):
-        return self.SendAlertByEmail
-    def set_SendAlertByEmail(self, SendAlertByEmail):
-        self.SendAlertByEmail = SendAlertByEmail
-    def get_SendAlertByTwitter(self):
-        return self.SendAlertByTwitter
-    def set_SendAlertByTwitter(self, SendAlertByTwitter):
-        self.SendAlertByTwitter = SendAlertByTwitter
-    def get_Source(self):
-        return self.Source
-    def set_Source(self, Source):
-        self.Source = Source
-    def get_AlertText(self):
-        return self.AlertText
-    def set_AlertText(self, AlertText):
-        self.AlertText = AlertText
-    def get_Audience(self):
-        return self.Audience
-    def set_Audience(self, Audience):
-        self.Audience = Audience
-    def get_AlertType(self):
-        return self.AlertType
-    def set_AlertType(self, AlertType):
-        self.AlertType = AlertType
-    def get_CopiedFromAlertID(self):
-        return self.CopiedFromAlertID
-    def set_CopiedFromAlertID(self, CopiedFromAlertID):
-        self.CopiedFromAlertID = CopiedFromAlertID
-    def get_CopiedFromSource(self):
-        return self.CopiedFromSource
-    def set_CopiedFromSource(self, CopiedFromSource):
-        self.CopiedFromSource = CopiedFromSource
     def validate_AlertAudienceType(self, value):
         result = True
         # Validate type AlertAudienceType, a restriction on xs:string.
@@ -10185,6 +12596,133 @@ class TrainAlert(GeneratedsSuper):
             namespaceprefix_ = self.CopiedFromSource_nsprefix_ + ':' if (UseCapturedNS_ and self.CopiedFromSource_nsprefix_) else ''
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sCopiedFromSource>%s</%sCopiedFromSource>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.CopiedFromSource), input_name='CopiedFromSource')), namespaceprefix_ , eol_))
+    def to_etree(self, parent_element=None, name_='TrainAlert', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.AlertID is not None:
+            AlertID_ = self.AlertID
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}AlertID').text = self.gds_format_string(AlertID_)
+        if self.AlertServices is not None:
+            AlertServices_ = self.AlertServices
+            AlertServices_.to_etree(element, name_='AlertServices', mapping_=mapping_)
+        if self.SendAlertBySMS is not None:
+            SendAlertBySMS_ = self.SendAlertBySMS
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}SendAlertBySMS').text = self.gds_format_boolean(SendAlertBySMS_)
+        if self.SendAlertByEmail is not None:
+            SendAlertByEmail_ = self.SendAlertByEmail
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}SendAlertByEmail').text = self.gds_format_boolean(SendAlertByEmail_)
+        if self.SendAlertByTwitter is not None:
+            SendAlertByTwitter_ = self.SendAlertByTwitter
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}SendAlertByTwitter').text = self.gds_format_boolean(SendAlertByTwitter_)
+        if self.Source is not None:
+            Source_ = self.Source
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}Source').text = self.gds_format_string(Source_)
+        if self.AlertText is not None:
+            AlertText_ = self.AlertText
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}AlertText').text = self.gds_format_string(AlertText_)
+        if self.Audience is not None:
+            Audience_ = self.Audience
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}Audience').text = self.gds_format_string(Audience_)
+        if self.AlertType is not None:
+            AlertType_ = self.AlertType
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}AlertType').text = self.gds_format_string(AlertType_)
+        if self.CopiedFromAlertID is not None:
+            CopiedFromAlertID_ = self.CopiedFromAlertID
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}CopiedFromAlertID').text = self.gds_format_string(CopiedFromAlertID_)
+        if self.CopiedFromSource is not None:
+            CopiedFromSource_ = self.CopiedFromSource
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}CopiedFromSource').text = self.gds_format_string(CopiedFromSource_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='TrainAlert'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        if self.AlertID is not None:
+            showIndent(outfile, level)
+            outfile.write('AlertID=%s,\n' % self.gds_encode(quote_python(self.AlertID)))
+        if self.AlertServices is not None:
+            showIndent(outfile, level)
+            outfile.write('AlertServices=model_.AlertServices(\n')
+            self.AlertServices.exportLiteral(outfile, level)
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.SendAlertBySMS is not None:
+            showIndent(outfile, level)
+            outfile.write('SendAlertBySMS=%s,\n' % self.SendAlertBySMS)
+        if self.SendAlertByEmail is not None:
+            showIndent(outfile, level)
+            outfile.write('SendAlertByEmail=%s,\n' % self.SendAlertByEmail)
+        if self.SendAlertByTwitter is not None:
+            showIndent(outfile, level)
+            outfile.write('SendAlertByTwitter=%s,\n' % self.SendAlertByTwitter)
+        if self.Source is not None:
+            showIndent(outfile, level)
+            outfile.write('Source=%s,\n' % self.gds_encode(quote_python(self.Source)))
+        if self.AlertText is not None:
+            showIndent(outfile, level)
+            outfile.write('AlertText=%s,\n' % self.gds_encode(quote_python(self.AlertText)))
+        if self.Audience is not None:
+            showIndent(outfile, level)
+            outfile.write('Audience=%s,\n' % self.gds_encode(quote_python(self.Audience)))
+        if self.AlertType is not None:
+            showIndent(outfile, level)
+            outfile.write('AlertType=%s,\n' % self.gds_encode(quote_python(self.AlertType)))
+        if self.CopiedFromAlertID is not None:
+            showIndent(outfile, level)
+            outfile.write('CopiedFromAlertID=%s,\n' % self.gds_encode(quote_python(self.CopiedFromAlertID)))
+        if self.CopiedFromSource is not None:
+            showIndent(outfile, level)
+            outfile.write('CopiedFromSource=%s,\n' % self.gds_encode(quote_python(self.CopiedFromSource)))
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.TrainAlert_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        if self.AlertID is not None:
+            dbobj.AlertID = self.AlertID
+        if self.AlertServices is not None:
+            child_dbobj = self.AlertServices.exportSQLAlchemy(session)
+            dbobj.AlertServices = child_dbobj
+        if self.SendAlertBySMS is not None:
+            dbobj.SendAlertBySMS = self.SendAlertBySMS
+        if self.SendAlertByEmail is not None:
+            dbobj.SendAlertByEmail = self.SendAlertByEmail
+        if self.SendAlertByTwitter is not None:
+            dbobj.SendAlertByTwitter = self.SendAlertByTwitter
+        if self.Source is not None:
+            dbobj.Source = self.Source
+        if self.AlertText is not None:
+            dbobj.AlertText = self.AlertText
+        if self.Audience is not None:
+            dbobj.Audience = self.Audience
+        if self.AlertType is not None:
+            dbobj.AlertType = self.AlertType
+        if self.CopiedFromAlertID is not None:
+            dbobj.CopiedFromAlertID = self.CopiedFromAlertID
+        if self.CopiedFromSource is not None:
+            dbobj.CopiedFromSource = self.CopiedFromSource
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -10307,32 +12845,6 @@ class AlertService(GeneratedsSuper):
         else:
             return AlertService(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_Location(self):
-        return self.Location
-    def set_Location(self, Location):
-        self.Location = Location
-    def add_Location(self, value):
-        self.Location.append(value)
-    def insert_Location_at(self, index, value):
-        self.Location.insert(index, value)
-    def replace_Location_at(self, index, value):
-        self.Location[index] = value
-    def get_RID(self):
-        return self.RID
-    def set_RID(self, RID):
-        self.RID = RID
-    def get_UID(self):
-        return self.UID
-    def set_UID(self, UID):
-        self.UID = UID
-    def get_SSD(self):
-        return self.SSD
-    def set_SSD(self, SSD):
-        self.SSD = SSD
     def validate_RIDType(self, value):
         # Validate type ct:RIDType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -10404,6 +12916,75 @@ class AlertService(GeneratedsSuper):
             namespaceprefix_ = self.Location_nsprefix_ + ':' if (UseCapturedNS_ and self.Location_nsprefix_) else ''
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sLocation>%s</%sLocation>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(Location_), input_name='Location')), namespaceprefix_ , eol_))
+    def to_etree(self, parent_element=None, name_='AlertService', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.RID is not None:
+            element.set('RID', self.gds_format_string(self.RID))
+        if self.UID is not None:
+            element.set('UID', self.gds_format_string(self.UID))
+        if self.SSD is not None:
+            element.set('SSD', self.gds_format_date(self.SSD))
+        for Location_ in self.Location:
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}Location').text = self.gds_format_string(Location_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='AlertService'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.RID is not None and 'RID' not in already_processed:
+            already_processed.add('RID')
+            showIndent(outfile, level)
+            outfile.write('RID=%s,\n' % (self.RID,))
+        if self.UID is not None and 'UID' not in already_processed:
+            already_processed.add('UID')
+            showIndent(outfile, level)
+            outfile.write('UID=%s,\n' % (self.UID,))
+        if self.SSD is not None and 'SSD' not in already_processed:
+            already_processed.add('SSD')
+            showIndent(outfile, level)
+            outfile.write('SSD=model_.GeneratedsSuper.gds_parse_date("%s"),\n' % self.gds_format_date(self.SSD, input_name='SSD'))
+    def exportLiteralChildren(self, outfile, level, name_):
+        showIndent(outfile, level)
+        outfile.write('Location=[\n')
+        level += 1
+        for Location_ in self.Location:
+            showIndent(outfile, level)
+            outfile.write('%s,\n' % self.gds_encode(quote_python(Location_)))
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.AlertService_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.RID is not None:
+            dbobj.RID = self.RID
+        if self.UID is not None:
+            dbobj.UID = self.UID
+        if self.SSD is not None:
+            dbobj.SSD = self.SSD
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        dbobj.Location = json_.dumps(self.Location, separators=(',', ':'))
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -10470,20 +13051,6 @@ class AlertServices(GeneratedsSuper):
         else:
             return AlertServices(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_AlertService(self):
-        return self.AlertService
-    def set_AlertService(self, AlertService):
-        self.AlertService = AlertService
-    def add_AlertService(self, value):
-        self.AlertService.append(value)
-    def insert_AlertService_at(self, index, value):
-        self.AlertService.insert(index, value)
-    def replace_AlertService_at(self, index, value):
-        self.AlertService[index] = value
     def hasContent_(self):
         if (
             self.AlertService
@@ -10524,6 +13091,58 @@ class AlertServices(GeneratedsSuper):
         for AlertService_ in self.AlertService:
             namespaceprefix_ = self.AlertService_nsprefix_ + ':' if (UseCapturedNS_ and self.AlertService_nsprefix_) else ''
             AlertService_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='AlertService', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='AlertServices', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        for AlertService_ in self.AlertService:
+            AlertService_.to_etree(element, name_='AlertService', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='AlertServices'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        showIndent(outfile, level)
+        outfile.write('AlertService=[\n')
+        level += 1
+        for AlertService_ in self.AlertService:
+            showIndent(outfile, level)
+            outfile.write('model_.AlertService(\n')
+            AlertService_.exportLiteral(outfile, level)
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.AlertServices_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        for child in self.AlertService:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.AlertService.append(child_dbobj)
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -10570,16 +13189,6 @@ class FullTDBerthID(GeneratedsSuper):
         else:
             return FullTDBerthID(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_area(self):
-        return self.area
-    def set_area(self, area):
-        self.area = area
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def validate_TDAreaIDType(self, value):
         # Validate type ct:TDAreaIDType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -10626,6 +13235,53 @@ class FullTDBerthID(GeneratedsSuper):
             already_processed.add('area')
             outfile.write(' area=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.area), input_name='area')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='FullTDBerthID', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='FullTDBerthID', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.area is not None:
+            element.set('area', self.gds_format_string(self.area))
+        if self.hasContent_():
+            element.text = self.gds_format_string(self.get_valueOf_())
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='FullTDBerthID'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('valueOf_ = """%s""",\n' % (self.valueOf_,))
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.area is not None and 'area' not in already_processed:
+            already_processed.add('area')
+            showIndent(outfile, level)
+            outfile.write('area=%s,\n' % (self.area,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.FullTDBerthID_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.area is not None:
+            dbobj.area = self.area
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -10681,22 +13337,6 @@ class TrackingID(GeneratedsSuper):
         else:
             return TrackingID(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_berth(self):
-        return self.berth
-    def set_berth(self, berth):
-        self.berth = berth
-    def get_incorrectTrainID(self):
-        return self.incorrectTrainID
-    def set_incorrectTrainID(self, incorrectTrainID):
-        self.incorrectTrainID = incorrectTrainID
-    def get_correctTrainID(self):
-        return self.correctTrainID
-    def set_correctTrainID(self, correctTrainID):
-        self.correctTrainID = correctTrainID
     def validate_TrainIdType(self, value):
         result = True
         # Validate type TrainIdType, a restriction on xs:string.
@@ -10765,6 +13405,69 @@ class TrackingID(GeneratedsSuper):
             namespaceprefix_ = self.correctTrainID_nsprefix_ + ':' if (UseCapturedNS_ and self.correctTrainID_nsprefix_) else ''
             showIndent(outfile, level, pretty_print)
             outfile.write('<%scorrectTrainID>%s</%scorrectTrainID>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.correctTrainID), input_name='correctTrainID')), namespaceprefix_ , eol_))
+    def to_etree(self, parent_element=None, name_='TrackingID', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.berth is not None:
+            berth_ = self.berth
+            berth_.to_etree(element, name_='berth', mapping_=mapping_)
+        if self.incorrectTrainID is not None:
+            incorrectTrainID_ = self.incorrectTrainID
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}incorrectTrainID').text = self.gds_format_string(incorrectTrainID_)
+        if self.correctTrainID is not None:
+            correctTrainID_ = self.correctTrainID
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}correctTrainID').text = self.gds_format_string(correctTrainID_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='TrackingID'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        if self.berth is not None:
+            showIndent(outfile, level)
+            outfile.write('berth=model_.FullTDBerthID(\n')
+            self.berth.exportLiteral(outfile, level, name_='berth')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.incorrectTrainID is not None:
+            showIndent(outfile, level)
+            outfile.write('incorrectTrainID=%s,\n' % self.gds_encode(quote_python(self.incorrectTrainID)))
+        if self.correctTrainID is not None:
+            showIndent(outfile, level)
+            outfile.write('correctTrainID=%s,\n' % self.gds_encode(quote_python(self.correctTrainID)))
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.TrackingID_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        if self.berth is not None:
+            child_dbobj = self.berth.exportSQLAlchemy(session)
+            dbobj.berth = child_dbobj
+        if self.incorrectTrainID is not None:
+            dbobj.incorrectTrainID = self.incorrectTrainID
+        if self.correctTrainID is not None:
+            dbobj.correctTrainID = self.correctTrainID
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -10835,26 +13538,6 @@ class RTTIAlarmData(GeneratedsSuper):
         else:
             return RTTIAlarmData(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_tdAreaFail(self):
-        return self.tdAreaFail
-    def set_tdAreaFail(self, tdAreaFail):
-        self.tdAreaFail = tdAreaFail
-    def get_tdFeedFail(self):
-        return self.tdFeedFail
-    def set_tdFeedFail(self, tdFeedFail):
-        self.tdFeedFail = tdFeedFail
-    def get_tyrellFeedFail(self):
-        return self.tyrellFeedFail
-    def set_tyrellFeedFail(self, tyrellFeedFail):
-        self.tyrellFeedFail = tyrellFeedFail
-    def get_id(self):
-        return self.id
-    def set_id(self, id):
-        self.id = id
     def validate_TDAreaIDType(self, value):
         result = True
         # Validate type TDAreaIDType, a restriction on xs:string.
@@ -10929,6 +13612,71 @@ class RTTIAlarmData(GeneratedsSuper):
             namespaceprefix_ = self.tyrellFeedFail_nsprefix_ + ':' if (UseCapturedNS_ and self.tyrellFeedFail_nsprefix_) else ''
             showIndent(outfile, level, pretty_print)
             outfile.write('<%styrellFeedFail>%s</%styrellFeedFail>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.tyrellFeedFail), input_name='tyrellFeedFail')), namespaceprefix_ , eol_))
+    def to_etree(self, parent_element=None, name_='RTTIAlarmData', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.id is not None:
+            element.set('id', self.gds_format_string(self.id))
+        if self.tdAreaFail is not None:
+            tdAreaFail_ = self.tdAreaFail
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}tdAreaFail').text = self.gds_format_string(tdAreaFail_)
+        if self.tdFeedFail is not None:
+            tdFeedFail_ = self.tdFeedFail
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}tdFeedFail').text = self.gds_format_string(tdFeedFail_)
+        if self.tyrellFeedFail is not None:
+            tyrellFeedFail_ = self.tyrellFeedFail
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}tyrellFeedFail').text = self.gds_format_string(tyrellFeedFail_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='RTTIAlarmData'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.id is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            showIndent(outfile, level)
+            outfile.write('id=%s,\n' % (self.id,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        if self.tdAreaFail is not None:
+            showIndent(outfile, level)
+            outfile.write('tdAreaFail=%s,\n' % self.gds_encode(quote_python(self.tdAreaFail)))
+        if self.tdFeedFail is not None:
+            showIndent(outfile, level)
+            outfile.write('tdFeedFail=%s,\n' % self.gds_encode(quote_python(self.tdFeedFail)))
+        if self.tyrellFeedFail is not None:
+            showIndent(outfile, level)
+            outfile.write('tyrellFeedFail=%s,\n' % self.gds_encode(quote_python(self.tyrellFeedFail)))
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.RTTIAlarmData_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.id is not None:
+            dbobj.id_x = self.id
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        if self.tdAreaFail is not None:
+            dbobj.tdAreaFail = self.tdAreaFail
+        if self.tdFeedFail is not None:
+            dbobj.tdFeedFail = self.tdFeedFail
+        if self.tyrellFeedFail is not None:
+            dbobj.tyrellFeedFail = self.tyrellFeedFail
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -10992,10 +13740,6 @@ class tdFeedFail(GeneratedsSuper):
         else:
             return tdFeedFail(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
     def hasContent_(self):
         if (
 
@@ -11028,6 +13772,43 @@ class tdFeedFail(GeneratedsSuper):
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='tdFeedFail'):
         pass
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='tdFeedFail', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='tdFeedFail', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='tdFeedFail'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.tdFeedFail_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -11069,10 +13850,6 @@ class tyrellFeedFail(GeneratedsSuper):
         else:
             return tyrellFeedFail(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
     def hasContent_(self):
         if (
 
@@ -11105,6 +13882,43 @@ class tyrellFeedFail(GeneratedsSuper):
     def exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='tyrellFeedFail'):
         pass
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='tyrellFeedFail', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='tyrellFeedFail', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='tyrellFeedFail'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.tyrellFeedFail_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -11151,18 +13965,6 @@ class RTTIAlarm(GeneratedsSuper):
         else:
             return RTTIAlarm(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_set(self):
-        return self.set
-    def set_set(self, set):
-        self.set = set
-    def get_clear(self):
-        return self.clear
-    def set_clear(self, clear):
-        self.clear = clear
     def validate_AlarmID(self, value):
         result = True
         # Validate type AlarmID, a restriction on xs:string.
@@ -11218,6 +14020,61 @@ class RTTIAlarm(GeneratedsSuper):
             namespaceprefix_ = self.clear_nsprefix_ + ':' if (UseCapturedNS_ and self.clear_nsprefix_) else ''
             showIndent(outfile, level, pretty_print)
             outfile.write('<%sclear>%s</%sclear>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.clear), input_name='clear')), namespaceprefix_ , eol_))
+    def to_etree(self, parent_element=None, name_='RTTIAlarm', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.set is not None:
+            set_ = self.set
+            set_.to_etree(element, name_='set', mapping_=mapping_)
+        if self.clear is not None:
+            clear_ = self.clear
+            etree_.SubElement(element, '{http://www.thalesgroup.com/rtti/PushPort/v16}clear').text = self.gds_format_string(clear_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='RTTIAlarm'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        if self.set is not None:
+            showIndent(outfile, level)
+            outfile.write('set=model_.RTTIAlarmData(\n')
+            self.set.exportLiteral(outfile, level, name_='set')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        if self.clear is not None:
+            showIndent(outfile, level)
+            outfile.write('clear=%s,\n' % self.gds_encode(quote_python(self.clear)))
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.RTTIAlarm_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        if self.set is not None:
+            child_dbobj = self.set.exportSQLAlchemy(session)
+            dbobj.set = child_dbobj
+        if self.clear is not None:
+            dbobj.clear = self.clear
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -11278,24 +14135,6 @@ class ScheduleFormations(GeneratedsSuper):
         else:
             return ScheduleFormations(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_formation(self):
-        return self.formation
-    def set_formation(self, formation):
-        self.formation = formation
-    def add_formation(self, value):
-        self.formation.append(value)
-    def insert_formation_at(self, index, value):
-        self.formation.insert(index, value)
-    def replace_formation_at(self, index, value):
-        self.formation[index] = value
-    def get_rid(self):
-        return self.rid
-    def set_rid(self, rid):
-        self.rid = rid
     def validate_RIDType(self, value):
         # Validate type ct:RIDType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -11349,6 +14188,64 @@ class ScheduleFormations(GeneratedsSuper):
         for formation_ in self.formation:
             namespaceprefix_ = self.formation_nsprefix_ + ':' if (UseCapturedNS_ and self.formation_nsprefix_) else ''
             formation_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='formation', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='ScheduleFormations', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.rid is not None:
+            element.set('rid', self.gds_format_string(self.rid))
+        for formation_ in self.formation:
+            formation_.to_etree(element, name_='formation', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='ScheduleFormations'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.rid is not None and 'rid' not in already_processed:
+            already_processed.add('rid')
+            showIndent(outfile, level)
+            outfile.write('rid=%s,\n' % (self.rid,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        showIndent(outfile, level)
+        outfile.write('formation=[\n')
+        level += 1
+        for formation_ in self.formation:
+            showIndent(outfile, level)
+            outfile.write('model_.Formation(\n')
+            formation_.exportLiteral(outfile, level, name_='Formation')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.ScheduleFormations_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.rid is not None:
+            dbobj.rid = self.rid
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        for child in self.formation:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.formation.append(child_dbobj)
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -11407,26 +14304,6 @@ class Formation(GeneratedsSuper):
         else:
             return Formation(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_coaches(self):
-        return self.coaches
-    def set_coaches(self, coaches):
-        self.coaches = coaches
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
-    def get_src(self):
-        return self.src
-    def set_src(self, src):
-        self.src = src
-    def get_srcInst(self):
-        return self.srcInst
-    def set_srcInst(self, srcInst):
-        self.srcInst = srcInst
     def validate_FormationIDType(self, value):
         # Validate type ct3:FormationIDType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -11501,6 +14378,75 @@ class Formation(GeneratedsSuper):
         if self.coaches is not None:
             namespaceprefix_ = self.coaches_nsprefix_ + ':' if (UseCapturedNS_ and self.coaches_nsprefix_) else ''
             self.coaches.export(outfile, level, namespaceprefix_, namespacedef_='', name_='coaches', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='Formation', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if self.src is not None:
+            element.set('src', self.gds_format_string(self.src))
+        if self.srcInst is not None:
+            element.set('srcInst', self.gds_format_string(self.srcInst))
+        if self.coaches is not None:
+            coaches_ = self.coaches
+            coaches_.to_etree(element, name_='coaches', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='Formation'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+        if self.src is not None and 'src' not in already_processed:
+            already_processed.add('src')
+            showIndent(outfile, level)
+            outfile.write('src="%s",\n' % (self.src,))
+        if self.srcInst is not None and 'srcInst' not in already_processed:
+            already_processed.add('srcInst')
+            showIndent(outfile, level)
+            outfile.write('srcInst=%s,\n' % (self.srcInst,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        if self.coaches is not None:
+            showIndent(outfile, level)
+            outfile.write('coaches=model_.CoachList(\n')
+            self.coaches.exportLiteral(outfile, level, name_='coaches')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.Formation_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.fid is not None:
+            dbobj.fid = self.fid
+        if self.src is not None:
+            dbobj.src = self.src
+        if self.srcInst is not None:
+            dbobj.srcInst = self.srcInst
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        if self.coaches is not None:
+            child_dbobj = self.coaches.exportSQLAlchemy(session)
+            dbobj.coaches = child_dbobj
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -11581,52 +14527,6 @@ class Loading(GeneratedsSuper):
         else:
             return Loading(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_loading(self):
-        return self.loading
-    def set_loading(self, loading):
-        self.loading = loading
-    def add_loading(self, value):
-        self.loading.append(value)
-    def insert_loading_at(self, index, value):
-        self.loading.insert(index, value)
-    def replace_loading_at(self, index, value):
-        self.loading[index] = value
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
-    def get_rid(self):
-        return self.rid
-    def set_rid(self, rid):
-        self.rid = rid
-    def get_tpl(self):
-        return self.tpl
-    def set_tpl(self, tpl):
-        self.tpl = tpl
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_wtp(self):
-        return self.wtp
-    def set_wtp(self, wtp):
-        self.wtp = wtp
-    def get_pta(self):
-        return self.pta
-    def set_pta(self, pta):
-        self.pta = pta
-    def get_ptd(self):
-        return self.ptd
-    def set_ptd(self, ptd):
-        self.ptd = ptd
     def validate_FormationIDType(self, value):
         # Validate type ct3:FormationIDType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -11753,6 +14653,120 @@ class Loading(GeneratedsSuper):
         for loading_ in self.loading:
             namespaceprefix_ = self.loading_nsprefix_ + ':' if (UseCapturedNS_ and self.loading_nsprefix_) else ''
             loading_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='loading', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='Loading', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if self.rid is not None:
+            element.set('rid', self.gds_format_string(self.rid))
+        if self.tpl is not None:
+            element.set('tpl', self.gds_format_string(self.tpl))
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.wtp is not None:
+            element.set('wtp', self.gds_format_string(self.wtp))
+        if self.pta is not None:
+            element.set('pta', self.gds_format_string(self.pta))
+        if self.ptd is not None:
+            element.set('ptd', self.gds_format_string(self.ptd))
+        for loading_ in self.loading:
+            loading_.to_etree(element, name_='loading', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='Loading'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+        if self.rid is not None and 'rid' not in already_processed:
+            already_processed.add('rid')
+            showIndent(outfile, level)
+            outfile.write('rid=%s,\n' % (self.rid,))
+        if self.tpl is not None and 'tpl' not in already_processed:
+            already_processed.add('tpl')
+            showIndent(outfile, level)
+            outfile.write('tpl=%s,\n' % (self.tpl,))
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.wtp is not None and 'wtp' not in already_processed:
+            already_processed.add('wtp')
+            showIndent(outfile, level)
+            outfile.write('wtp=%s,\n' % (self.wtp,))
+        if self.pta is not None and 'pta' not in already_processed:
+            already_processed.add('pta')
+            showIndent(outfile, level)
+            outfile.write('pta=%s,\n' % (self.pta,))
+        if self.ptd is not None and 'ptd' not in already_processed:
+            already_processed.add('ptd')
+            showIndent(outfile, level)
+            outfile.write('ptd=%s,\n' % (self.ptd,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        showIndent(outfile, level)
+        outfile.write('loading=[\n')
+        level += 1
+        for loading_ in self.loading:
+            showIndent(outfile, level)
+            outfile.write('model_.CoachLoadingData(\n')
+            loading_.exportLiteral(outfile, level, name_='CoachLoadingData')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.Loading_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.fid is not None:
+            dbobj.fid = self.fid
+        if self.rid is not None:
+            dbobj.rid = self.rid
+        if self.tpl is not None:
+            dbobj.tpl = self.tpl
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.wtp is not None:
+            dbobj.wtp = self.wtp
+        if self.pta is not None:
+            dbobj.pta = self.pta
+        if self.ptd is not None:
+            dbobj.ptd = self.ptd
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        for child in self.loading:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.loading.append(child_dbobj)
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -11841,20 +14855,6 @@ class CoachList(GeneratedsSuper):
         else:
             return CoachList(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_coach(self):
-        return self.coach
-    def set_coach(self, coach):
-        self.coach = coach
-    def add_coach(self, value):
-        self.coach.append(value)
-    def insert_coach_at(self, index, value):
-        self.coach.insert(index, value)
-    def replace_coach_at(self, index, value):
-        self.coach[index] = value
     def hasContent_(self):
         if (
             self.coach
@@ -11895,6 +14895,58 @@ class CoachList(GeneratedsSuper):
         for coach_ in self.coach:
             namespaceprefix_ = self.coach_nsprefix_ + ':' if (UseCapturedNS_ and self.coach_nsprefix_) else ''
             coach_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='coach', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='CoachList', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        for coach_ in self.coach:
+            coach_.to_etree(element, name_='coach', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='CoachList'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        showIndent(outfile, level)
+        outfile.write('coach=[\n')
+        level += 1
+        for coach_ in self.coach:
+            showIndent(outfile, level)
+            outfile.write('model_.CoachData(\n')
+            coach_.exportLiteral(outfile, level, name_='CoachData')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.CoachList_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        for child in self.coach:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.coach.append(child_dbobj)
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -11945,18 +14997,6 @@ class CoachData(GeneratedsSuper):
         else:
             return CoachData(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_coachNumber(self):
-        return self.coachNumber
-    def set_coachNumber(self, coachNumber):
-        self.coachNumber = coachNumber
-    def get_coachClass(self):
-        return self.coachClass
-    def set_coachClass(self, coachClass):
-        self.coachClass = coachClass
     def validate_CoachNumberType(self, value):
         # Validate type ct3:CoachNumberType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -12018,6 +15058,57 @@ class CoachData(GeneratedsSuper):
             outfile.write(' coachClass=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.coachClass), input_name='coachClass')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='CoachData', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='CoachData', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.coachNumber is not None:
+            element.set('coachNumber', self.gds_format_string(self.coachNumber))
+        if self.coachClass is not None:
+            element.set('coachClass', self.gds_format_string(self.coachClass))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='CoachData'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.coachNumber is not None and 'coachNumber' not in already_processed:
+            already_processed.add('coachNumber')
+            showIndent(outfile, level)
+            outfile.write('coachNumber=%s,\n' % (self.coachNumber,))
+        if self.coachClass is not None and 'coachClass' not in already_processed:
+            already_processed.add('coachClass')
+            showIndent(outfile, level)
+            outfile.write('coachClass=%s,\n' % (self.coachClass,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.CoachData_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.coachNumber is not None:
+            dbobj.coachNumber = self.coachNumber
+        if self.coachClass is not None:
+            dbobj.coachClass = self.coachClass
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -12076,24 +15167,6 @@ class CoachLoadingData(GeneratedsSuper):
         else:
             return CoachLoadingData(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_coachNumber(self):
-        return self.coachNumber
-    def set_coachNumber(self, coachNumber):
-        self.coachNumber = coachNumber
-    def get_src(self):
-        return self.src
-    def set_src(self, src):
-        self.src = src
-    def get_srcInst(self):
-        return self.srcInst
-    def set_srcInst(self, srcInst):
-        self.srcInst = srcInst
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def validate_CoachNumberType(self, value):
         # Validate type ct3:CoachNumberType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -12162,6 +15235,69 @@ class CoachLoadingData(GeneratedsSuper):
             outfile.write(' srcInst=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.srcInst), input_name='srcInst')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='CoachLoadingData', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='CoachLoadingData', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.coachNumber is not None:
+            element.set('coachNumber', self.gds_format_string(self.coachNumber))
+        if self.src is not None:
+            element.set('src', self.gds_format_string(self.src))
+        if self.srcInst is not None:
+            element.set('srcInst', self.gds_format_string(self.srcInst))
+        if self.hasContent_():
+            element.text = self.gds_format_string(self.get_valueOf_())
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='CoachLoadingData'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('valueOf_ = """%s""",\n' % (self.valueOf_,))
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.coachNumber is not None and 'coachNumber' not in already_processed:
+            already_processed.add('coachNumber')
+            showIndent(outfile, level)
+            outfile.write('coachNumber=%s,\n' % (self.coachNumber,))
+        if self.src is not None and 'src' not in already_processed:
+            already_processed.add('src')
+            showIndent(outfile, level)
+            outfile.write('src="%s",\n' % (self.src,))
+        if self.srcInst is not None and 'srcInst' not in already_processed:
+            already_processed.add('srcInst')
+            showIndent(outfile, level)
+            outfile.write('srcInst=%s,\n' % (self.srcInst,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.CoachLoadingData_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.coachNumber is not None:
+            dbobj.coachNumber = self.coachNumber
+        if self.src is not None:
+            dbobj.src = self.src
+        if self.srcInst is not None:
+            dbobj.srcInst = self.srcInst
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -12224,24 +15360,6 @@ class ScheduleFormations9(GeneratedsSuper):
         else:
             return ScheduleFormations9(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_formation(self):
-        return self.formation
-    def set_formation(self, formation):
-        self.formation = formation
-    def add_formation(self, value):
-        self.formation.append(value)
-    def insert_formation_at(self, index, value):
-        self.formation.insert(index, value)
-    def replace_formation_at(self, index, value):
-        self.formation[index] = value
-    def get_rid(self):
-        return self.rid
-    def set_rid(self, rid):
-        self.rid = rid
     def validate_RIDType(self, value):
         # Validate type ct:RIDType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -12295,6 +15413,64 @@ class ScheduleFormations9(GeneratedsSuper):
         for formation_ in self.formation:
             namespaceprefix_ = self.formation_nsprefix_ + ':' if (UseCapturedNS_ and self.formation_nsprefix_) else ''
             formation_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='formation', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='ScheduleFormations9', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.rid is not None:
+            element.set('rid', self.gds_format_string(self.rid))
+        for formation_ in self.formation:
+            formation_.to_etree(element, name_='formation', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='ScheduleFormations9'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.rid is not None and 'rid' not in already_processed:
+            already_processed.add('rid')
+            showIndent(outfile, level)
+            outfile.write('rid=%s,\n' % (self.rid,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        showIndent(outfile, level)
+        outfile.write('formation=[\n')
+        level += 1
+        for formation_ in self.formation:
+            showIndent(outfile, level)
+            outfile.write('model_.Formation10(\n')
+            formation_.exportLiteral(outfile, level, name_='Formation10')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.ScheduleFormations9_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.rid is not None:
+            dbobj.rid = self.rid
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        for child in self.formation:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.formation.append(child_dbobj)
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -12353,26 +15529,6 @@ class Formation10(GeneratedsSuper):
         else:
             return Formation10(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_coaches(self):
-        return self.coaches
-    def set_coaches(self, coaches):
-        self.coaches = coaches
-    def get_fid(self):
-        return self.fid
-    def set_fid(self, fid):
-        self.fid = fid
-    def get_src(self):
-        return self.src
-    def set_src(self, src):
-        self.src = src
-    def get_srcInst(self):
-        return self.srcInst
-    def set_srcInst(self, srcInst):
-        self.srcInst = srcInst
     def validate_FormationIDType(self, value):
         # Validate type ct3:FormationIDType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -12447,6 +15603,75 @@ class Formation10(GeneratedsSuper):
         if self.coaches is not None:
             namespaceprefix_ = self.coaches_nsprefix_ + ':' if (UseCapturedNS_ and self.coaches_nsprefix_) else ''
             self.coaches.export(outfile, level, namespaceprefix_, namespacedef_='', name_='coaches', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='Formation10', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.fid is not None:
+            element.set('fid', self.gds_format_string(self.fid))
+        if self.src is not None:
+            element.set('src', self.gds_format_string(self.src))
+        if self.srcInst is not None:
+            element.set('srcInst', self.gds_format_string(self.srcInst))
+        if self.coaches is not None:
+            coaches_ = self.coaches
+            coaches_.to_etree(element, name_='coaches', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='Formation10'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.fid is not None and 'fid' not in already_processed:
+            already_processed.add('fid')
+            showIndent(outfile, level)
+            outfile.write('fid=%s,\n' % (self.fid,))
+        if self.src is not None and 'src' not in already_processed:
+            already_processed.add('src')
+            showIndent(outfile, level)
+            outfile.write('src="%s",\n' % (self.src,))
+        if self.srcInst is not None and 'srcInst' not in already_processed:
+            already_processed.add('srcInst')
+            showIndent(outfile, level)
+            outfile.write('srcInst=%s,\n' % (self.srcInst,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        if self.coaches is not None:
+            showIndent(outfile, level)
+            outfile.write('coaches=model_.CoachList11(\n')
+            self.coaches.exportLiteral(outfile, level, name_='coaches')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.Formation10_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.fid is not None:
+            dbobj.fid = self.fid
+        if self.src is not None:
+            dbobj.src = self.src
+        if self.srcInst is not None:
+            dbobj.srcInst = self.srcInst
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        if self.coaches is not None:
+            child_dbobj = self.coaches.exportSQLAlchemy(session)
+            dbobj.coaches = child_dbobj
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -12509,20 +15734,6 @@ class CoachList11(GeneratedsSuper):
         else:
             return CoachList11(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_coach(self):
-        return self.coach
-    def set_coach(self, coach):
-        self.coach = coach
-    def add_coach(self, value):
-        self.coach.append(value)
-    def insert_coach_at(self, index, value):
-        self.coach.insert(index, value)
-    def replace_coach_at(self, index, value):
-        self.coach[index] = value
     def hasContent_(self):
         if (
             self.coach
@@ -12563,6 +15774,58 @@ class CoachList11(GeneratedsSuper):
         for coach_ in self.coach:
             namespaceprefix_ = self.coach_nsprefix_ + ':' if (UseCapturedNS_ and self.coach_nsprefix_) else ''
             coach_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='coach', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='CoachList11', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        for coach_ in self.coach:
+            coach_.to_etree(element, name_='coach', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='CoachList11'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        showIndent(outfile, level)
+        outfile.write('coach=[\n')
+        level += 1
+        for coach_ in self.coach:
+            showIndent(outfile, level)
+            outfile.write('model_.CoachData12(\n')
+            coach_.exportLiteral(outfile, level, name_='CoachData12')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+        level -= 1
+        showIndent(outfile, level)
+        outfile.write('],\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.CoachList11_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        for child in self.coach:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.coach.append(child_dbobj)
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -12615,22 +15878,6 @@ class CoachData12(GeneratedsSuper):
         else:
             return CoachData12(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_toilet(self):
-        return self.toilet
-    def set_toilet(self, toilet):
-        self.toilet = toilet
-    def get_coachNumber(self):
-        return self.coachNumber
-    def set_coachNumber(self, coachNumber):
-        self.coachNumber = coachNumber
-    def get_coachClass(self):
-        return self.coachClass
-    def set_coachClass(self, coachClass):
-        self.coachClass = coachClass
     def validate_CoachNumberType(self, value):
         # Validate type ct3:CoachNumberType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -12699,6 +15946,67 @@ class CoachData12(GeneratedsSuper):
         if self.toilet is not None:
             namespaceprefix_ = self.toilet_nsprefix_ + ':' if (UseCapturedNS_ and self.toilet_nsprefix_) else ''
             self.toilet.export(outfile, level, namespaceprefix_, namespacedef_='', name_='toilet', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='CoachData12', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.coachNumber is not None:
+            element.set('coachNumber', self.gds_format_string(self.coachNumber))
+        if self.coachClass is not None:
+            element.set('coachClass', self.gds_format_string(self.coachClass))
+        if self.toilet is not None:
+            toilet_ = self.toilet
+            toilet_.to_etree(element, name_='toilet', mapping_=mapping_)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='CoachData12'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.coachNumber is not None and 'coachNumber' not in already_processed:
+            already_processed.add('coachNumber')
+            showIndent(outfile, level)
+            outfile.write('coachNumber=%s,\n' % (self.coachNumber,))
+        if self.coachClass is not None and 'coachClass' not in already_processed:
+            already_processed.add('coachClass')
+            showIndent(outfile, level)
+            outfile.write('coachClass=%s,\n' % (self.coachClass,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        if self.toilet is not None:
+            showIndent(outfile, level)
+            outfile.write('toilet=model_.ToiletAvailabilityType(\n')
+            self.toilet.exportLiteral(outfile, level, name_='toilet')
+            showIndent(outfile, level)
+            outfile.write('),\n')
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.CoachData12_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.coachNumber is not None:
+            dbobj.coachNumber = self.coachNumber
+        if self.coachClass is not None:
+            dbobj.coachClass = self.coachClass
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        if self.toilet is not None:
+            child_dbobj = self.toilet.exportSQLAlchemy(session)
+            dbobj.toilet = child_dbobj
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -12758,16 +16066,6 @@ class ToiletAvailabilityType(GeneratedsSuper):
         else:
             return ToiletAvailabilityType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_status(self):
-        return self.status
-    def set_status(self, status):
-        self.status = status
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def validate_ToiletStatus(self, value):
         # Validate type tns:ToiletStatus, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -12816,6 +16114,53 @@ class ToiletAvailabilityType(GeneratedsSuper):
             already_processed.add('status')
             outfile.write(' status=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.status), input_name='status')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='tns:', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='ToiletAvailabilityType', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='ToiletAvailabilityType', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.status is not None:
+            element.set('status', self.gds_format_string(self.status))
+        if self.hasContent_():
+            element.text = self.gds_format_string(self.get_valueOf_())
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='ToiletAvailabilityType'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('valueOf_ = """%s""",\n' % (self.valueOf_,))
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.status is not None and 'status' not in already_processed:
+            already_processed.add('status')
+            showIndent(outfile, level)
+            outfile.write('status=%s,\n' % (self.status,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.ToiletAvailabilityType_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.status is not None:
+            dbobj.status = self.status
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -12867,20 +16212,6 @@ class TimeTableIdType(GeneratedsSuper):
         else:
             return TimeTableIdType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_ttfile(self):
-        return self.ttfile
-    def set_ttfile(self, ttfile):
-        self.ttfile = ttfile
-    def get_ttreffile(self):
-        return self.ttreffile
-    def set_ttreffile(self, ttreffile):
-        self.ttreffile = ttreffile
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def validate_TimetableFilenameType(self, value):
         # Validate type ct:TimetableFilenameType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -12935,6 +16266,61 @@ class TimeTableIdType(GeneratedsSuper):
             outfile.write(' ttreffile=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.ttreffile), input_name='ttreffile')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='TimeTableIdType', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='TimeTableIdType', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.ttfile is not None:
+            element.set('ttfile', self.gds_format_string(self.ttfile))
+        if self.ttreffile is not None:
+            element.set('ttreffile', self.gds_format_string(self.ttreffile))
+        if self.hasContent_():
+            element.text = self.gds_format_string(self.get_valueOf_())
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='TimeTableIdType'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('valueOf_ = """%s""",\n' % (self.valueOf_,))
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.ttfile is not None and 'ttfile' not in already_processed:
+            already_processed.add('ttfile')
+            showIndent(outfile, level)
+            outfile.write('ttfile=%s,\n' % (self.ttfile,))
+        if self.ttreffile is not None and 'ttreffile' not in already_processed:
+            already_processed.add('ttreffile')
+            showIndent(outfile, level)
+            outfile.write('ttreffile=%s,\n' % (self.ttreffile,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.TimeTableIdType_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.ttfile is not None:
+            dbobj.ttfile = self.ttfile
+        if self.ttreffile is not None:
+            dbobj.ttreffile = self.ttreffile
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -12988,14 +16374,6 @@ class GetSnapshotReqType(GeneratedsSuper):
         else:
             return GetSnapshotReqType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_viaftp(self):
-        return self.viaftp
-    def set_viaftp(self, viaftp):
-        self.viaftp = viaftp
     def hasContent_(self):
         if (
 
@@ -13030,6 +16408,49 @@ class GetSnapshotReqType(GeneratedsSuper):
             already_processed.add('viaftp')
             outfile.write(' viaftp="%s"' % self.gds_format_boolean(self.viaftp, input_name='viaftp'))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='GetSnapshotReqType', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='GetSnapshotReqType', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.viaftp is not None:
+            element.set('viaftp', self.gds_format_boolean(self.viaftp))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='GetSnapshotReqType'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.viaftp is not None and 'viaftp' not in already_processed:
+            already_processed.add('viaftp')
+            showIndent(outfile, level)
+            outfile.write('viaftp=%s,\n' % (self.viaftp,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.GetSnapshotReqType_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.viaftp is not None:
+            dbobj.viaftp = self.viaftp
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -13082,14 +16503,6 @@ class GetFullSnapshotReqType(GeneratedsSuper):
         else:
             return GetFullSnapshotReqType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_viaftp(self):
-        return self.viaftp
-    def set_viaftp(self, viaftp):
-        self.viaftp = viaftp
     def hasContent_(self):
         if (
 
@@ -13124,6 +16537,49 @@ class GetFullSnapshotReqType(GeneratedsSuper):
             already_processed.add('viaftp')
             outfile.write(' viaftp="%s"' % self.gds_format_boolean(self.viaftp, input_name='viaftp'))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='GetFullSnapshotReqType', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='GetFullSnapshotReqType', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.viaftp is not None:
+            element.set('viaftp', self.gds_format_boolean(self.viaftp))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='GetFullSnapshotReqType'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.viaftp is not None and 'viaftp' not in already_processed:
+            already_processed.add('viaftp')
+            showIndent(outfile, level)
+            outfile.write('viaftp=%s,\n' % (self.viaftp,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.GetFullSnapshotReqType_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.viaftp is not None:
+            dbobj.viaftp = self.viaftp
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -13181,20 +16637,6 @@ class FailureRespType(StatusType):
         else:
             return FailureRespType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_requestSource(self):
-        return self.requestSource
-    def set_requestSource(self, requestSource):
-        self.requestSource = requestSource
-    def get_requestID(self):
-        return self.requestID
-    def set_requestID(self, requestID):
-        self.requestID = requestID
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def validate_SourceTypeInst(self, value):
         # Validate type ct:SourceTypeInst, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -13267,6 +16709,60 @@ class FailureRespType(StatusType):
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='FailureRespType', fromsubclass_=False, pretty_print=True):
         super(FailureRespType, self).exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
         pass
+    def to_etree(self, parent_element=None, name_='FailureRespType', mapping_=None):
+        element = super(FailureRespType, self).to_etree(parent_element, name_, mapping_)
+        if self.requestSource is not None:
+            element.set('requestSource', self.gds_format_string(self.requestSource))
+        if self.requestID is not None:
+            element.set('requestID', self.gds_format_string(self.requestID))
+        if self.hasContent_():
+            element.text = self.gds_format_string(self.get_valueOf_())
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='FailureRespType'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('valueOf_ = """%s""",\n' % (self.valueOf_,))
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.requestSource is not None and 'requestSource' not in already_processed:
+            already_processed.add('requestSource')
+            showIndent(outfile, level)
+            outfile.write('requestSource=%s,\n' % (self.requestSource,))
+        if self.requestID is not None and 'requestID' not in already_processed:
+            already_processed.add('requestID')
+            showIndent(outfile, level)
+            outfile.write('requestID=%s,\n' % (self.requestID,))
+        super(FailureRespType, self).exportLiteralAttributes(outfile, level, already_processed, name_)
+    def exportLiteralChildren(self, outfile, level, name_):
+        super(FailureRespType, self).exportLiteralChildren(outfile, level, name_)
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.FailureRespType_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.requestSource is not None:
+            dbobj.requestSource = self.requestSource
+        if self.requestID is not None:
+            dbobj.requestID = self.requestID
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -13329,22 +16825,6 @@ class uRType(DataResponse):
         else:
             return uRType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_updateOrigin(self):
-        return self.updateOrigin
-    def set_updateOrigin(self, updateOrigin):
-        self.updateOrigin = updateOrigin
-    def get_requestSource(self):
-        return self.requestSource
-    def set_requestSource(self, requestSource):
-        self.requestSource = requestSource
-    def get_requestID(self):
-        return self.requestID
-    def set_requestID(self, requestID):
-        self.requestID = requestID
     def validate_SourceTypeInst(self, value):
         # Validate type ct:SourceTypeInst, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -13418,6 +16898,63 @@ class uRType(DataResponse):
             outfile.write(' requestID=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.requestID), input_name='requestID')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='uRType', fromsubclass_=False, pretty_print=True):
         super(uRType, self).exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='uRType', mapping_=None):
+        element = super(uRType, self).to_etree(parent_element, name_, mapping_)
+        if self.updateOrigin is not None:
+            element.set('updateOrigin', self.gds_format_string(self.updateOrigin))
+        if self.requestSource is not None:
+            element.set('requestSource', self.gds_format_string(self.requestSource))
+        if self.requestID is not None:
+            element.set('requestID', self.gds_format_string(self.requestID))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='uRType'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.updateOrigin is not None and 'updateOrigin' not in already_processed:
+            already_processed.add('updateOrigin')
+            showIndent(outfile, level)
+            outfile.write('updateOrigin="%s",\n' % (self.updateOrigin,))
+        if self.requestSource is not None and 'requestSource' not in already_processed:
+            already_processed.add('requestSource')
+            showIndent(outfile, level)
+            outfile.write('requestSource=%s,\n' % (self.requestSource,))
+        if self.requestID is not None and 'requestID' not in already_processed:
+            already_processed.add('requestID')
+            showIndent(outfile, level)
+            outfile.write('requestID=%s,\n' % (self.requestID,))
+        super(uRType, self).exportLiteralAttributes(outfile, level, already_processed, name_)
+    def exportLiteralChildren(self, outfile, level, name_):
+        super(uRType, self).exportLiteralChildren(outfile, level, name_)
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.uRType_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.updateOrigin is not None:
+            dbobj.updateOrigin = self.updateOrigin
+        if self.requestSource is not None:
+            dbobj.requestSource = self.requestSource
+        if self.requestID is not None:
+            dbobj.requestID = self.requestID
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -13487,32 +17024,6 @@ class ridType(GeneratedsSuper):
         else:
             return ridType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_wta(self):
-        return self.wta
-    def set_wta(self, wta):
-        self.wta = wta
-    def get_wtd(self):
-        return self.wtd
-    def set_wtd(self, wtd):
-        self.wtd = wtd
-    def get_wtp(self):
-        return self.wtp
-    def set_wtp(self, wtp):
-        self.wtp = wtp
-    def get_pta(self):
-        return self.pta
-    def set_pta(self, pta):
-        self.pta = pta
-    def get_ptd(self):
-        return self.ptd
-    def set_ptd(self, ptd):
-        self.ptd = ptd
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def validate_WTimeType(self, value):
         # Validate type tns:WTimeType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -13583,6 +17094,85 @@ class ridType(GeneratedsSuper):
             outfile.write(' ptd=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.ptd), input_name='ptd')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='ridType', fromsubclass_=False, pretty_print=True):
         pass
+    def to_etree(self, parent_element=None, name_='ridType', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.wta is not None:
+            element.set('wta', self.gds_format_string(self.wta))
+        if self.wtd is not None:
+            element.set('wtd', self.gds_format_string(self.wtd))
+        if self.wtp is not None:
+            element.set('wtp', self.gds_format_string(self.wtp))
+        if self.pta is not None:
+            element.set('pta', self.gds_format_string(self.pta))
+        if self.ptd is not None:
+            element.set('ptd', self.gds_format_string(self.ptd))
+        if self.hasContent_():
+            element.text = self.gds_format_string(self.get_valueOf_())
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='ridType'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('valueOf_ = """%s""",\n' % (self.valueOf_,))
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.wta is not None and 'wta' not in already_processed:
+            already_processed.add('wta')
+            showIndent(outfile, level)
+            outfile.write('wta=%s,\n' % (self.wta,))
+        if self.wtd is not None and 'wtd' not in already_processed:
+            already_processed.add('wtd')
+            showIndent(outfile, level)
+            outfile.write('wtd=%s,\n' % (self.wtd,))
+        if self.wtp is not None and 'wtp' not in already_processed:
+            already_processed.add('wtp')
+            showIndent(outfile, level)
+            outfile.write('wtp=%s,\n' % (self.wtp,))
+        if self.pta is not None and 'pta' not in already_processed:
+            already_processed.add('pta')
+            showIndent(outfile, level)
+            outfile.write('pta=%s,\n' % (self.pta,))
+        if self.ptd is not None and 'ptd' not in already_processed:
+            already_processed.add('ptd')
+            showIndent(outfile, level)
+            outfile.write('ptd=%s,\n' % (self.ptd,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.ridType_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.wta is not None:
+            dbobj.wta = self.wta
+        if self.wtd is not None:
+            dbobj.wtd = self.wtd
+        if self.wtp is not None:
+            dbobj.wtp = self.wtp
+        if self.pta is not None:
+            dbobj.pta = self.pta
+        if self.ptd is not None:
+            dbobj.ptd = self.ptd
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -13650,14 +17240,6 @@ class StationType(GeneratedsSuper):
         else:
             return StationType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_crs(self):
-        return self.crs
-    def set_crs(self, crs):
-        self.crs = crs
     def validate_CrsType(self, value):
         # Validate type ct:CrsType, a restriction on xs:string.
         if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
@@ -13703,6 +17285,49 @@ class StationType(GeneratedsSuper):
             already_processed.add('crs')
             outfile.write(' crs=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.crs), input_name='crs')), ))
     def exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.thalesgroup.com/rtti/PushPort/v16"', name_='StationType', fromsubclass_=False, pretty_print=True):
+        pass
+    def to_etree(self, parent_element=None, name_='StationType', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        if self.crs is not None:
+            element.set('crs', self.gds_format_string(self.crs))
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='StationType'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        if self.crs is not None and 'crs' not in already_processed:
+            already_processed.add('crs')
+            showIndent(outfile, level)
+            outfile.write('crs=%s,\n' % (self.crs,))
+    def exportLiteralChildren(self, outfile, level, name_):
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.StationType_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        if self.crs is not None:
+            dbobj.crs = self.crs
+    def exportSQLAlchemyChildren(self, session, dbobj):
         pass
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
@@ -13768,32 +17393,6 @@ class MsgType(GeneratedsSuper):
         else:
             return MsgType(*args_, **kwargs_)
     factory = staticmethod(factory)
-    def get_ns_prefix_(self):
-        return self.ns_prefix_
-    def set_ns_prefix_(self, ns_prefix):
-        self.ns_prefix_ = ns_prefix
-    def get_p(self):
-        return self.p
-    def set_p(self, p):
-        self.p = p
-    def add_p(self, value):
-        self.p.append(value)
-    def insert_p_at(self, index, value):
-        self.p.insert(index, value)
-    def replace_p_at(self, index, value):
-        self.p[index] = value
-    def get_a(self):
-        return self.a
-    def set_a(self, a):
-        self.a = a
-    def add_a(self, value):
-        self.a.append(value)
-    def insert_a_at(self, index, value):
-        self.a.insert(index, value)
-    def replace_a_at(self, index, value):
-        self.a[index] = value
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
     def hasContent_(self):
         if (
             self.p or
@@ -13842,6 +17441,64 @@ class MsgType(GeneratedsSuper):
         for a_ in self.a:
             namespaceprefix_ = self.a_nsprefix_ + ':' if (UseCapturedNS_ and self.a_nsprefix_) else ''
             a_.export(outfile, level, namespaceprefix_='tns:', namespacedef_='', name_='a', pretty_print=pretty_print)
+    def to_etree(self, parent_element=None, name_='MsgType', mapping_=None):
+        if parent_element is None:
+            element = etree_.Element('{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        else:
+            element = etree_.SubElement(parent_element, '{http://www.thalesgroup.com/rtti/PushPort/v16}' + name_)
+        for item_ in self.content_:
+            item_.to_etree(element)
+        if mapping_ is not None:
+            mapping_[id(self)] = element
+        return element
+    def exportLiteral(self, outfile, level, name_='MsgType'):
+        level += 1
+        already_processed = set()
+        self.exportLiteralAttributes(outfile, level, already_processed, name_)
+        if self.hasContent_():
+            self.exportLiteralChildren(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('valueOf_ = """%s""",\n' % (self.valueOf_,))
+    def exportLiteralAttributes(self, outfile, level, already_processed, name_):
+        pass
+    def exportLiteralChildren(self, outfile, level, name_):
+        showIndent(outfile, level)
+        outfile.write('content_ = [\n')
+        for item_ in self.content_:
+            item_.exportLiteral(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        showIndent(outfile, level)
+        outfile.write('content_ = [\n')
+        for item_ in self.content_:
+            item_.exportLiteral(outfile, level, name_)
+        showIndent(outfile, level)
+        outfile.write('],\n')
+        pass
+    def exportSQLAlchemy(self, session):
+        """Export to SQLAlchemy database/ORM.
+        For help with running this code, see:
+            https://docs.sqlalchemy.org/en/latest/orm/tutorial.html
+        """
+        status, dbobj = self.gds_sqa_etl_transform()
+        if status == 1:
+            return dbobj
+        if dbobj is None:
+            dbobj = models_sqa_.MsgType_model()
+        session.add(dbobj)
+        self.exportSQLAlchemyAttributes(dbobj)
+        self.exportSQLAlchemyChildren(session, dbobj)
+        self.gds_sqa_etl_transform_db_obj(dbobj)
+        return dbobj
+    def exportSQLAlchemyAttributes(self, dbobj):
+        pass
+    def exportSQLAlchemyChildren(self, session, dbobj):
+        for child in self.p:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.p.append(child_dbobj)
+        for child in self.a:
+            child_dbobj = child.exportSQLAlchemy(session)
+            dbobj.a.append(child_dbobj)
     def build(self, node, gds_collector_=None):
         self.gds_collector_ = gds_collector_
         if SaveElementTreeNode:
@@ -14044,8 +17701,8 @@ def parseLiteral(inFileName, silence=False, print_warnings=True):
         doc = None
         rootNode = None
     if not silence:
-        sys.stdout.write('#from schema_v16 import *\n\n')
-        sys.stdout.write('import schema_v16 as model_\n\n')
+        sys.stdout.write('#from schema_v16_py2 import *\n\n')
+        sys.stdout.write('import schema_v16_py2 as model_\n\n')
         sys.stdout.write('rootObj = model_.rootClass(\n')
         rootObj.exportLiteral(sys.stdout, 0, name_=rootTag)
         sys.stdout.write(')\n')
