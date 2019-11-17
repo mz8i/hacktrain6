@@ -1,5 +1,8 @@
+import * as d3 from 'd3-scale-chromatic';
+import * as _ from 'lodash';
 import moment, { Moment } from 'moment';
 import React from 'react';
+import { Handles, Slider, Tracks} from 'react-compound-slider';
 import DatePicker from 'react-datepicker';
 import { Dropdown } from 'semantic-ui-react';
 
@@ -7,8 +10,10 @@ import 'leaflet/dist/leaflet.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import './MapPage.css';
 
+import { delays } from '../data/delays';
 import { connectionsLookup } from '../data/stationConnections';
 import { stations, stationsLookup } from '../data/stations';
+import { Metric } from '../models/metric';
 import { Station } from '../models/station';
 
 import { DelayMap } from './DelayMap';
@@ -17,6 +22,7 @@ interface MapPageState {
     location?: string;
     day?: Date;
     otherDay?: Date;
+    relativeTime: number;
 }
 
 function optionsFromStations(stations) {
@@ -28,14 +34,35 @@ function optionsFromStations(stations) {
         .sort((a, b) => a.text.localeCompare(b.text));
 }
 
-class MapPage extends React.Component<{}, MapPageState> {
+function getMetricsForDay(stationCode: string, date: Date) {
+    if(date == undefined) return [];
+    let dayData;
+    if(date.getDate() == 17 && date.getMonth() == 8 && date.getFullYear() == 2019) {
+        dayData = delays["2019-09-17"];
+    } else if (date.getDate() == 29 && date.getMonth() == 5 && date.getFullYear() == 2019) {
+        dayData = delays["2019-06-29"];
+    } else {
+        return [];
+    }
 
+    return dayData;
+}
+
+function getMetricsForTime(metricsForDay: {[code: string]: number[]}, offset: number): Metric[] {
+    return Object.entries(metricsForDay).map(([code, metrics]) => ({
+        stationCode: code,
+        metric: metrics[offset]
+    }));
+}
+
+class MapPage extends React.Component<{}, MapPageState> {
     constructor(props) {
         super(props);
         this.state = {
-            location: 'BHAMNWS',
+            location: undefined,
             day: undefined,
-            otherDay: undefined
+            otherDay: undefined,
+            relativeTime: undefined
         };
 
         this.updateStation = this.updateStation.bind(this);
@@ -43,9 +70,9 @@ class MapPage extends React.Component<{}, MapPageState> {
         this.updateOtherIncidentDate = this.updateOtherIncidentDate.bind(this);
     }
 
-    basicStyleFunction = (s: Station) => ({
+    basicStyleFunction = (s: Station & {metric: number}) => ({
         radius: s.code === this.state.location ? 12 : 8,
-        fillColor: "white",
+        fillColor: s.metric == undefined ? 'gray' : d3.interpolateReds(s.metric / 2.0),
         color: "#000",
         weight: 1,
         opacity: 1,
@@ -68,6 +95,12 @@ class MapPage extends React.Component<{}, MapPageState> {
     updateOtherIncidentDate(date: Date) {
         this.setState({
             otherDay: date
+        });
+    }
+
+    updateTimeOfDay(relativeTimeInMinutes: number) {
+        this.setState({
+            relativeTime: relativeTimeInMinutes
         });
     }
 
@@ -97,6 +130,15 @@ class MapPage extends React.Component<{}, MapPageState> {
             mainStation = stationsLookup[this.state.location];
         }
 
+        const showFirstDatePicker =  this.state.location != undefined;
+        const showFirstMap = showFirstDatePicker;
+        const showSecondDatePicker = showFirstDatePicker && this.state.day != undefined;
+        const showSlider = showSecondDatePicker;
+        const showSecondMap = showSecondDatePicker && this.state.otherDay != undefined;
+
+        
+
+
         return (
             <div className='map-page'>
                 <div className="menu">
@@ -114,62 +156,70 @@ class MapPage extends React.Component<{}, MapPageState> {
                         />
                     </div>
                     {
-                        this.state.location != undefined &&
-                        <>
+                        showFirstMap &&
+                        <div>
+                            <label htmlFor='incident-date-picker'>
+                                Incident date:
+                            </label>
+                            <DatePicker
+                                id='incident-date-picker'
+                                className='menu-input'
+                                selected={this.state.day}
+                                onChange={this.updateIncidentDate}
+                            />
+                        </div>
+                    }
+                    {
+                        showSecondDatePicker &&
                             <div>
-                                <label htmlFor='incident-date-picker'>
-                                    Incident date:
+                                <label htmlFor='other-incident-date-picker'>
+                                    Other incident date:
                                 </label>
                                 <DatePicker
-                                    id='incident-date-picker'
+                                    id='other-incident-date-picker'
                                     className='menu-input'
-                                    selected={this.state.day}
-                                    onChange={this.updateIncidentDate}
+                                    selected={this.state.otherDay}
+                                    onChange={this.updateOtherIncidentDate}
                                 />
                             </div>
-                            {
-                                this.state.day != undefined &&
-                                <div>
-                                    <label htmlFor='other-incident-date-picker'>
-                                        Other incident date:
-                                    </label>
-                                    <DatePicker
-                                        id='other-incident-date-picker'
-                                        className='menu-input'
-                                        selected={this.state.otherDay}
-                                        onChange={this.updateOtherIncidentDate}
-                                    />
-                                </div>
-                            }
-                        </>
+                    }
+                    {
+                        showSlider &&
+                        <div>
+                            <input className='menu-input' min={0} max={4} defaultValue={0} onChange={(e) => e.target.value}>
+
+                            </input>
+                        </div>
                     }
                 </div>
                 <div className='visualisation-container'>
                 {
-                    this.state.location != undefined &&
-                    <>
+                    showFirstMap &&
                         <DelayMap
                             center={[mainStation.lat, mainStation.lng]}
                             stations={selectedStations}
                             connections={[]}
                             selectionCode={this.state.location}
                             timestamp={this.state.day}
-                            metrics={[]}
+                            metrics={getMetricsForTime(
+                                getMetricsForDay(this.state.location, this.state.day),
+                            0)}
                             styleFunction={this.basicStyleFunction}
-                            />
-                        {
-                            this.state.otherDay != undefined &&
-                            <DelayMap
+                        />
+                }
+                {
+                    showSecondMap &&
+                        <DelayMap
                             center={[mainStation.lat, mainStation.lng]}
                             stations={selectedStations}
                             connections={[]}
                             selectionCode={this.state.location}
                             timestamp={this.state.otherDay}
-                            metrics={[]}
+                            metrics={getMetricsForTime(
+                                getMetricsForDay(this.state.location, this.state.otherDay),
+                            0)}
                             styleFunction={this.basicStyleFunction}
-                            />
-                        }
-                    </>
+                        />
                 }
                 </div>
                           
