@@ -59,8 +59,8 @@ class DelayMap extends React.Component<DelayMapProps> {
                                     day: 'numeric',
                                     year: 'numeric',
                                     month: 'short',
-                                    hour:'numeric',
-                                    minute: 'numeric'
+                                    // hour:'numeric',
+                                    // minute: 'numeric'
                                 })
                             }
                         </>

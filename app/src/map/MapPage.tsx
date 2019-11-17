@@ -55,6 +55,10 @@ function getMetricsForTime(metricsForDay: {[code: string]: number[]}, offset: nu
     }));
 }
 
+function getIncidentTime(stationCode: string, dateString: string) {
+    if(dateString == '2019-09-17') return [];
+}
+
 class MapPage extends React.Component<{}, MapPageState> {
     constructor(props) {
         super(props);
@@ -62,22 +66,33 @@ class MapPage extends React.Component<{}, MapPageState> {
             location: undefined,
             day: undefined,
             otherDay: undefined,
-            relativeTime: undefined
+            relativeTime: 0
         };
 
         this.updateStation = this.updateStation.bind(this);
         this.updateIncidentDate = this.updateIncidentDate.bind(this);
         this.updateOtherIncidentDate = this.updateOtherIncidentDate.bind(this);
+        this.updateOffset = this.updateOffset.bind(this);
     }
 
-    basicStyleFunction = (s: Station & {metric: number}) => ({
-        radius: s.code === this.state.location ? 12 : 8,
-        fillColor: s.metric == undefined ? 'gray' : d3.interpolateReds(s.metric / 2.0),
-        color: "#000",
-        weight: 1,
-        opacity: 1,
-        fillOpacity: 0.8
-    })
+    basicStyleFunction = (s: Station & {metric: number}) => {
+        // let color = s.metric == undefined ? 'gray' :
+        //     d3.interpolateReds(s.metric / 2.0);
+        let color;
+        if (s.metric == undefined) color = 'gray';
+        else if (s.metric > 1) color = '#E31A1C';
+        else if (s.metric > 0.5) color = '#FF7F00';
+        else color = '#33A02C';
+
+        return {
+            radius: s.code === this.state.location ? 12 : 8,
+            fillColor: color,
+            color: "#000",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 1
+        };
+    }
 
     updateStation(e, data) {
         const val = data.value === '' ? undefined : data.value;
@@ -98,9 +113,9 @@ class MapPage extends React.Component<{}, MapPageState> {
         });
     }
 
-    updateTimeOfDay(relativeTimeInMinutes: number) {
+    updateOffset(event) {
         this.setState({
-            relativeTime: relativeTimeInMinutes
+            relativeTime: event.target.value
         });
     }
 
@@ -186,7 +201,10 @@ class MapPage extends React.Component<{}, MapPageState> {
                     {
                         showSlider &&
                         <div>
-                            <input className='menu-input' min={0} max={4} defaultValue={0} onChange={(e) => e.target.value}>
+                            <label htmlFor="slider">
+                                Time from incident:
+                            </label>
+                            <input id="slider" className='menu-input' type='range' min={0} max={3} defaultValue={0} onChange={this.updateOffset}>
 
                             </input>
                         </div>
@@ -203,7 +221,7 @@ class MapPage extends React.Component<{}, MapPageState> {
                             timestamp={this.state.day}
                             metrics={getMetricsForTime(
                                 getMetricsForDay(this.state.location, this.state.day),
-                            0)}
+                            this.state.relativeTime)}
                             styleFunction={this.basicStyleFunction}
                         />
                 }
@@ -217,7 +235,7 @@ class MapPage extends React.Component<{}, MapPageState> {
                             timestamp={this.state.otherDay}
                             metrics={getMetricsForTime(
                                 getMetricsForDay(this.state.location, this.state.otherDay),
-                            0)}
+                            this.state.relativeTime)}
                             styleFunction={this.basicStyleFunction}
                         />
                 }
