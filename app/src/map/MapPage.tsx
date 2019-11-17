@@ -2,20 +2,17 @@ import moment from 'moment';
 import React from 'react';
 import { Dropdown } from 'semantic-ui-react';
 
+import 'leaflet/dist/leaflet.css';
 import './MapPage.css';
 
-import { stations, stationsLookup } from '../../data';
+import { stations } from '../data';
+
+import { DelayMap } from './DelayMap';
 
 interface MapPageState {
     location?: string;
     day?: Date;
     otherDay?: Date;
-}
-
-function stationToOption(station) {
-    return {
-
-    };
 }
 
 class MapPage extends React.Component<{}, MapPageState> {
@@ -31,39 +28,40 @@ class MapPage extends React.Component<{}, MapPageState> {
 
     render() {
         return (
-            <div>
+            <div className='map-page'>
                 <div className="menu">
-                    Menu
-                    <div>
-                        <Dropdown
-                            className='menu-input'
-                            placeholder='Station'
-                            fluid
-                            options={
-                                stations
-                                .map(s=>({
-                                    text: s.name,
-                                    value: s.code
-                                }))
-                                .sort((a,b) => a.text.localeCompare(b.text))
-                            }
-                            onChange={(e, data) => {
-                                this.setState({
-                                    location: data.value as string
-                                });
-                            }}
-                        />
-                    </div>
-                    {
-                        this.state.location != undefined &&
-                            <div>
-                                You have chosen {this.state.location}
-                            </div>
-            }
+                    <Dropdown
+                        className='menu-input'
+                        placeholder='Station'
+                        fluid
+                        clearable
+                        options={
+                            stations
+                            .map(s=>({
+                                text: s.name,
+                                value: s.code
+                            }))
+                            .sort((a,b) => a.text.localeCompare(b.text))
+                        }
+                        onChange={(e, data) => {
+                            const val = data.value === '' ? undefined : data.value;
+                            this.setState({
+                                location: val as string
+                            });
+                        }}
+                    />
                 </div>
-                <div>
-                    Visualisation
-                </div>
+                {
+                    this.state.location != undefined &&
+                    <DelayMap
+                        center={[52.476515,
+                            -1.899737]}
+                        stations={[]}
+                        metrics={[]}
+                        styleFunction={() => ({ color: 'red' })}
+                    />    
+                }
+                          
             </div>
         );
     }
