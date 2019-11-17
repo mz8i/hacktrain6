@@ -17,6 +17,7 @@
     "razzle": "3.0.0",
     "razzle-plugin-typescript": "^3.0.0",
     "react": "16.12.0",
+    "react-datepicker": "^2.10.0",
     "react-dom": "16.12.0",
     "react-leaflet": "^2.5.0",
     "react-leaflet-universal": "^2.1.0",
@@ -32,6 +33,7 @@
     "@types/lodash": "^4.14.148",
     "@types/node": "^12.12.8",
     "@types/react": "^16.9.11",
+    "@types/react-dates": "^17.1.5",
     "@types/react-leaflet": "^2.5.0",
     "@types/webpack-env": "^1.14.1"
   }

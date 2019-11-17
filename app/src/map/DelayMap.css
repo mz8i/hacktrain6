@@ -1,6 +1,7 @@
 .map-container {
     flex:1 1 auto;
-    position: relative;
+    margin: 1rem;
+    width: 800px;
     /* width: 200px;
     height: 200px; */
 }
