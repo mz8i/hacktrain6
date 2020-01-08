@@ -13,6 +13,7 @@ import './MapPage.css';
 import { delays } from '../data/delays';
 import { connectionsLookup } from '../data/stationConnections';
 import { stations, stationsLookup } from '../data/stations';
+import { withMemoize } from '../memoize';
 import { Metric } from '../models/metric';
 import { Station } from '../models/station';
 
@@ -26,6 +27,7 @@ interface MapPageState {
 }
 
 function optionsFromStations(stations) {
+    if (stations == undefined) return [];
     return stations
         .map(s => ({
             text: s.name,
@@ -59,7 +61,38 @@ function getIncidentTime(stationCode: string, dateString: string) {
     if(dateString == '2019-09-17') return [];
 }
 
+function getSelectedStations(stationCode): Station[] {
+    if(stationCode == undefined) return undefined;
+
+    const selectedStationConnections = connectionsLookup[stationCode];
+
+    if(selectedStationConnections == undefined) return undefined;
+
+    const selectedStations = Object
+            .entries(selectedStationConnections)
+            .map(([sCode, connections]: [string, string[]]) => {
+                const station = stationsLookup[sCode];
+                station.connections = connections;
+                return station;
+            });
+
+    return selectedStations;
+}
+
+/** Prepare data */
+
+const stationOptions = optionsFromStations(stations);
+
 class MapPage extends React.Component<{}, MapPageState> {
+
+    memoizedGetSelectedStations = withMemoize(getSelectedStations);
+    memoizedGetMetricsForLocationDateTime = withMemoize((location, date, time) => 
+        getMetricsForTime(
+            getMetricsForDay(location, date),
+            time
+        )
+    );
+
     constructor(props) {
         super(props);
         this.state = {
@@ -119,29 +152,11 @@ class MapPage extends React.Component<{}, MapPageState> {
         });
     }
 
-    getSelectedStations(stationCode): Station[] {
-        if(stationCode == undefined) return undefined;
-
-        const selectedStationConnections = connectionsLookup[stationCode];
-
-        if(selectedStationConnections == undefined) return undefined;
-
-        const selectedStations = Object
-                .entries(selectedStationConnections)
-                .map(([sCode, connections]: [string, string[]]) => {
-                    const station = stationsLookup[sCode];
-                    station.connections = connections;
-                    return station;
-                });
-
-        return selectedStations;
-    }
-
     render() {
 
         let selectedStations, mainStation;
         if(this.state.location != undefined) {
-            selectedStations = this.getSelectedStations(this.state.location);
+            selectedStations = this.memoizedGetSelectedStations(this.state.location);
             mainStation = stationsLookup[this.state.location];
         }
 
@@ -165,7 +180,7 @@ class MapPage extends React.Component<{}, MapPageState> {
                             search={true}
                             id='station-picker'
                             className='menu-input'
-                            options={optionsFromStations(stations)}
+                            options={stationOptions}
                             onChange={this.updateStation}
                             style={{border:'1px solid grey'}}
                         />
@@ -219,9 +234,13 @@ class MapPage extends React.Component<{}, MapPageState> {
                             connections={[]}
                             selectionCode={this.state.location}
                             timestamp={this.state.day}
-                            metrics={getMetricsForTime(
-                                getMetricsForDay(this.state.location, this.state.day),
-                            this.state.relativeTime)}
+                            metrics={
+                                this.memoizedGetMetricsForLocationDateTime(
+                                    this.state.location,
+                                    this.state.day,
+                                    this.state.relativeTime
+                                )
+                            }
                             styleFunction={this.basicStyleFunction}
                         />
                 }
@@ -233,9 +252,13 @@ class MapPage extends React.Component<{}, MapPageState> {
                             connections={[]}
                             selectionCode={this.state.location}
                             timestamp={this.state.otherDay}
-                            metrics={getMetricsForTime(
-                                getMetricsForDay(this.state.location, this.state.otherDay),
-                            this.state.relativeTime)}
+                            metrics={
+                                this.memoizedGetMetricsForLocationDateTime(
+                                    this.state.location,
+                                    this.state.otherDay,
+                                    this.state.relativeTime
+                                )
+                            }
                             styleFunction={this.basicStyleFunction}
                         />
                 }
