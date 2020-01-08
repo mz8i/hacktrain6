@@ -172,7 +172,7 @@ class MapPage extends React.Component<{}, MapPageState> {
         return (
             <div className='map-page'>
                 <div className="menu">
-                    <div>
+                    <div className='menu-input-group'>
                         <label htmlFor='station-picker'>
                             Station:
                         </label>
@@ -187,7 +187,7 @@ class MapPage extends React.Component<{}, MapPageState> {
                     </div>
                     {
                         showFirstMap &&
-                        <div>
+                        <div className='menu-input-group'>
                             <label htmlFor='incident-date-picker'>
                                 Incident date:
                             </label>
@@ -201,7 +201,7 @@ class MapPage extends React.Component<{}, MapPageState> {
                     }
                     {
                         showSecondDatePicker &&
-                            <div>
+                            <div className='menu-input-group'>
                                 <label htmlFor='other-incident-date-picker'>
                                     Other incident date:
                                 </label>
@@ -215,7 +215,7 @@ class MapPage extends React.Component<{}, MapPageState> {
                     }
                     {
                         showSlider &&
-                        <div>
+                        <div className='menu-input-group'>
                             <label htmlFor="slider">
                                 Time from incident:
                             </label>
