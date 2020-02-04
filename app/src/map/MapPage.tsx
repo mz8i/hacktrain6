@@ -26,7 +26,7 @@ interface MapPageState {
     relativeTime: number;
 }
 
-function optionsFromStations(stations) {
+function optionsFromStations(stations: Station[]) {
     if (stations == undefined) return [];
     return stations
         .map(s => ({
@@ -82,6 +82,8 @@ function getSelectedStations(stationCode): Station[] {
 /** Prepare data */
 
 const stationOptions = optionsFromStations(stations);
+const birminghamStationOptionValue = (stationOptions
+    .filter(x => x.text === 'Birmingham New Street Rail Station'))[0].value;
 
 class MapPage extends React.Component<{}, MapPageState> {
 
@@ -96,7 +98,7 @@ class MapPage extends React.Component<{}, MapPageState> {
     constructor(props) {
         super(props);
         this.state = {
-            location: undefined,
+            location: birminghamStationOptionValue,
             day: undefined,
             otherDay: undefined,
             relativeTime: 0
@@ -183,6 +185,7 @@ class MapPage extends React.Component<{}, MapPageState> {
                             options={stationOptions}
                             onChange={this.updateStation}
                             style={{border:'1px solid grey'}}
+                            defaultValue={birminghamStationOptionValue}
                         />
                     </div>
                     {
@@ -196,6 +199,7 @@ class MapPage extends React.Component<{}, MapPageState> {
                                 className='menu-input'
                                 selected={this.state.day}
                                 onChange={this.updateIncidentDate}
+                                openToDate={new Date("2019-09-17")}
                             />
                         </div>
                     }
@@ -210,6 +214,7 @@ class MapPage extends React.Component<{}, MapPageState> {
                                     className='menu-input'
                                     selected={this.state.otherDay}
                                     onChange={this.updateOtherIncidentDate}
+                                    openToDate={new Date("2019-06-29")}
                                 />
                             </div>
                     }
