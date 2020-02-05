@@ -10,7 +10,7 @@ import 'leaflet/dist/leaflet.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import './MapPage.css';
 
-import { delays } from '../data/delays';
+import { delays, delayTimes } from '../data/delays';
 import { connectionsLookup } from '../data/stationConnections';
 import { stations, stationsLookup } from '../data/stations';
 import { withMemoize } from '../memoize';
@@ -57,8 +57,16 @@ function getMetricsForTime(metricsForDay: {[code: string]: number[]}, offset: nu
     }));
 }
 
-function getIncidentTime(stationCode: string, dateString: string) {
-    if(dateString == '2019-09-17') return [];
+function getIncidentTime(stationCode: string, date: Date): {hour: number, minute: number} {
+    if (stationCode == undefined || date == undefined) return undefined;
+    return delayTimes[formatLocalDate(date)];
+}
+
+function formatLocalDate(date: Date): string {
+    let yearPart = date.getFullYear() + '';
+    let monthPart = (date.getMonth() + 1).toString().padStart(2, '0');
+    let dayPart = date.getDate().toString().padStart(2, '0');
+    return `${yearPart}-${monthPart}-${dayPart}`;
 }
 
 function getSelectedStations(stationCode): Station[] {
@@ -246,6 +254,8 @@ class MapPage extends React.Component<{}, MapPageState> {
                                     this.state.relativeTime
                                 )
                             }
+                            incidentTime={getIncidentTime(this.state.location, this.state.day)}
+                            relativeTime={this.state.relativeTime}
                             styleFunction={this.basicStyleFunction}
                         />
                 }
@@ -264,6 +274,9 @@ class MapPage extends React.Component<{}, MapPageState> {
                                     this.state.relativeTime
                                 )
                             }
+
+                            incidentTime={getIncidentTime(this.state.location, this.state.otherDay)}
+                            relativeTime={this.state.relativeTime}
                             styleFunction={this.basicStyleFunction}
                         />
                 }

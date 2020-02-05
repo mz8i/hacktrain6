@@ -1,3 +1,14 @@
+export const delayTimes = {
+    "2019-09-17": {
+        hour: 14,
+        minute: 0
+    },
+    "2019-06-29": {
+        hour: 16,
+        minute: 30
+    }
+};
+
 export const delays = {
     "2019-09-17": {
         "BORTH": [

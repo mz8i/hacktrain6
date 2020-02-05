@@ -20,6 +20,8 @@ interface DelayMapProps {
     selectionCode: string;
     timestamp: Date;
     metrics: Metric[];
+    incidentTime: {hour: number, minute: number};
+    relativeTime: number;
     styleFunction?: (stationMetric: Station & { metric: number}) => any;
     viewport?: Viewport;
     onViewportChange?: (viewport: Viewport) => void;
@@ -38,6 +40,27 @@ function mergeStationsAndMetric(stations: Station[], metrics: Metric[]): (Statio
         stationWithMetric.metric = metricByCode != undefined ? metricByCode.metric : undefined;
         return stationWithMetric;
     });
+}
+
+const relativeTimeMinutesPerUnit = 20;
+
+function getTimeAfterIncident(incidentTime: {hour: number, minute: number}, relativeTime: number) {
+    const newTotalMinutes = 
+        incidentTime.hour * 60 + incidentTime.minute +
+        relativeTime * relativeTimeMinutesPerUnit;
+    const hour = Math.floor(newTotalMinutes / 60);
+    const minute = newTotalMinutes % 60;
+    
+    return {
+        hour,
+        minute
+    };
+}
+
+
+function formatTime({hour, minute}: { hour: number, minute: number}): string {
+    if(hour == undefined || minute == undefined) return '';
+    return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
 }
 
 class DelayMap extends React.Component<DelayMapProps> {
@@ -63,6 +86,11 @@ class DelayMap extends React.Component<DelayMapProps> {
                                     // minute: 'numeric'
                                 })
                             }
+                            &nbsp;-&nbsp;
+                            {formatTime(
+                                getTimeAfterIncident(
+                                    this.props.incidentTime, this.props.relativeTime
+                            ))}
                         </>
                 }
                 </h2>
